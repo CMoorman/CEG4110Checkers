@@ -3,16 +3,21 @@ package Objects;
 import Objects.Square;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class CheckerBoard extends JPanel implements MouseListener{
+public class CheckerBoard extends JPanel implements MouseListener, KeyListener, Runnable{
 	
 	public static List<Square> GameSquares = new ArrayList<Square>();
 	public List<Checker> GameCheckers = new ArrayList<>();
@@ -23,6 +28,14 @@ public class CheckerBoard extends JPanel implements MouseListener{
 	public static final int FrameOffset = 20;
 	public static final int CheckerRadius = 30;
 	
+	private Thread thread;
+	private boolean running;
+	private int FPS = 30;
+	private long targetTime = 1000 / FPS;
+	
+	private BufferedImage image;
+	private Graphics2D g;
+	
 	private Square FirstSelectedSquare;
 	private Square SecondSelectedSquare;
 	
@@ -31,8 +44,20 @@ public class CheckerBoard extends JPanel implements MouseListener{
 		this.setSize( SquareWidth * ( Columns + 3 ), SquareHeight * ( Columns + 3) );
 		this.setVisible( true );
 		this.addMouseListener(this);
+		setPreferredSize(new Dimension( SquareWidth * ( Columns + 3 ), SquareHeight * ( Columns + 3) ) );
+		setFocusable(true);
+		requestFocus();
 		SetupGameSquares();
 		SetupGameChekcers();
+	}
+	
+	public void addNotify() {
+		super.addNotify();
+		if(thread == null) {
+			thread = new Thread(this);
+			addKeyListener(this);
+			thread.start();
+		}
 	}
 	
 	public void paint( Graphics g )
@@ -135,31 +160,87 @@ public class CheckerBoard extends JPanel implements MouseListener{
 		}
 	}
 	
+	private void init() {
+		
+		image = new BufferedImage(
+					WIDTH, HEIGHT,
+					BufferedImage.TYPE_INT_RGB
+				);
+		g = (Graphics2D) image.getGraphics();
+		
+		running = true;
+		
+		addMouseListener(this);
+	}
 	
+	
+
+	@Override
+	public void run() {
+		init();
+		
+		long start;
+		long elapsed;
+		long wait;
+		
+		// game loop
+		while(running) {
+			
+			start = System.nanoTime();
+			
+			update();
+			draw();
+			drawToScreen();
+			
+			elapsed = System.nanoTime() - start;
+			
+			wait = targetTime - elapsed / 1000000;
+			if(wait < 0) wait = 5;
+			
+			try {
+				Thread.sleep(wait);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void update() {
+		//gsm.update();
+	}
+	private void draw() {
+		//gsm.draw(g);
+	}
+	private void drawToScreen() {
+		Graphics g2 = getGraphics();
+		//g2.drawImage(image, 0, 0,
+		//		WIDTH * SCALE, HEIGHT * SCALE,
+		//		null);
+		g2.dispose();
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {}
+
 	@Override
 	public void mouseClicked(MouseEvent e) {}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseEntered(MouseEvent e) {}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseExited(MouseEvent e) {}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mousePressed(MouseEvent e) {}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void mouseReleased(MouseEvent e) {}
 }

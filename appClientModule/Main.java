@@ -17,12 +17,13 @@ public class Main {
 	
 	private static void SetupGameWindow()
 	{
-		GameWindow = new CheckerBoard();
+		//GameWindow = new CheckerBoard();
 		
 		JFrame mainFrame = new JFrame("GameFrame");
-		mainFrame.setSize(750, 750);
+		mainFrame.setContentPane(new CheckerBoard());
+		mainFrame.setResizable(true);
 		mainFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		mainFrame.add( GameWindow );
+		mainFrame.pack();
 		mainFrame.setVisible( true );
 	}
 
