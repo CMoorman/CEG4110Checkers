@@ -36,9 +36,6 @@ public class CheckerBoard extends JPanel implements MouseListener, KeyListener, 
 	private BufferedImage image;
 	private Graphics2D g;
 	
-	private Square FirstSelectedSquare;
-	private Square SecondSelectedSquare;
-	
 	public CheckerBoard()
 	{
 		this.setSize( SquareWidth * ( Columns + 3 ), SquareHeight * ( Columns + 3) );
@@ -117,9 +114,6 @@ public class CheckerBoard extends JPanel implements MouseListener, KeyListener, 
 	
 	public void SetupGameChekcers()
 	{
-		int CheckerX = 0;
-		int CheckerY = 0;
-		
 		for( int i = 0; i < GameSquares.size(); i++ )
 		{
 			Square square = GameSquares.get( i );
@@ -131,9 +125,6 @@ public class CheckerBoard extends JPanel implements MouseListener, KeyListener, 
 				
 				Checker currentChecker = new Checker(Color.RED, square);
 				GameCheckers.add(currentChecker);
-				
-				CheckerX = square.GetSquareX() - ( CheckerRadius / 2 );
-				CheckerY = square.GetSquareY() - ( CheckerRadius / 2 );
 				
 				square.SetSquareOccupied();
 				square.SetSquareChecker(currentChecker);
@@ -147,9 +138,6 @@ public class CheckerBoard extends JPanel implements MouseListener, KeyListener, 
 			{
 				Checker currentChecker = new Checker(Color.BLACK, square);
 				GameCheckers.add( currentChecker );
-				
-				CheckerX = square.GetSquareX()  - ( CheckerRadius / 2 );
-				CheckerY = square.GetSquareY() - ( CheckerRadius / 2 );
 				
 				square.SetSquareOccupied();
 				square.SetSquareChecker( currentChecker );
