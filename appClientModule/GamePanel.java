@@ -15,7 +15,7 @@ public class GamePanel extends JPanel
 	// Dimensions of our window
 	public static final int WIDTH = 320;
 	public static final int HEIGHT = 240;
-	public static final int SCALE = 2;
+	public static final int SCALE = 4;
 	
 	// Settup the values for the game thread.
 	private Thread thread;
@@ -90,10 +90,8 @@ public class GamePanel extends JPanel
 			}
 			catch(Exception e) {
 				e.printStackTrace();
-			}
-			
+			}	
 		}
-		
 	}
 	
 	private void update() {
@@ -111,6 +109,7 @@ public class GamePanel extends JPanel
 	}
 	
 	public void keyTyped(KeyEvent key) {}
+	
 	public void keyPressed(KeyEvent key) {
 		uiManager.keyPressed(key.getKeyCode());
 	}
@@ -119,11 +118,11 @@ public class GamePanel extends JPanel
 	}
 	
 	// Mouse Methods.
-	public void mouseClicked(MouseEvent e) {uiManager.mouseClicked(e);}	
-	public void mouseEntered(MouseEvent e) {uiManager.mouseClicked(e);}	
-	public void mouseExited(MouseEvent e) {uiManager.mouseClicked(e);}	
-	public void mousePressed(MouseEvent e) {uiManager.mouseClicked(e);}	
-	public void mouseReleased(MouseEvent e) {uiManager.mouseClicked(e);}
+	public void mouseClicked(MouseEvent e) 	{ uiManager.mouseClicked(e); }	
+	public void mouseEntered(MouseEvent e) 	{ uiManager.mouseClicked(e); }	
+	public void mouseExited(MouseEvent e) 	{ uiManager.mouseClicked(e); }	
+	public void mousePressed(MouseEvent e) 	{ uiManager.mouseClicked(e); }	
+	public void mouseReleased(MouseEvent e) { uiManager.mouseClicked(e); }
 }
 
 

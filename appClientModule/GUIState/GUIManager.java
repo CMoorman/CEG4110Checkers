@@ -10,8 +10,9 @@ public class GUIManager {
 	private ArrayList<GUIState> guiStates;
 	private int currentState;
 
-	public static final int MAINMENUSTATE = 0;
-	public static final int SETTINGMENUSTATE = 1;
+	public static final int MAINMENUSTATE 		= 0;
+	public static final int SETTINGMENUSTATE 	= 1;
+	public static final int LOGINSTATE			= 2;
 	
 	public GUIManager() {
 		guiStates = new ArrayList<GUIState>();
@@ -23,6 +24,9 @@ public class GUIManager {
 		
 		// -- Settings Menu State
 		guiStates.add( new SettingMenuState(this) );
+		
+		// -- Login State
+		guiStates.add( new LoginState(this) );
 	}
 	
 

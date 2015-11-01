@@ -4,9 +4,6 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Interfaces.CheckersClient;
-import Interfaces.TCPMsg;
-
 
 /**
  * This class represents a thread that listens for TCP messages from the game

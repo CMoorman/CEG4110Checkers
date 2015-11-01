@@ -1,4 +1,4 @@
-package Interfaces;
+package Networking;
 
 public interface CheckersClient {
 	/**

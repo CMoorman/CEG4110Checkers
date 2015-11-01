@@ -2,9 +2,6 @@ package Networking;
 
 import java.io.*;
 
-import Interfaces.TCPMsg;
-import Interfaces.TCPServerInterface;
-
 /**
  * This class defines the connection from the client to the server. Method
  * calls from the client are passed off to this class. It creates the message

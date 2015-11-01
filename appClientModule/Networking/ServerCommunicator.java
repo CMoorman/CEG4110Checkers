@@ -3,9 +3,6 @@ package Networking;
 import java.io.*;
 import java.net.*;
 
-import Interfaces.CheckersClient;
-import Interfaces.ServerInterface;
-
 /**
  * This class facilitates communication from the checkers client to the server.
  *
