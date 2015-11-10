@@ -2,12 +2,13 @@ package GUIState;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class GUIManager {
 
-	private ArrayList<GUIState> guiStates;
+	private List<GUIState> guiStates;
 	private int currentState;
 
 	public static final int MAINMENUSTATE 		= 0;
