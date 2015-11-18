@@ -6,14 +6,15 @@ public abstract class GUIState {
 	
 	// -- Main Menu State Color Settings:
 	public String MainMenuTitleColor = "#ff1a1a";
-	public String MainMenuOptionTextColor = "";
-	public String MainMenuOptionHighLightColor = "";
-	public String MainMenuBackgroundColor = "";
+	public String MainMenuOptionTextColor = "#ff1a1a";
+	public String MainMenuOptionHighLightColor = "#330000";
+	public String MainMenuBackgroundColor = "#ccccff";
 	
 	// -- Settings State Color Settings
-	public String SettingTitleColor = "";
+	public String SettingTitleColor = "#ff1a1a";
 	
 	// -- Login State Color Settings
+	public String LoginTitleColor = "#ff1a1a";
 	
 	
 	// -- Game Board State Color Settings

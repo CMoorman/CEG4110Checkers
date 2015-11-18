@@ -54,7 +54,7 @@ public class MainMenuState extends GUIState {
 		
 		// -- Setup a GRAY background.
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		g.setColor( Color.GRAY );
+		g.setColor( Color.decode( MainMenuBackgroundColor ) );
 		g.fill( new Rectangle( screenSize.width, screenSize.height ));
 		
 		// draw title
@@ -66,10 +66,10 @@ public class MainMenuState extends GUIState {
 		g.setFont(font);
 		for(int i = 0; i < options.length; i++) {
 			if(i == currentChoice) {
-				g.setColor(Color.BLACK);
+				g.setColor( Color.decode(MainMenuOptionHighLightColor) );
 			}
 			else {
-				g.setColor(Color.RED);
+				g.setColor( Color.decode(MainMenuOptionTextColor) );
 			}
 			g.drawString(options[i], 137, 140 + i * 15);
 		}
