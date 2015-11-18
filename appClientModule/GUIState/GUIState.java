@@ -3,6 +3,26 @@ package GUIState;
 import java.awt.event.MouseEvent;
 
 public abstract class GUIState {
+	
+	// -- Main Menu State Color Settings:
+	public String MainMenuTitleColor = "#ff1a1a";
+	public String MainMenuOptionTextColor = "";
+	public String MainMenuOptionHighLightColor = "";
+	public String MainMenuBackgroundColor = "";
+	
+	// -- Settings State Color Settings
+	public String SettingTitleColor = "";
+	
+	// -- Login State Color Settings
+	
+	
+	// -- Game Board State Color Settings
+	public String YourCheckerColor = "";
+	public String OpponentCheckerColor = "";
+	
+	// -- Chat Room Color Settings
+	
+	// -- 
 
 protected GUIState UIState;
 	

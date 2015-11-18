@@ -33,7 +33,8 @@ public class MainMenuState extends GUIState {
 		
 		try {
 			
-			titleColor = new Color(128, 0, 0);
+			titleColor = Color.decode(MainMenuTitleColor);
+			
 			titleFont = new Font(
 					"Century Gothic",
 					Font.PLAIN,

@@ -38,7 +38,7 @@ public class SettingMenuState extends GUIState{
 
 	private void select() {
 		if(currentChoice == 0) {
-			//manager.setState( nLoginState );
+			
 		}
 		else if(currentChoice == 1) {
 			manager.setState( nMainMenuState );
@@ -56,6 +56,16 @@ public class SettingMenuState extends GUIState{
 		g.setColor(titleColor);
 		g.setFont(titleFont);
 		g.drawString("Settings", 10, 20);
+	}
+	
+	public boolean IsValidColor(String hexValue){
+		
+		// -- Make sure we limit it to 6 characters
+		if( hexValue.length() > 0 && hexValue.length() <= 6){
+			return hexValue.matches("-?[0-9a-fA-F]+");
+		}
+		
+		return false;
 	}
 
 	@Override

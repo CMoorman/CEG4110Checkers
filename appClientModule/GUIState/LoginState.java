@@ -30,7 +30,6 @@ public class LoginState extends GUIState{
 		this.manager = manager;
 		
 		try {
-			
 			titleColor = new Color(128, 0, 0);
 			titleFont = new Font(
 					"Century Gothic",
