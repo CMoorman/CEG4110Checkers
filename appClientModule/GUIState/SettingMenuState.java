@@ -21,25 +21,16 @@ public class SettingMenuState extends GUIState{
 	
 
 	public SettingMenuState(GUIManager manager) {
-			
-			this.manager = manager;
-			
-			try {
-				
-				titleColor = new Color(128, 0, 0);
-				titleFont = new Font(
-						"Century Gothic",
-						Font.PLAIN,
-						28);
-				
-				font = new Font("Arial", Font.PLAIN, 12);			
-				
-			}
-			catch(Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
+		this.manager = manager;
+		
+		titleColor = new Color(128, 0, 0);
+		titleFont = new Font(
+				"Century Gothic",
+				Font.PLAIN,
+				16);
+		
+		font = new Font("Arial", Font.PLAIN, 12);			
+	}
 	
 	@Override
 	public void init() {}	
@@ -64,7 +55,7 @@ public class SettingMenuState extends GUIState{
 		// draw title
 		g.setColor(titleColor);
 		g.setFont(titleFont);
-		g.drawString("Settings", 50, 70);
+		g.drawString("Settings", 10, 20);
 	}
 
 	@Override
