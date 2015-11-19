@@ -35,10 +35,6 @@ public class BaseViewController extends BaseView implements Initializable {
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );
-				
-				Stage currentStage = this.getCurrentStage();
-				currentStage.close();
-				
 				newState.show();
 				
         	} catch (IOException e1) {
