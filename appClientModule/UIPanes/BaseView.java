@@ -53,8 +53,6 @@ public class BaseView extends Application implements Runnable{
 		}
 	}
 	
-	public void ButtonClicked(ActionEvent e) { }
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
