@@ -18,14 +18,14 @@
         </Button>
         <Button fx:id="lobbyBtn" font="$x1" layoutX="329.0" layoutY="435.0" mnemonicParsing="false" prefWidth="143.0" text="Enter Lobby" />
         <Button id="settingsBtn" font="$x1" layoutX="329.0" layoutY="535.0" mnemonicParsing="false" prefWidth="143.0" text="Quit" />
-        <Label layoutX="99.0" layoutY="79.0" text="Internet Checkers">
+        <Label layoutX="113.0" layoutY="79.0" text="Internet Checkers">
           <font>
-            <Font name="Rockwell Extra Bold" size="56.0" />
+            <Font name="Lucida Console" size="56.0" />
           </font>
         </Label>
-        <Label layoutX="340.0" layoutY="145.0" text="Y'all">
+        <Label layoutX="343.0" layoutY="145.0" text="Y'all">
           <font>
-            <Font name="Rockwell Extra Bold" size="38.0" />
+            <Font name="Lucida Console" size="38.0" />
           </font>
         </Label>
       </children>
