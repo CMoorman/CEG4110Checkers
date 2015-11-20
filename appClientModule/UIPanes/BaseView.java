@@ -26,6 +26,7 @@ public class BaseView extends Application implements Runnable{
 	
 	@FXML
 	Button settingsBtn;
+	Button lobbyBtn;
 	
 	@Override
 	public void start(Stage primaryStage) {

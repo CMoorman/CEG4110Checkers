@@ -11,6 +11,7 @@
     <Pane id="mainPane" fx:id="mainViewPane" layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="800.0">
       <children>
         <Button fx:id="settingsBtn" layoutX="243.0" layoutY="311.0" mnemonicParsing="false" text="Show Settings" />
+        <Button fx:id="lobbyBtn" layoutX="243.0" layoutY="345.0" mnemonicParsing="false" prefWidth="110.0" text="Enter Lobby" />
       </children>
     </Pane>
   </children>

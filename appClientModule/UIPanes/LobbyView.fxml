@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="lobbyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LobbyViewController">
+  <children>
+    <ScrollPane layoutX="313.0" layoutY="57.0" prefHeight="315.0" prefWidth="264.0">
+      <content>
+        <AnchorPane id="joinGamesList" minHeight="0.0" minWidth="0.0" prefHeight="597.0" prefWidth="249.0">
+          <children>
+            <Button id="DefaultJoin1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefWidth="81.0" text="Join" />
+            <Label id="defaultVS1" layoutX="118.0" layoutY="19.0" text="vs" />
+            <Button id="defaultVS2" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" prefWidth="81.0" text="Join" />
+          </children>
+        </AnchorPane>
+      </content>
+    </ScrollPane>
+    <ScrollPane layoutX="21.0" layoutY="139.0" prefHeight="233.0" prefWidth="279.0">
+      <content>
+        <AnchorPane id="spectateGamesList" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="264.0" />
+      </content>
+    </ScrollPane>
+    <TilePane layoutX="81.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" />
+    <Label id="spectateTitle" alignment="CENTER" layoutX="21.0" layoutY="98.0" prefHeight="41.0" prefWidth="266.0" text="Spectate Game" />
+    <Label id="joinTitle" alignment="CENTER" layoutX="314.0" layoutY="14.0" prefHeight="41.0" prefWidth="263.0" text="Joinable Game" />
+    <Label id="playerIDTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="29.0" prefHeight="41.0" prefWidth="142.0" text="User02299" textAlignment="CENTER" textFill="#0029ff" />
+  </children>
+</AnchorPane>
