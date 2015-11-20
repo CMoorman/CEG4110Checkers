@@ -11,12 +11,12 @@
   <children>
     <Pane id="mainPane" fx:id="mainViewPane" layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="800.0">
       <children>
-        <Button fx:id="settingsBtn" layoutX="329.0" layoutY="485.0" mnemonicParsing="false" prefWidth="143.0" text="Show Settings">
+        <Button fx:id="settingsBtn" layoutX="329.0" layoutY="485.0" mnemonicParsing="false" prefWidth="143.0" text="Settings">
           <font>
             <Font size="18.0" fx:id="x1" />
           </font>
         </Button>
-        <Button fx:id="lobbyBtn" font="$x1" layoutX="329.0" layoutY="435.0" mnemonicParsing="false" prefWidth="143.0" text="Enter Lobby" />
+        <Button fx:id="lobbyBtn" font="$x1" layoutX="329.0" layoutY="435.0" mnemonicParsing="false" prefWidth="143.0" text="Login" />
         <Button id="settingsBtn" font="$x1" layoutX="329.0" layoutY="535.0" mnemonicParsing="false" prefWidth="143.0" text="Quit" />
         <Label layoutX="113.0" layoutY="79.0" prefHeight="56.0" prefWidth="574.0" text="Internet Checkers">
           <font>
