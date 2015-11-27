@@ -8,8 +8,6 @@ import UIPanes.BaseView;
 import UIPanes.LobbyView;
 import UIPanes.SettingsView;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,7 +18,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
 

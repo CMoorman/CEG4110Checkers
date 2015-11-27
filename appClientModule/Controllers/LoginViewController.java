@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
 import UIPanes.SettingsView;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,12 +39,27 @@ public class LoginViewController extends BaseView implements Initializable, Base
 	public void ButtonClicked( ActionEvent e ){ 
 		if ( e.getSource()== submitBtn ){
         	try {
-				currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("LobbyView.fxml") );
-				Scene settingsScene = new Scene( currentView );
-				Stage newState = new Stage();
-				newState.setScene( settingsScene );
-				newState.show();
-				
+        		
+        		boolean loginSuccess = false;
+        		
+        		String userName = usernameTxtField.getText();
+        		
+        		// -- Make sure that there is something there and that we set a limit on it.
+        		if( userName.length() > 0 && userName.length() <= 20 ) {
+        			
+        			loginSuccess = network.connectToServer(serverIP, userName );
+        			
+        			// -- Try to connect.  Trying to connect will yield a boolean value.
+        			if( loginSuccess ) {
+            			currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("LobbyView.fxml") );
+        				Scene settingsScene = new Scene( currentView );
+        				Stage newState = new Stage();
+        				newState.setScene( settingsScene );
+        				newState.show();
+            		}
+        		}
+        		
+        		
         	} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
