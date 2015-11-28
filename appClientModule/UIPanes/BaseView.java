@@ -32,6 +32,8 @@ public class BaseView extends Application implements Runnable {
 	Button settingsBtn;
 	Button lobbyBtn;
 	
+	public String userName;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		

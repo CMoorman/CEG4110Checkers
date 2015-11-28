@@ -49,12 +49,13 @@ public class LoginViewController extends BaseView implements Initializable, Base
         			loginSuccess = network.connectToServer(serverIP, userName );
         			
         			// -- Try to connect.  Trying to connect will yield a boolean value.
-        			if( loginSuccess ) {
+        			if( loginSuccess ) {    
+        				BaseView.network.setUsrName(userName);        				
             			currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("LobbyView.fxml") );
         				Scene settingsScene = new Scene( currentView );
         				Stage newState = new Stage();
         				newState.setScene( settingsScene );
-        				newState.show();
+        				newState.show();	
             		}
         		}
         		

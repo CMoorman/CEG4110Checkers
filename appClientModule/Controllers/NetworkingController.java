@@ -11,6 +11,8 @@ public class NetworkingController {
 	
 	public boolean isCurrentlyConnected;
 	
+	public String usrName;
+	
 	public NetworkingController() {
 		isCurrentlyConnected = false;
 		svrCommunicator = new ServerCommunicator( gameClient );
@@ -20,5 +22,13 @@ public class NetworkingController {
 		System.out.println("Connecting to server!");
 		isCurrentlyConnected = svrCommunicator.connectToServer(ip, userName);
 		return isCurrentlyConnected;
+	}
+	
+	public void setUsrName( String usrName ) {
+		this.usrName = usrName;
+	}
+	
+	public String getUsrName() {
+		return this.usrName;
 	}
 }
