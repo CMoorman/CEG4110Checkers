@@ -5,34 +5,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="lobbyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LobbyViewController">
+<AnchorPane id="lobbyPane" fx:id="lobbyAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LobbyViewController">
   <children>
-    <ScrollPane layoutX="313.0" layoutY="78.0" prefHeight="294.0" prefWidth="264.0">
+    <ScrollPane fx:id="inProgScrollPane" layoutX="14.0" layoutY="139.0" pannable="false" prefHeight="447.0" prefWidth="286.0">
       <content>
-        <AnchorPane id="joinGamesList" minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="249.0">
-          <children>
-            <Label id="newTable" layoutX="13.0" layoutY="1.0" prefHeight="21.0" prefWidth="236.0" text="New Table..." />
-            <Label id="newTable" layoutX="13.0" layoutY="22.0" prefHeight="21.0" prefWidth="236.0" text="Table 1 (1/2)" />
-            <Label id="newTable" layoutX="13.0" layoutY="43.0" prefHeight="21.0" prefWidth="236.0" text="Table 2 (0/2)" />
-          </children>
-        </AnchorPane>
-      </content>
-    </ScrollPane>
-    <ScrollPane layoutX="21.0" layoutY="139.0" prefHeight="233.0" prefWidth="279.0">
-      <content>
-        <AnchorPane id="spectateGamesList" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="264.0">
-          <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="6.0" prefWidth="236.0" text="User09028 vs User89389" textAlignment="CENTER" />
-          </children>
-        </AnchorPane>
+        <ListView fx:id="inProgListView" orientation="VERTICAL" prefHeight="444.0" prefWidth="286.0" />
       </content>
     </ScrollPane>
     <TilePane layoutX="81.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" />
-    <Label id="spectateTitle" alignment="CENTER" layoutX="22.0" layoutY="101.0" prefHeight="41.0" prefWidth="266.0" text="In Progress" />
-    <Label id="joinTitle" alignment="CENTER" layoutX="313.0" layoutY="37.0" prefHeight="41.0" prefWidth="263.0" text="Games" />
-    <Label id="playerIDTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="29.0" prefHeight="41.0" prefWidth="142.0" text="User02299" textAlignment="CENTER" textFill="#0029ff" />
-    <Button id="joinBtn" layoutX="314.0" layoutY="50.0" mnemonicParsing="false" prefWidth="81.0" text="Join" />
-    <Button layoutX="21.0" layoutY="112.0" mnemonicParsing="false" text="Spectate" />
+    <Label id="spectateTitle" fx:id="inProgressLbl" alignment="CENTER" layoutX="24.0" layoutY="101.0" prefHeight="41.0" prefWidth="266.0" text="In Progress" />
+    <Label id="playerIDTitle" fx:id="userNameLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" text="User02299" textAlignment="CENTER" textFill="#0029ff">
+      <font>
+        <Font size="16.0" />
+      </font>
+    </Label>
+    <Button fx:id="spectateBtn" layoutX="24.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Spectate" />
+    <ScrollPane fx:id="joinScrollPane" layoutX="500.0" layoutY="137.0" prefHeight="447.0" prefWidth="286.0">
+      <content>
+        <ListView fx:id="joinListView" prefHeight="444.0" prefWidth="286.0" />
+      </content>
+    </ScrollPane>
+    <Label id="spectateTitle" fx:id="openTablesLbl" alignment="CENTER" layoutX="511.0" layoutY="101.0" prefHeight="36.0" prefWidth="266.0" text="Open Tables" />
+    <Button id="spectateBtn" layoutX="511.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Join" />
+    <Label id="playerIDTitle" fx:id="lobbyTitleLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" text="Lobby" textAlignment="CENTER" textFill="BLACK">
+      <font>
+        <Font name="System Bold" size="24.0" />
+      </font>
+    </Label>
   </children>
 </AnchorPane>
