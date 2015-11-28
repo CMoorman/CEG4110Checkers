@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
 import UIPanes.SettingsView;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -34,5 +34,6 @@
         <Font name="System Bold" size="24.0" />
       </font>
     </Label>
+    <Button id="spectateBtn" fx:id="refreshBtn" layoutX="702.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Refresh" />
   </children>
 </AnchorPane>
