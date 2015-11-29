@@ -40,6 +40,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	@FXML
 	ListView joinListView;
 	
+	@FXML
+	ListView observeListView;
+	
 	ObservableList<Integer> tableList = FXCollections.observableArrayList();
 	
 	@Override
@@ -59,6 +62,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		joinBtn.setOnAction( e -> ButtonClicked(e) );
 		hostBtn.setOnAction( e -> ButtonClicked(e) );
 		refreshBtn.setOnAction( e -> ButtonClicked(e) );
+		spectateBtn.setOnAction( e -> ButtonClicked(e) );
 	}
 
 	@Override
@@ -81,6 +85,22 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				// -- Send the message to join the table.
 				svrCom.joinTable( Integer.parseInt(option) );
 				
+				// -- DO SOMETHING HERE ****************************************
+				
+			}catch( Exception ex ){
+				// -- we tried to click join without selecting anything.
+			}
+		}
+		else if( e.getSource() == spectateBtn ) {
+			try{
+				// -- We have selected a table, grab it's number
+				String option = joinListView.getSelectionModel().getSelectedItem().toString();
+				
+				// -- Send the message to observe the table.
+				svrCom.observeTable(userName, Integer.parseInt(option));
+				
+				// -- DO SOMETHING HERE ****************************************
+				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
 			}
@@ -97,6 +117,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		}
 		
 		joinListView.setItems(tableList);
+		observeListView.setItems(tableList);
 		
 		System.out.println( svrCom.getTables().length );
 	}
