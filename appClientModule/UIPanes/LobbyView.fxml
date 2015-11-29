@@ -9,7 +9,7 @@
 
 <AnchorPane id="lobbyPane" fx:id="lobbyAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LobbyViewController">
   <children>
-    <ScrollPane fx:id="inProgScrollPane" layoutX="14.0" layoutY="139.0" pannable="false" prefHeight="447.0" prefWidth="286.0">
+    <ScrollPane id="inProgScrollPane" fx:id="observeListViewScrollPane" layoutX="14.0" layoutY="139.0" pannable="false" prefHeight="447.0" prefWidth="286.0">
       <content>
         <ListView id="inProgListView" fx:id="observeListView" orientation="VERTICAL" prefHeight="444.0" prefWidth="286.0" />
       </content>

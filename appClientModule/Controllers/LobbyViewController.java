@@ -3,10 +3,8 @@ package Controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Networking.CheckersClient;
 import Networking.ServerCommunicator;
 import UIPanes.BaseView;
-import UIPanes.SettingsView;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
