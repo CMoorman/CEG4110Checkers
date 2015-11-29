@@ -28,6 +28,8 @@ public class BaseView extends Application implements Runnable {
 	
 	public static NetworkingController network = new NetworkingController();
 	
+	public static boolean isSpectating;
+	
 	@FXML
 	Button settingsBtn;
 	Button lobbyBtn;
@@ -36,6 +38,8 @@ public class BaseView extends Application implements Runnable {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		
+		isSpectating = false;
 		
 		this.currentStage = primaryStage;
 		
@@ -79,6 +83,7 @@ public class BaseView extends Application implements Runnable {
 	public Stage getCurrentStage() {
 		return currentStage;
 	}
+	
 	public AnchorPane getCurrentView() {
 		return currentView;
 	}
@@ -95,4 +100,12 @@ public class BaseView extends Application implements Runnable {
 	public boolean connectToServer(String ip, String username ){
 		return svrCommunicator.connectToServer(ip, username);
 	}
+	
+	public void setIsSpectating() {
+		isSpectating = true;
+	}
+	public void setIsNotSpectating() {
+		isSpectating = false;
+	}
+	
 }

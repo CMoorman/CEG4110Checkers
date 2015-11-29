@@ -6,16 +6,21 @@ import java.util.ResourceBundle;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
 import UIPanes.BaseView;
+import UIPanes.SettingsView;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class LobbyViewController extends BaseView implements Initializable, BaseViewController{
 
@@ -38,18 +43,24 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	Label userNameLbl;
 	
 	@FXML
-	ListView joinListView;
+	ListView<Integer> joinListView;
 	
 	@FXML
-	ListView observeListView;
+	ListView<Integer> observeListView;
 	
 	ObservableList<Integer> tableList = FXCollections.observableArrayList();
+	ObservableList<Integer> observerTableList = FXCollections.observableArrayList();
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		System.out.println( "Username: " + BaseView.network.getUsrName() );
 		userNameLbl.setText( BaseView.network.getUsrName() );
+	
+		joinBtn.setOnAction( e -> ButtonClicked(e) );
+		hostBtn.setOnAction( e -> ButtonClicked(e) );
+		refreshBtn.setOnAction( e -> ButtonClicked(e) );
+		spectateBtn.setOnAction( e -> ButtonClicked(e) );
 		
 		Platform.runLater( new Runnable() {
 
@@ -58,11 +69,6 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				loadGames();
 			}
 		});
-		
-		joinBtn.setOnAction( e -> ButtonClicked(e) );
-		hostBtn.setOnAction( e -> ButtonClicked(e) );
-		refreshBtn.setOnAction( e -> ButtonClicked(e) );
-		spectateBtn.setOnAction( e -> ButtonClicked(e) );
 	}
 
 	@Override
@@ -74,7 +80,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		}
 		else if( e.getSource() == refreshBtn ) {
 			System.out.println("Refresh");
-			tableList.removeAll(tableList);
+			tableList.removeAll( tableList );
+			observerTableList.removeAll( observerTableList );
 			loadGames();
 		}
 		else if( e.getSource() == joinBtn ){
@@ -86,6 +93,12 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				svrCom.joinTable( Integer.parseInt(option) );
 				
 				// -- DO SOMETHING HERE ****************************************
+				setIsNotSpectating();
+				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
+				Scene settingsScene = new Scene( currentView );
+				Stage newState = new Stage();
+				newState.setScene( settingsScene );
+				newState.show();
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
@@ -99,7 +112,14 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				// -- Send the message to observe the table.
 				svrCom.observeTable(userName, Integer.parseInt(option));
 				
+				setIsSpectating();
+				
 				// -- DO SOMETHING HERE ****************************************
+				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
+				Scene settingsScene = new Scene( currentView );
+				Stage newState = new Stage();
+				newState.setScene( settingsScene );
+				newState.show();
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
@@ -116,8 +136,13 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			tableList.add( svrCom.getTables()[i] );
 		}
 		
-		joinListView.setItems(tableList);
-		observeListView.setItems(tableList);
+		for( int i = 0; i < svrCom.getTables().length; i++ ){
+			System.out.println( svrCom.getTables()[i] );
+			observerTableList.add( svrCom.getTables()[i] );
+		}
+		
+		joinListView.setItems( tableList );
+		observeListView.setItems( observerTableList );
 		
 		System.out.println( svrCom.getTables().length );
 	}

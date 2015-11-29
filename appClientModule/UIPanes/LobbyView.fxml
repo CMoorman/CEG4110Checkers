@@ -11,7 +11,7 @@
   <children>
     <ScrollPane fx:id="inProgScrollPane" layoutX="14.0" layoutY="139.0" pannable="false" prefHeight="447.0" prefWidth="286.0">
       <content>
-        <ListView fx:id="inProgListView" orientation="VERTICAL" prefHeight="444.0" prefWidth="286.0" />
+        <ListView id="inProgListView" fx:id="observeListView" orientation="VERTICAL" prefHeight="444.0" prefWidth="286.0" />
       </content>
     </ScrollPane>
     <TilePane layoutX="81.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" />
