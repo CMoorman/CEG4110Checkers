@@ -94,7 +94,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		else if( e.getSource() == spectateBtn ) {
 			try{
 				// -- We have selected a table, grab it's number
-				String option = joinListView.getSelectionModel().getSelectedItem().toString();
+				String option = observeListView.getSelectionModel().getSelectedItem().toString();
 				
 				// -- Send the message to observe the table.
 				svrCom.observeTable(userName, Integer.parseInt(option));
