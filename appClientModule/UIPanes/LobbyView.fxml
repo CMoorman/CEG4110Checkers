@@ -35,5 +35,6 @@
       </font>
     </Label>
     <Button id="spectateBtn" fx:id="refreshBtn" layoutX="702.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Refresh" />
+    <Button id="spectateBtn" fx:id="hostBtn" layoutX="363.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Host" />
   </children>
 </AnchorPane>

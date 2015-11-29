@@ -30,5 +30,5 @@ public class NetworkingController {
 	
 	public String getUsrName() {
 		return this.usrName;
-	}
+	}	
 }

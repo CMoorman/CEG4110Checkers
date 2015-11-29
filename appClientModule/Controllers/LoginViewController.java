@@ -50,7 +50,7 @@ public class LoginViewController extends BaseView implements Initializable, Base
         			
         			// -- Try to connect.  Trying to connect will yield a boolean value.
         			if( loginSuccess ) {    
-        				BaseView.network.setUsrName(userName);        				
+        				network.setUsrName(userName);        				
             			currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("LobbyView.fxml") );
         				Scene settingsScene = new Scene( currentView );
         				Stage newState = new Stage();
@@ -58,8 +58,6 @@ public class LoginViewController extends BaseView implements Initializable, Base
         				newState.show();	
             		}
         		}
-        		
-        		
         	} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

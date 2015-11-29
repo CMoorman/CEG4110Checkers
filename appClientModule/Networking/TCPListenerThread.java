@@ -17,6 +17,8 @@ public class TCPListenerThread extends Thread {
 	private CheckersClient client;
 	private DataInputStream fromServerStream;
 	public boolean active;
+	
+	int[] tids;
 
 	public TCPListenerThread(ServerCommunicator c, CheckersClient cl, DataInputStream serverStream){
 		super("TCP Message Listener");
@@ -148,7 +150,7 @@ public class TCPListenerThread extends Thread {
 					client.onTable(Integer.parseInt(data[1]), data[2], data[3]);
 					break;
 					case TCPMsg.TBL_LIST:
-						int[] tids = new int[0];
+						tids = new int[0];
 						if(data.length > 1){
 							ArrayList<Integer> ids = new ArrayList<Integer>();
 							for(int i=1; i<data.length; i++)
