@@ -14,8 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import UIPanes.BaseView;
-import UIPanes.LobbyView;
-import UIPanes.SettingsView;
 
 public class MainViewController extends BaseView implements BaseViewController, Initializable {
 	@FXML
@@ -39,7 +37,7 @@ public class MainViewController extends BaseView implements BaseViewController, 
 	public void ButtonClicked( ActionEvent e ){
 	 if ( e.getSource() == settingsBtn ){
         	try {
-				AnchorPane currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("SettingsView.fxml") );
+				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("SettingsView.fxml") );
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );
@@ -51,7 +49,7 @@ public class MainViewController extends BaseView implements BaseViewController, 
 			}
         }else if ( e.getSource() == loginBtn){
         	try {
-        		AnchorPane currentView = (AnchorPane) FXMLLoader.load( LobbyView.class.getResource("LoginView.fxml") );
+        		AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("LoginView.fxml") );
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );

@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
-import UIPanes.LobbyView;
-import UIPanes.SettingsView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,7 +61,7 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		 */
 		if ( e.getSource()== cancelBtn ){
         	try {
-				AnchorPane currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("MainView.fxml") );
+				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );
@@ -78,7 +76,7 @@ public class SettingsViewController extends BaseView implements Initializable, B
         	 * NEED TO THROW IN SAVING LOGIC HERE. WHAT EVER CHANGED, WE NEED TO SET IT IN THE BASE VIEW.
         	 */
         	try {
-        		AnchorPane currentView = (AnchorPane) FXMLLoader.load( LobbyView.class.getResource("MainView.fxml") );
+        		AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );

@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
-import UIPanes.SettingsView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,7 +50,7 @@ public class LoginViewController extends BaseView implements Initializable, Base
         			// -- Try to connect.  Trying to connect will yield a boolean value.
         			if( loginSuccess ) {    
         				network.setUsrName(userName);        				
-            			currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("LobbyView.fxml") );
+            			currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("LobbyView.fxml") );
         				Scene settingsScene = new Scene( currentView );
         				Stage newState = new Stage();
         				newState.setScene( settingsScene );
@@ -65,7 +64,7 @@ public class LoginViewController extends BaseView implements Initializable, Base
         }
 		else if ( e.getSource()== cancelBtn ){
         	try {
-				currentView = (AnchorPane) FXMLLoader.load( SettingsView.class.getResource("MainView.fxml") );
+				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );
