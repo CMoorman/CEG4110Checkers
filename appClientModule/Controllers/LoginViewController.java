@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -58,14 +59,15 @@ public class LoginViewController extends BaseView implements Initializable, Base
         }
 		
 	}
-	private static AnchorPane loginView = null;
+	private static Scene loginView = null;
 
-	public static AnchorPane getViewInstance() {
+	public static Scene getViewInstance() {
 
 		if (LoginViewController.loginView == null) {
 			try {
-				LoginViewController.loginView = (AnchorPane) FXMLLoader
+				AnchorPane loginPane = (AnchorPane) FXMLLoader
 						.load(BaseView.class.getResource(LOGIN_VIEW_FXML));
+				LoginViewController.loginView = new Scene(loginPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

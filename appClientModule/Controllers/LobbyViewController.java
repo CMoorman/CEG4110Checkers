@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -117,9 +118,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	} 
 	
 	private void loadGames() {
-	
+	try{
 		ServerCommunicator svrCom = BaseView.network.svrCommunicator;
-				
+		
 		for( int i = 0; i < svrCom.getTables().length; i++ ){
 			System.out.println( svrCom.getTables()[i] );
 			tableList.add( svrCom.getTables()[i] );
@@ -134,16 +135,21 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		observeListView.setItems( observerTableList );
 		
 		System.out.println( svrCom.getTables().length );
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+		
 	}
 	
-	private static AnchorPane lobbyView = null;
+	private static Scene lobbyView = null;
 
-	public static AnchorPane getViewInstance() {
+	public static Scene getViewInstance() {
 
 		if (LobbyViewController.lobbyView == null) {
 			try {
-				LobbyViewController.lobbyView = (AnchorPane) FXMLLoader
+				AnchorPane lobbyPane = (AnchorPane) FXMLLoader
 						.load(BaseView.class.getResource(LOBBY_VIEW_FXML));
+				LobbyViewController.lobbyView = new Scene(lobbyPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

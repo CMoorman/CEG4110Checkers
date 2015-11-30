@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import UIPanes.BaseView;
@@ -48,12 +49,13 @@ public class MainViewController extends BaseView implements BaseViewController, 
         }
 	}
 
-	private static AnchorPane mainView = null;
+	private static Scene mainView = null;
 
-	public static AnchorPane getViewInstance() {
+	public static Scene getViewInstance() {
 		if (MainViewController.mainView == null) {
 			try {
-				MainViewController.mainView = (AnchorPane) FXMLLoader.load(BaseView.class.getResource(MAIN_VIEW_FMXL));
+				AnchorPane mainPane = (AnchorPane) FXMLLoader.load(BaseView.class.getResource(MAIN_VIEW_FMXL));
+				MainViewController.mainView = new Scene(mainPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

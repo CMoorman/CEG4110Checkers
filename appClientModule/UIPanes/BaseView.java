@@ -114,11 +114,9 @@ public class BaseView extends Application implements Runnable {
 	public static final String SETTINGS_VIEW_FXML = "SettingsView.fxml";
 	/**
 	 * changes the stage of the current view
-	 * @param fxmlFileName
+	 * @param anchorPane: anchorpane who's view will be set as the main stage's current view
 	 */
-	public void switchScene(AnchorPane anchorPane){
-		setCurrentView(anchorPane);
-		Scene scene = new Scene( getCurrentView() );
+	public void switchScene(Scene scene){
 		currentStage.setScene( scene );
 		currentStage.show();
 			
@@ -142,7 +140,7 @@ public class BaseView extends Application implements Runnable {
 		isSpectating = false;
 	}
 	
-	public static AnchorPane getViewInstance(){
+	public static Scene getViewInstance(){
 		return null;
 	}
 }

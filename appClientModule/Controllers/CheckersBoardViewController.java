@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -41,13 +42,14 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		sendBtn.setOnAction( e -> ButtonClicked(e) );
 		concedeBtn.setOnAction( e -> ButtonClicked(e) );
 	}
-	private static AnchorPane boardView = null;
+	private static Scene boardView = null;
 
-	public static AnchorPane getViewInstance() {
+	public static Scene getViewInstance() {
 		if (CheckersBoardViewController.boardView == null) {
 			try {
-				CheckersBoardViewController.boardView = (AnchorPane) FXMLLoader
+				AnchorPane boardPane = (AnchorPane) FXMLLoader
 						.load(BaseView.class.getResource(BOARD_VIEW_FXML));
+				CheckersBoardViewController.boardView = new Scene(boardPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

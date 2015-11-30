@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -66,14 +67,15 @@ public class SettingsViewController extends BaseView implements Initializable, B
         	switchScene(MainViewController.getViewInstance());
         }
 	}
-	private static AnchorPane settingsView = null;
+	private static Scene settingsView = null;
 
-	public static AnchorPane getViewInstance() {
+	public static Scene getViewInstance() {
 
 		if (SettingsViewController.settingsView == null) {
 			try {
-				SettingsViewController.settingsView = (AnchorPane) FXMLLoader
+				AnchorPane settingsPane = (AnchorPane) FXMLLoader
 						.load(BaseView.class.getResource(SETTINGS_VIEW_FXML));
+				SettingsViewController.settingsView = new Scene(settingsPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
