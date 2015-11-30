@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +25,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	Label yourUserNameLbl;
 	
 	@FXML
+	Label opponentNameLbl;
+	
+	@FXML
 	Button sendBtn;
 	
 	@FXML
@@ -35,6 +39,8 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	@FXML
 	ListView<String> messageBox;
 	ObservableList<String> messageList = FXCollections.observableArrayList();
+	
+	public String oppName = "";
 	
 	@Override
 	public void ButtonClicked(ActionEvent e) {
@@ -51,11 +57,11 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 			}catch( Exception ex ) {
 				// -- Do some error handling here
 			};
-			
-			String currentOpponent = "Testing";
+
 			if( msg.length() > 0 ) {
+				System.out.println(oppName);
 				System.out.println( "********Sending the message: " + msg );
-				network.svrCommunicator.sendMsg(currentOpponent, msg);
+				network.svrCommunicator.sendMsg(oppName, msg);
 				messageList.add(msg);
 				UpdateChatBox();
 				// -- Clear out the text field.
@@ -88,6 +94,23 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	}
 	
 	public void UpdateChatBox() {
+		System.out.println("Updating chat box " + messageList.toString() );
 		messageBox.setItems(messageList);
+	}
+	
+	public void setOpponentUsername(String name) {
+		oppName = name;
+		opponentNameLbl.setText(opponentName);
+	}
+	
+	public void addGameMessage(String msg) {
+		System.out.println("Adding a new message");
+		messageList.add(msg);
+		System.out.println("Message list: " + messageList.toString());
+		UpdateChatBox();
+	}
+	
+	public static void setCurrentBoardState(byte[][] boardState) {
+		// -- NEED TO DRAW THE BOARD STATE HERE.
 	}
 }

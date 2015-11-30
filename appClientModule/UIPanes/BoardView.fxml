@@ -109,26 +109,7 @@
     </GridPane>
     <Pane layoutX="595.0" layoutY="15.0" prefHeight="179.0" prefWidth="191.0" style="-fx-background-color:blue;">
       <children>
-        <GridPane layoutX="14.0" layoutY="46.0" prefHeight="118.99993896484375" prefWidth="159.0">
-          <children>
-            <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="Jumped:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="Lost:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="Kings:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="1" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-          </children>
-          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          </columnConstraints>
-          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          </rowConstraints>
-        </GridPane>
-        <Label fx:id="oponentNameLbl" alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="34.0" prefWidth="163.0" text="Checkers4life2" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="oponentNameLbl" alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="34.0" prefWidth="163.0" text="(Empty Seat)" textAlignment="CENTER" textFill="WHITE">
           <font>
             <Font size="18.0" fx:id="x1" />
           </font>
@@ -137,28 +118,9 @@
     </Pane>
     <Pane layoutX="595.0" layoutY="407.0" prefHeight="178.99990000000253" prefWidth="191.0" style="-fx-background-color:darkgreen;">
       <children>
-        <Label id="yourNameLbl" fx:id="yourUserNameLbl" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="163.0" text="BossMan7983" textAlignment="CENTER" textFill="WHITE" />
+        <Label id="yourNameLbl" fx:id="yourUserNameLbl" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="163.0" text="Your Name" textAlignment="CENTER" textFill="WHITE" />
       </children>
     </Pane>
-    <GridPane layoutX="610.0" layoutY="450.0" prefHeight="118.99993896484375" prefWidth="159.0">
-      <children>
-        <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="Jumped:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="Lost:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="Kings:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-        <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="1" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label alignment="CENTER" prefHeight="34.0" prefWidth="77.0" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      </children>
-      <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      </columnConstraints>
-      <rowConstraints>
-        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="39.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
-      </rowConstraints>
-    </GridPane>
     <ListView fx:id="messageBox" layoutX="14.0" layoutY="393.0" prefHeight="162.0" prefWidth="373.0" />
     <TextArea fx:id="sendMessageBox" layoutX="14.0" layoutY="555.0" prefHeight="34.0" prefWidth="373.0" wrapText="true" />
     <Button fx:id="sendBtn" layoutX="400.0" layoutY="562.0" mnemonicParsing="false" prefWidth="60.0" text="Send" />

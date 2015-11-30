@@ -25,9 +25,7 @@ public class BaseView extends Application implements Runnable {
 	
 	// -- static server communication items.
 	public static String serverIP = "127.0.0.1";
-	public static ServerCommunicator svrCommunicator;
-	public static CheckersClient gameClient;
-	
+
 	// -- Public network controller.  Used to house the current state or settings of the network.
 	public static NetworkingController network = new NetworkingController();
 	
@@ -38,9 +36,11 @@ public class BaseView extends Application implements Runnable {
 	
 	// ------ Variables that will change throughout the lifecycle of the game.
 	public String userName;
+	public String opponentName;
 	
 	// -- Used for determining if we are joining a table to spectate. 
 	public static boolean isSpectating;
+	public static boolean isCurrentlyInGame;
 	public static int currentTableID = -1;
 	
 	@Override
@@ -119,11 +119,6 @@ public class BaseView extends Application implements Runnable {
 	public void switchScene(Scene scene){
 		currentStage.setScene( scene );
 		currentStage.show();
-			
-	}
-	
-	public boolean connectToServer(String ip, String username ){
-		return svrCommunicator.connectToServer(ip, username);
 	}
 	
 	public void setCurrentTableID(int id) {

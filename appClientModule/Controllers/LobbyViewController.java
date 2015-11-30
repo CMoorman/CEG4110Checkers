@@ -75,6 +75,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		Object source = e.getSource();
 		if ( source == hostBtn ) { 
 			svrCom.makeTable();
+			setIsNotSpectating();
+			switchScene(CheckersBoardViewController.getViewInstance());	
 		}
 		else if( source == refreshBtn ) {
 			System.out.println("Refresh");
