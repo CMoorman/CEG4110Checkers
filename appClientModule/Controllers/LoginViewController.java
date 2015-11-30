@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,37 +28,37 @@ public class LoginViewController extends BaseView implements Initializable, Base
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		submitBtn.setOnAction( e -> ButtonClicked(e) );
-		cancelBtn.setOnAction( e -> ButtonClicked(e) );
-	}
-	
-	@Override
-	public void ButtonClicked( ActionEvent e ){ 
-		if (e.getSource() == submitBtn) {
 
-			boolean loginSuccess = false;
+		submitBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				boolean loginSuccess = false;
 
-			String userName = usernameTxtField.getText();
+				String userName = usernameTxtField.getText();
 
-			// -- Make sure that there is something there and that we set a
-			// limit on it.
-			if (userName.length() > 0 && userName.length() <= 20) {
+				// -- Make sure that there is something there and that we set a
+				// limit on it.
+				if (userName.length() > 0 && userName.length() <= 20) {
 
-				loginSuccess = network.connectToServer(serverIP, userName);
+					loginSuccess = network.connectToServer(serverIP, userName);
 
-				// -- Try to connect. Trying to connect will yield a boolean
-				// value.
-				if (loginSuccess) {
-					network.setUsrName(userName);
-					switchScene(LobbyViewController.getViewInstance());
+					// -- Try to connect. Trying to connect will yield a boolean
+					// value.
+					if (loginSuccess) {
+						network.setUsrName(userName);
+						switchScene(LobbyViewController.getViewInstance());
+					}
 				}
 			}
-		}
-		else if ( e.getSource()== cancelBtn ){
+		});
+		cancelBtn.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
 				switchScene(MainViewController.getViewInstance());
-        }
-		
+			}
+
+		});
 	}
 	private static Scene loginView = null;
 
@@ -75,5 +76,11 @@ public class LoginViewController extends BaseView implements Initializable, Base
 		}
 		return LoginViewController.loginView;
 
+	}
+
+	@Override
+	public void ButtonClicked(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
