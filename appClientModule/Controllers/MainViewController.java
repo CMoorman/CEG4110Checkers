@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -39,9 +40,11 @@ public class MainViewController extends BaseView implements BaseViewController, 
         	try {
 				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("SettingsView.fxml") );
 				Scene settingsScene = new Scene( currentView );
-				Stage newState = new Stage();
-				newState.setScene( settingsScene );
-				newState.show();
+				if(e.getSource() instanceof Node){
+					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+					mainStage.setScene( settingsScene );
+					mainStage.show();
+				}	
 				
         	} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -50,10 +53,12 @@ public class MainViewController extends BaseView implements BaseViewController, 
         }else if ( e.getSource() == loginBtn){
         	try {
         		AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("LoginView.fxml") );
-				Scene settingsScene = new Scene( currentView );
-				Stage newState = new Stage();
-				newState.setScene( settingsScene );
-				newState.show();
+				Scene login = new Scene( currentView );
+				if(e.getSource() instanceof Node){
+					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+					mainStage.setScene( login );
+					mainStage.show();
+				}	
 				
         	} catch (IOException e1) {
 				// TODO Auto-generated catch block

@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -72,17 +73,17 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	@Override
 	public void ButtonClicked(ActionEvent e) {
 		ServerCommunicator svrCom = BaseView.network.svrCommunicator;
-		
-		if ( e.getSource() == hostBtn ) { 
+		Object source = e.getSource();
+		if ( source == hostBtn ) { 
 			svrCom.makeTable();
 		}
-		else if( e.getSource() == refreshBtn ) {
+		else if( source == refreshBtn ) {
 			System.out.println("Refresh");
 			tableList.removeAll( tableList );
 			observerTableList.removeAll( observerTableList );
 			loadGames();
 		}
-		else if( e.getSource() == joinBtn ){
+		else if( source == joinBtn ){
 			try{
 				// -- We have selected a table, grab it's number
 				String option = joinListView.getSelectionModel().getSelectedItem().toString();
@@ -93,16 +94,18 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				// -- DO SOMETHING HERE ****************************************
 				setIsNotSpectating();
 				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
-				Scene settingsScene = new Scene( currentView );
-				Stage newState = new Stage();
-				newState.setScene( settingsScene );
-				newState.show();
+				Scene board = new Scene( currentView );
+				if(e.getSource() instanceof Node){
+					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+					mainStage.setScene( board );
+					mainStage.show();
+				}	
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
 			}
 		}
-		else if( e.getSource() == spectateBtn ) {
+		else if( source == spectateBtn ) {
 			try{
 				// -- We have selected a table, grab it's number
 				String option = observeListView.getSelectionModel().getSelectedItem().toString();
@@ -114,10 +117,12 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				
 				// -- DO SOMETHING HERE ****************************************
 				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
-				Scene settingsScene = new Scene( currentView );
-				Stage newState = new Stage();
-				newState.setScene( settingsScene );
-				newState.show();
+				Scene board = new Scene( currentView );
+				if(e.getSource() instanceof Node){
+					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+					mainStage.setScene( board );
+					mainStage.show();
+				}	
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.

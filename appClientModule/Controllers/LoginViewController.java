@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -51,10 +52,12 @@ public class LoginViewController extends BaseView implements Initializable, Base
         			if( loginSuccess ) {    
         				network.setUsrName(userName);        				
             			currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("LobbyView.fxml") );
-        				Scene settingsScene = new Scene( currentView );
-        				Stage newState = new Stage();
-        				newState.setScene( settingsScene );
-        				newState.show();	
+        				Scene lobbyScene = new Scene( currentView );
+        				if(e.getSource() instanceof Node){
+        					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        					mainStage.setScene( lobbyScene );
+        					mainStage.show();
+        				}	
             		}
         		}
         	} catch (IOException e1) {
@@ -66,9 +69,11 @@ public class LoginViewController extends BaseView implements Initializable, Base
         	try {
 				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
 				Scene settingsScene = new Scene( currentView );
-				Stage newState = new Stage();
-				newState.setScene( settingsScene );
-				newState.show();
+				if(e.getSource() instanceof Node){
+					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+					mainStage.setScene( settingsScene );
+					mainStage.show();
+				}
 				
         	} catch (IOException e1) {
 				// TODO Auto-generated catch block
