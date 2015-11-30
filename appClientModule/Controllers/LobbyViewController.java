@@ -92,7 +92,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				
 				// -- DO SOMETHING HERE ****************************************
 				setIsNotSpectating();
-				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
+				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
 				Scene settingsScene = new Scene( currentView );
 				Stage newState = new Stage();
 				newState.setScene( settingsScene );

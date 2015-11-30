@@ -137,7 +137,7 @@
     </Pane>
     <Pane layoutX="595.0" layoutY="407.0" prefHeight="178.99990000000253" prefWidth="191.0" style="-fx-background-color:darkgreen;">
       <children>
-        <Label fx:id="yourNameLbl" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="163.0" text="BossMan7983" textAlignment="CENTER" textFill="WHITE" />
+        <Label id="yourNameLbl" fx:id="yourUserNameLbl" alignment="CENTER" font="$x1" layoutX="14.0" layoutY="6.0" prefHeight="34.0" prefWidth="163.0" text="BossMan7983" textAlignment="CENTER" textFill="WHITE" />
       </children>
     </Pane>
     <GridPane layoutX="610.0" layoutY="450.0" prefHeight="118.99993896484375" prefWidth="159.0">
