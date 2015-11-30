@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import UIPanes.BaseView;
 
@@ -25,6 +29,13 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	@FXML
 	Button concedeBtn;
 	
+	@FXML
+	TextArea sendMessageBox;
+	
+	@FXML
+	ListView<String> messageBox;
+	ObservableList<String> messageList = FXCollections.observableArrayList();
+	
 	@Override
 	public void ButtonClicked(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -32,8 +43,26 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 			network.svrCommunicator.leaveTable();
 			switchScene(LobbyViewController.getViewInstance());
 		}
+		else if( e.getSource() == sendBtn ){
+			String msg = "";
+			
+			try {
+				msg = sendMessageBox.getText();
+			}catch( Exception ex ) {
+				// -- Do some error handling here
+			};
+			
+			String currentOpponent = "Testing";
+			if( msg.length() > 0 ) {
+				System.out.println( "********Sending the message: " + msg );
+				network.svrCommunicator.sendMsg(currentOpponent, msg);
+				messageList.add(msg);
+				UpdateChatBox();
+				// -- Clear out the text field.
+				sendMessageBox.setText("");
+			}
+		}
 	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -56,5 +85,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 
 		}
 		return CheckersBoardViewController.boardView;
+	}
+	
+	public void UpdateChatBox() {
+		messageBox.setItems(messageList);
 	}
 }
