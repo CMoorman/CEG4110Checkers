@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import UIPanes.BaseView;
@@ -17,10 +18,19 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	@FXML
 	Label yourUserNameLbl;
 	
+	@FXML
+	Button sendBtn;
+	
+	@FXML
+	Button concedeBtn;
+	
 	@Override
 	public void ButtonClicked(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if( e.getSource() == concedeBtn ){
+			network.svrCommunicator.leaveTable();
+			switchScene(LobbyViewController.getViewInstance());
+		}
 	}
 
 	@Override
@@ -28,7 +38,8 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		
 		yourUserNameLbl.setText( BaseView.network.getUsrName() );
 		
-		
+		sendBtn.setOnAction( e -> ButtonClicked(e) );
+		concedeBtn.setOnAction( e -> ButtonClicked(e) );
 	}
 	private static AnchorPane boardView = null;
 
