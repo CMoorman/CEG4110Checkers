@@ -36,7 +36,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		if (CheckersBoardViewController.boardView == null) {
 			try {
 				CheckersBoardViewController.boardView = (AnchorPane) FXMLLoader
-						.load(BaseView.class.getResource(LOGIN_VIEW_FXML));
+						.load(BaseView.class.getResource(BOARD_VIEW_FXML));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
