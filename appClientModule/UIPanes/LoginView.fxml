@@ -20,6 +20,6 @@
       </font>
     </Button>
     <Button id="settingsBtn" fx:id="submitBtn" font="$x1" layoutX="329.0" layoutY="469.0" mnemonicParsing="false" prefWidth="143.0" text="Submit" />
-    <TextField fx:id="usernameTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="321.0" layoutY="416.0" prefHeight="32.0" prefWidth="158.0" promptText="Username" style="-fx-text-alignment: center&#10;" text="" />
+    <TextField fx:id="usernameTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="321.0" layoutY="416.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="Username" style="-fx-text-alignment: center&#10;" text="" />
   </children>
 </AnchorPane>
