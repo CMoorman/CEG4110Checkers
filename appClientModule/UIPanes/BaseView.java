@@ -11,13 +11,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+
 import Controllers.NetworkingController;
 import Networking.*;
 
 public class BaseView extends Application implements Runnable {
 	
-	public Stage currentStage;
-	public AnchorPane currentView;
+	private static Stage currentStage;
+	private static AnchorPane currentView;
 	Thread gameThread;
 	
 	// -- static server communication items.
@@ -40,22 +43,21 @@ public class BaseView extends Application implements Runnable {
 	public static boolean isSpectating;
 	public static int currentTableID = -1;
 	
-	
 	@Override
 	public void start(Stage primaryStage) {
 		
 		isSpectating = false;
 		
-		this.currentStage = primaryStage;
+		BaseView.currentStage = primaryStage;
 		
 		try {
 			setCurrentView((AnchorPane) FXMLLoader.load(BaseView.class.getResource("MainView.fxml")));
 			Scene scene = new Scene( getCurrentView() );
-			currentStage.setScene( scene );
-			currentStage.show();
+			BaseView.currentStage.setScene( scene );
+			BaseView.currentStage.show();
 			
 			// -- Make sure that we stop our threads when we leave.
-			currentStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			BaseView.currentStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 		       @Override
 		       public void handle(WindowEvent e) {
 		    	   
@@ -94,12 +96,32 @@ public class BaseView extends Application implements Runnable {
 	}
 
 	public void setCurrentView(AnchorPane currentView) {
-		this.currentView = currentView;
+		BaseView.currentView = currentView;
 	}
 
 	public void ButtonClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	/*
+	 * Static strings corresponding to the file name of our fxml view files
+	 */
+	public static final String MAIN_VIEW_FMXL = "MainView.fxml";
+	public static final String LOBBY_VIEW_FXML = "LobbyView.fxml";
+	public static final String BOARD_VIEW_FXML = "BoardView.fxml";
+	public static final String LOGIN_VIEW_FXML = "LoginView.fxml";
+	public static final String SETTINGS_VIEW_FXML = "SettingsView.fxml";
+	/**
+	 * changes the stage of the current view
+	 * @param fxmlFileName
+	 */
+	public void switchScene(AnchorPane anchorPane){
+		setCurrentView(anchorPane);
+		Scene scene = new Scene( getCurrentView() );
+		currentStage.setScene( scene );
+		currentStage.show();
+			
 	}
 	
 	public boolean connectToServer(String ip, String username ){
@@ -120,4 +142,7 @@ public class BaseView extends Application implements Runnable {
 		isSpectating = false;
 	}
 	
+	public static AnchorPane getViewInstance(){
+		return null;
+	}
 }

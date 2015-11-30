@@ -9,12 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class LoginViewController extends BaseView implements Initializable, BaseViewController {
 
@@ -36,50 +33,45 @@ public class LoginViewController extends BaseView implements Initializable, Base
 	
 	@Override
 	public void ButtonClicked( ActionEvent e ){ 
-		if ( e.getSource()== submitBtn ){
-        	try {
-        		
-        		boolean loginSuccess = false;
-        		
-        		String userName = usernameTxtField.getText();
-        		
-        		// -- Make sure that there is something there and that we set a limit on it.
-        		if( userName.length() > 0 && userName.length() <= 20 ) {
-        			
-        			loginSuccess = network.connectToServer(serverIP, userName );
-        			
-        			// -- Try to connect.  Trying to connect will yield a boolean value.
-        			if( loginSuccess ) {    
-        				network.setUsrName(userName);        				
-            			currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("LobbyView.fxml") );
-        				Scene lobbyScene = new Scene( currentView );
-        				if(e.getSource() instanceof Node){
-        					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        					mainStage.setScene( lobbyScene );
-        					mainStage.show();
-        				}	
-            		}
-        		}
-        	} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-        }
-		else if ( e.getSource()== cancelBtn ){
-        	try {
-				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
-				Scene settingsScene = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( settingsScene );
-					mainStage.show();
+		if (e.getSource() == submitBtn) {
+
+			boolean loginSuccess = false;
+
+			String userName = usernameTxtField.getText();
+
+			// -- Make sure that there is something there and that we set a
+			// limit on it.
+			if (userName.length() > 0 && userName.length() <= 20) {
+
+				loginSuccess = network.connectToServer(serverIP, userName);
+
+				// -- Try to connect. Trying to connect will yield a boolean
+				// value.
+				if (loginSuccess) {
+					network.setUsrName(userName);
+					switchScene(LobbyViewController.getViewInstance());
 				}
-				
-        	} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			}
+		}
+		else if ( e.getSource()== cancelBtn ){
+				switchScene(MainViewController.getViewInstance());
         }
 		
+	}
+	private static AnchorPane loginView = null;
+
+	public static AnchorPane getViewInstance() {
+
+		if (LoginViewController.loginView == null) {
+			try {
+				LoginViewController.loginView = (AnchorPane) FXMLLoader
+						.load(BaseView.class.getResource(LOGIN_VIEW_FXML));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return LoginViewController.loginView;
+
 	}
 }

@@ -9,14 +9,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
 
@@ -61,36 +58,28 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		 * CANCEL OUT, DON"T SAVE ANYTHING.
 		 */
 		if ( e.getSource()== cancelBtn ){
-        	try {
-				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
-				Scene main = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( main );
-					mainStage.show();
-				}	
-				
-        	} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			switchScene(MainViewController.getViewInstance());
         }else if ( e.getSource()== saveBtn){
         	/**
         	 * NEED TO THROW IN SAVING LOGIC HERE. WHAT EVER CHANGED, WE NEED TO SET IT IN THE BASE VIEW.
         	 */
-        	try {
-        		AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("MainView.fxml") );
-				Scene main = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( main );
-					mainStage.show();
-				}	
-				
-        	} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+        	switchScene(MainViewController.getViewInstance());
         }
+	}
+	private static AnchorPane settingsView = null;
+
+	public static AnchorPane getViewInstance() {
+
+		if (SettingsViewController.settingsView == null) {
+			try {
+				SettingsViewController.settingsView = (AnchorPane) FXMLLoader
+						.load(BaseView.class.getResource(SETTINGS_VIEW_FXML));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return SettingsViewController.settingsView;
+
 	}
 }

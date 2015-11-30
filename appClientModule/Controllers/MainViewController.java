@@ -9,14 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import UIPanes.BaseView;
 
 public class MainViewController extends BaseView implements BaseViewController, Initializable {
+	
 	@FXML
 	Button settingsBtn;
 	
@@ -37,33 +35,9 @@ public class MainViewController extends BaseView implements BaseViewController, 
 	@Override
 	public void ButtonClicked( ActionEvent e ){
 	 if ( e.getSource() == settingsBtn ){
-        	try {
-				AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("SettingsView.fxml") );
-				Scene settingsScene = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( settingsScene );
-					mainStage.show();
-				}	
-				
-        	} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			switchScene(SettingsViewController.getViewInstance());
         }else if ( e.getSource() == loginBtn){
-        	try {
-        		AnchorPane currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("LoginView.fxml") );
-				Scene login = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( login );
-					mainStage.show();
-				}	
-				
-        	} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+        	switchScene(LoginViewController.getViewInstance());
         }else if( e.getSource() == quitBtn ){
         	
         	if( network.isCurrentlyConnected ){
@@ -72,5 +46,19 @@ public class MainViewController extends BaseView implements BaseViewController, 
         	Platform.exit();
 	        System.exit(0);
         }
+	}
+
+	private static AnchorPane mainView = null;
+
+	public static AnchorPane getViewInstance() {
+		if (MainViewController.mainView == null) {
+			try {
+				MainViewController.mainView = (AnchorPane) FXMLLoader.load(BaseView.class.getResource(MAIN_VIEW_FMXL));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return MainViewController.mainView;
+
 	}
 }

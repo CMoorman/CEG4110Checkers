@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,14 +13,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class LobbyViewController extends BaseView implements Initializable, BaseViewController{
 
@@ -93,13 +91,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				
 				// -- DO SOMETHING HERE ****************************************
 				setIsNotSpectating();
-				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
-				Scene board = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( board );
-					mainStage.show();
-				}	
+				switchScene(CheckersBoardViewController.getViewInstance());	
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
@@ -116,13 +108,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				setIsSpectating();
 				
 				// -- DO SOMETHING HERE ****************************************
-				currentView = (AnchorPane) FXMLLoader.load( BaseView.class.getResource("BoardView.fxml") );
-				Scene board = new Scene( currentView );
-				if(e.getSource() instanceof Node){
-					Stage mainStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					mainStage.setScene( board );
-					mainStage.show();
-				}	
+				switchScene(CheckersBoardViewController.getViewInstance());
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
@@ -148,6 +134,23 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		observeListView.setItems( observerTableList );
 		
 		System.out.println( svrCom.getTables().length );
+	}
+	
+	private static AnchorPane lobbyView = null;
+
+	public static AnchorPane getViewInstance() {
+
+		if (LobbyViewController.lobbyView == null) {
+			try {
+				LobbyViewController.lobbyView = (AnchorPane) FXMLLoader
+						.load(BaseView.class.getResource(LOBBY_VIEW_FXML));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return LobbyViewController.lobbyView;
+
 	}
 }
 
