@@ -12,70 +12,70 @@
   <children>
     <GridPane layoutX="14.0" layoutY="14.0" prefHeight="360.0" prefWidth="360.0" style="-fx-border-color:black;">
       <children>
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="0" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
-        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
         <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="6" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="0" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="0" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
