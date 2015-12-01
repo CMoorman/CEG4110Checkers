@@ -82,6 +82,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	public void UpdateChatBox() {
 		System.out.println("Updating chat box " + messageList.toString() );
 		messageBox.setItems(messageList);
+		
+		if( messageList.size() > 0)
+			messageBox.scrollTo( messageList.size() - 1 );
 	}
 	
 	public static void setCurrentBoardState(byte[][] boardState) {
@@ -137,4 +140,5 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 			}
 	    }
 	} // -- End of buttonPressed.
+
 }
