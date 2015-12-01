@@ -1,5 +1,7 @@
 package UIPanes;
 
+import Controllers.MainViewController;
+import Controllers.SettingsViewController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -28,6 +30,8 @@ public class BaseView extends Application implements Runnable {
 
 	// -- Public network controller.  Used to house the current state or settings of the network.
 	public static NetworkingController network = new NetworkingController();
+
+	public static MainViewController main = new MainViewController();
 	
 	// -- FXML items.
 	@FXML
@@ -42,7 +46,25 @@ public class BaseView extends Application implements Runnable {
 	public static boolean isSpectating;
 	public static boolean isCurrentlyInGame;
 	public static int currentTableID = -1;
-	
+
+	// variables for setting the colors of the main menu UI
+	public static String titleColor = "8b979c";
+	public static String quitBtnColor = "8b979c";
+	public static String settingsBtnColor = "8b979c";
+	public static String loginBtnColor = "8b979c";
+	public static String backgroundColor = "f3f3f3";
+
+	public static String quitBtnTextColor = "000000";
+	public static String settingsBtnTextColor = "000000";
+	public static String loginBtnTextColor = "000000";
+
+
+
+
+	public static String lobbyBtnColor = "000000";
+
+
+
 	@Override
 	public void start(Stage primaryStage) {
 		

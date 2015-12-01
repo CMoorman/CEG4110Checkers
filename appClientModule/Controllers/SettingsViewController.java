@@ -1,10 +1,12 @@
 package Controllers;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
+import com.sun.xml.internal.rngom.parse.host.Base;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,20 +18,45 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import javax.xml.soap.Node;
+
 public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
 
 	@FXML
 	Pane settingsPane;
-	
+
 	@FXML
-	TextField titleTxtField = new TextField();
+	TextField titleTxtField;
 	
 	@FXML
 	Button cancelBtn;
 	
 	@FXML
 	Button saveBtn;
-	
+
+	@FXML
+	TextField quitBtnTxtField;
+
+	@FXML
+	TextField settingsBtnTextField;
+
+	@FXML
+	TextField loginBtnTextField;
+
+	@FXML
+	TextField backgroundTxtField;
+
+	@FXML
+	TextField quitBtnTxtTextField;
+
+	@FXML
+	TextField settingsBtnTxtTextField;
+
+	@FXML
+	TextField loginBtnTxtTextField;
+
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -64,6 +91,32 @@ public class SettingsViewController extends BaseView implements Initializable, B
         	/**
         	 * NEED TO THROW IN SAVING LOGIC HERE. WHAT EVER CHANGED, WE NEED TO SET IT IN THE BASE VIEW.
         	 */
+
+			if(!titleTxtField.getText().toString().trim().equals("")){
+				titleColor = titleTxtField.getText();
+			}
+			if(!quitBtnTxtField.getText().toString().trim().equals("")){
+				quitBtnColor = quitBtnTxtField.getText();
+			}
+			if(!settingsBtnTextField.getText().toString().trim().equals("")){
+				settingsBtnColor = settingsBtnTextField.getText();
+			}
+			if(!loginBtnTextField.getText().toString().trim().equals("")){
+				loginBtnColor = loginBtnTextField.getText();
+			}
+			if(!backgroundTxtField.getText().toString().trim().equals("")){
+				backgroundColor = backgroundTxtField.getText();
+			}
+			if(!quitBtnTxtTextField.getText().toString().trim().equals("")){
+				quitBtnTextColor = quitBtnTxtTextField.getText();
+			}
+			if(!settingsBtnTxtTextField.getText().toString().trim().equals("")){
+				settingsBtnTextColor = settingsBtnTxtTextField.getText();
+			}
+			if(!loginBtnTxtTextField.getText().toString().trim().equals("")){
+				loginBtnTextColor = loginBtnTxtTextField.getText();
+			}
+
         	switchScene(MainViewController.getViewInstance());
         }
 	}
