@@ -20,19 +20,19 @@ import javafx.scene.layout.Pane;
 public class MainViewController extends BaseView implements BaseViewController, Initializable {
 	
 	@FXML
-	Button settingsBtn;
+	private Button settingsBtn;
 
 	@FXML
-	Button loginBtn;
+	private Button loginBtn;
 	
 	@FXML
-	Button quitBtn;
+	private Button quitBtn;
 
     @FXML
-    javafx.scene.control.Label mainMenuTitle;
+    private javafx.scene.control.Label mainMenuTitle;
 
     @FXML
-    Pane mainViewPane;
+    private Pane mainViewPane;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -54,6 +54,22 @@ public class MainViewController extends BaseView implements BaseViewController, 
         mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
         mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
 
+    }
+
+    public void updateUI(){
+        main.settingsBtn.setStyle("-fx-background-color: #" + settingsBtnColor + ";" +
+                        "-fx-text-fill: #" + settingsBtnTextColor + ";"
+        );
+
+        main.loginBtn.setStyle("-fx-background-color: #" + loginBtnColor + ";" +
+                        "-fx-text-fill: #"+ loginBtnTextColor +";"
+        );
+        main.quitBtn.setStyle("-fx-background-color: #" + quitBtnColor + ";" +
+                        "-fx-text-fill: #" + quitBtnTextColor + ";"
+        );
+
+        main.mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
+        main.mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
     }
 
 
@@ -85,6 +101,7 @@ public class MainViewController extends BaseView implements BaseViewController, 
 				e.printStackTrace();
 			}
 		}
+
 		return MainViewController.mainView;
 
 	}

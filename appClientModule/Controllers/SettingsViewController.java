@@ -117,6 +117,8 @@ public class SettingsViewController extends BaseView implements Initializable, B
 				loginBtnTextColor = loginBtnTxtTextField.getText();
 			}
 
+			//main.updateUI();
+
         	switchScene(MainViewController.getViewInstance());
         }
 	}
