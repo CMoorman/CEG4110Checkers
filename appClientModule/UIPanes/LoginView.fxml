@@ -7,11 +7,11 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LoginViewController">
+<AnchorPane id="AnchorPane" fx:id="loginViewPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LoginViewController">
   <children>
-    <Label layoutX="304.0" layoutY="93.0" text="Login">
+    <Label fx:id="loginMenuTitle" layoutX="304.0" layoutY="93.0" text="Login">
       <font>
-        <Font name="Lucida Console" size="64.0" />
+        <Font name="Helvetica" size="64.0" />
       </font>
     </Label>
     <Button id="settingsBtn" fx:id="cancelBtn" layoutX="329.0" layoutY="523.0" mnemonicParsing="false" prefWidth="143.0" text="Cancel">

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class LoginViewController extends BaseView implements Initializable {
 
@@ -28,16 +29,34 @@ public class LoginViewController extends BaseView implements Initializable {
 	
 	@FXML
 	Button submitBtn;
-	
+
+	@FXML
+	private javafx.scene.control.Label loginMenuTitle;
+
+
 	@FXML
 	Button cancelBtn;
+
+	@FXML
+	Pane loginViewPane;
+
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		// -- Button action events.
 		submitBtn.setOnAction ( e -> submitBtnPressed(e) );
-		cancelBtn.setOnAction( e -> cancelBtnPressed(e) );
+		cancelBtn.setOnAction(e -> cancelBtnPressed(e));
+
+		submitBtn.setStyle("-fx-background-color: #" + loginSubmitBtnColor +";" +
+						"-fx-text-fill: #" + loginSubmitBtnTextColor + ";"
+		);
+		cancelBtn.setStyle("-fx-background-color: #" + loginCancelBtnColor + ";" +
+						"-fx-text-fill: #" + loginCancelBtnTextColor + ";"
+		);
+		loginViewPane.setStyle("-fx-background-color: #" + loginBackgroundColor);
+		loginMenuTitle.setStyle("-fx-text-fill: #" + loginTitleColor);
 		
 	}
 

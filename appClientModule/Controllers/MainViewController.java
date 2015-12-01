@@ -6,10 +6,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -36,7 +38,7 @@ public class MainViewController extends BaseView implements BaseViewController, 
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		settingsBtn.setOnAction(e -> ButtonClicked(e));
 		loginBtn.setOnAction(e -> ButtonClicked(e));
 		quitBtn.setOnAction(e -> ButtonClicked(e));
@@ -56,20 +58,19 @@ public class MainViewController extends BaseView implements BaseViewController, 
 
     }
 
-    public void updateUI(){
-        main.settingsBtn.setStyle("-fx-background-color: #" + settingsBtnColor + ";" +
+    public void updateUI() {
+
+        settingsBtn.setStyle("-fx-background-color: #" + settingsBtnColor + ";" +
                         "-fx-text-fill: #" + settingsBtnTextColor + ";"
         );
-
-        main.loginBtn.setStyle("-fx-background-color: #" + loginBtnColor + ";" +
+        loginBtn.setStyle("-fx-background-color: #" + loginBtnColor + ";" +
                         "-fx-text-fill: #"+ loginBtnTextColor +";"
         );
-        main.quitBtn.setStyle("-fx-background-color: #" + quitBtnColor + ";" +
+        quitBtn.setStyle("-fx-background-color: #" + quitBtnColor + ";" +
                         "-fx-text-fill: #" + quitBtnTextColor + ";"
         );
-
-        main.mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
-        main.mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
+        mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
+        mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
     }
 
 
@@ -89,20 +90,20 @@ public class MainViewController extends BaseView implements BaseViewController, 
         }
 	}
 
-	private static Scene mainView = null;
+    private static Scene mainView = null;
 
-	public static Scene getViewInstance() {
+    public static Scene getViewInstance() {
 
-		if (MainViewController.mainView == null) {
-			try {
-				AnchorPane mainPane = (AnchorPane) FXMLLoader.load(BaseView.class.getResource(MAIN_VIEW_FMXL));
-				MainViewController.mainView = new Scene(mainPane);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+        if (MainViewController.mainView == null) {
+            try {
+                AnchorPane mainPane = (AnchorPane) FXMLLoader.load(BaseView.class.getResource(MAIN_VIEW_FMXL));
+                MainViewController.mainView = new Scene(mainPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-		return MainViewController.mainView;
+        return MainViewController.mainView;
 
-	}
+    }
 }

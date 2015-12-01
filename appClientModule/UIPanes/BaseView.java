@@ -47,19 +47,51 @@ public class BaseView extends Application implements Runnable {
 	public static boolean isCurrentlyInGame;
 	public static int currentTableID = -1;
 
-	// variables for setting the colors of the main menu UI
+	//MAIN MENU PAGE
 	public static String titleColor = "8b979c";
 	public static String quitBtnColor = "8b979c";
 	public static String settingsBtnColor = "8b979c";
 	public static String loginBtnColor = "8b979c";
 	public static String backgroundColor = "f3f3f3";
-
 	public static String quitBtnTextColor = "000000";
 	public static String settingsBtnTextColor = "000000";
 	public static String loginBtnTextColor = "000000";
 
+	//LOGIN PAGE
+	public static String loginTitleColor = "8b979c";
+	public static String loginBackgroundColor = "f3f3f3";
+	public static String loginSubmitBtnColor = "8b979c";
+	public static String loginCancelBtnColor = "8b979c";
+	public static String loginSubmitBtnTextColor = "000000";
+	public static String loginCancelBtnTextColor = "000000";
 
+	//LOBBY PAGE
+	public static String lobbyTitleColor = "8b979c";
+	public static String lobbySpectateBtnColor = "8b979c";
+	public static String lobbyHostBtnColor = "8b979c";
+	public static String lobbyJoinBtnColor = "8b979c";
+	public static String lobbyRefreshBtnColor = "8b979c";
+	public static String lobbyBackgroundColor = "f3f3f3";
+	public static String lobbySpectateBtnTextColor = "000000";
+	public static String lobbyHostBtnTextColor = "000000";
+	public static String lobbyJoinBtnTextColor = "000000";
+	public static String lobbyRefreshBtnTextColor = "000000";
+	public static String lobbyInProgressColor = "000000";
+	public static String lobbyOpenTablesColor = "000000";
+	public static String lobbyUsernameColor = "000000";
 
+	//BOARD PAGE
+	public static String boardMySquareColor = "";
+	public static String boardOpponentSquareColor = "";
+	public static String boardSendBtnColor = "";
+	public static String boardConcedeBtnColor = "";
+	public static String boardBackgroundColor = "";
+	public static String boardMyAvatarColor = "";
+	public static String boardOpponentAvatarColor = "";
+	public static String boardSendBtnTextColor = "";
+	public static String boardConcedeBtnTextColor = "";
+	public static String boardMyCheckersColor = "";
+	public static String boardOpponentsCheckersColor = "";
 
 	public static String lobbyBtnColor = "000000";
 
@@ -139,7 +171,7 @@ public class BaseView extends Application implements Runnable {
 	 * @param anchorPane: anchorpane who's view will be set as the main stage's current view
 	 */
 	public void switchScene(Scene scene){
-		currentStage.setScene( scene );
+		currentStage.setScene(scene);
 		currentStage.show();
 	}
 	
