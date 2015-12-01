@@ -24,6 +24,9 @@ public class LoginViewController extends BaseView implements Initializable {
 	TextField usernameTxtField;
 	
 	@FXML
+	TextField ipAddressTxtField;
+	
+	@FXML
 	Button submitBtn;
 	
 	@FXML
