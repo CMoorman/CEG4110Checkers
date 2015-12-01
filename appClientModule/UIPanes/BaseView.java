@@ -81,17 +81,17 @@ public class BaseView extends Application implements Runnable {
 	public static String lobbyUsernameColor = "000000";
 
 	//BOARD PAGE
-	public static String boardMySquareColor = "";
-	public static String boardOpponentSquareColor = "";
-	public static String boardSendBtnColor = "";
-	public static String boardConcedeBtnColor = "";
-	public static String boardBackgroundColor = "";
-	public static String boardMyAvatarColor = "";
-	public static String boardOpponentAvatarColor = "";
-	public static String boardSendBtnTextColor = "";
-	public static String boardConcedeBtnTextColor = "";
-	public static String boardMyCheckersColor = "";
-	public static String boardOpponentsCheckersColor = "";
+	public static String boardMySquareColor = "cc0000";
+	public static String boardOpponentSquareColor = "000000";
+	public static String boardSendBtnColor = "8b979c";
+	public static String boardConcedeBtnColor = "8b979c";
+	public static String boardBackgroundColor = "f3f3f3";
+	public static String boardMyAvatarColor = "0000cc";
+	public static String boardOpponentAvatarColor = "00b300";
+	public static String boardSendBtnTextColor = "000000";
+	public static String boardConcedeBtnTextColor = "000000";
+	public static String boardMyCheckersColor = "0000cc";
+	public static String boardOpponentsCheckersColor = "00b300";
 
 	public static String lobbyBtnColor = "000000";
 

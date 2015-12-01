@@ -81,7 +81,6 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	TextField lobbyOpenTablesTxtField;
 	@FXML
 	TextField lobbyUsernameTxtField;
-
 	@FXML
 	TextField boardMySquareTxtField;
 	@FXML

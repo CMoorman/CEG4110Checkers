@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import UIPanes.BaseView;
+import javafx.scene.layout.Pane;
 
 public class CheckersBoardViewController extends BaseView implements Initializable {
 
@@ -37,6 +38,21 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	
 	@FXML
 	TextField sendMessageBox;
+
+	@FXML
+	Pane redSquare;
+
+	@FXML
+	Pane blackSquare;
+
+	@FXML
+	AnchorPane checkersAnchorPane;
+
+	@FXML
+	Pane opponentAvatar;
+
+	@FXML
+	Pane myAvatar;
 	
 	@FXML
 	ListView<String> messageBox;
@@ -45,10 +61,27 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		yourUserNameLbl.setText( BaseView.network.getUsrName() );
+		yourUserNameLbl.setText(BaseView.network.getUsrName());
 		
-		sendBtn.setOnAction( e -> sendBtnPressed(e) );
-		concedeBtn.setOnAction( e -> concedeBtnPressed(e) );
+		sendBtn.setOnAction(e -> sendBtnPressed(e));
+		concedeBtn.setOnAction(e -> concedeBtnPressed(e));
+
+		sendBtn.setStyle("-fx-background-color: #" + boardSendBtnColor + ";" +
+						"-fx-text-fill: #" + boardSendBtnTextColor + ";"
+		);
+		concedeBtn.setStyle("-fx-background-color: #" + boardConcedeBtnColor + ";" +
+						"-fx-text-fill: #" + boardConcedeBtnTextColor + ";"
+		);
+		checkersAnchorPane.setStyle("-fx-background-color: #" + boardBackgroundColor);
+
+		redSquare.setStyle("-fx-background-color: #" + boardMySquareColor);
+		blackSquare.setStyle("-fx-background-color: #" + boardOpponentSquareColor);
+
+		opponentAvatar.setStyle("-fx-background-color: #" + boardOpponentAvatarColor);
+		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
+
+
+
 	}
 
 	public static Scene getViewInstance() {
