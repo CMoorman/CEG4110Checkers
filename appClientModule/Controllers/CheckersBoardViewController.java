@@ -41,8 +41,6 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	@FXML
 	ListView<String> messageBox;
 	ObservableList<String> messageList = FXCollections.observableArrayList();
-	
-	public String oppName = "";
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -68,8 +66,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	}
 	
 	public void setOpponentUsername(String name) {
-		oppName = name;
-		opponentNameLbl.setText(opponentName);
+		opponentNameLbl.setText(BaseView.opponentName);
 	}
 	
 	public void addGameMessage(String msg) {
@@ -106,9 +103,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		};
 
 		if( msg.length() > 0 ) {
-			System.out.println(oppName);
+			System.out.println(BaseView.opponentName);
 			System.out.println( "********Sending the message: " + msg );
-			network.svrCommunicator.sendMsg(oppName, msg);
+			network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
 			messageList.add(msg);
 			UpdateChatBox();
 			// -- Clear out the text field.
@@ -130,9 +127,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 			};
 
 			if( msg.length() > 0 ) {
-				System.out.println(oppName);
+				System.out.println(BaseView.opponentName);
 				System.out.println( "********Sending the message: " + msg );
-				network.svrCommunicator.sendMsg(oppName, msg);
+				network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
 				messageList.add(msg);
 				UpdateChatBox();
 				// -- Clear out the text field.

@@ -39,8 +39,8 @@ public class BaseView extends Application implements Runnable {
 	Button lobbyBtn;
 	
 	// ------ Variables that will change throughout the lifecycle of the game.
-	public String userName;
-	public String opponentName;
+	public static String userName;
+	public static String opponentName;
 	
 	// -- Used for determining if we are joining a table to spectate. 
 	public static boolean isSpectating;
@@ -64,11 +64,13 @@ public class BaseView extends Application implements Runnable {
 	public static String lobbyBtnColor = "000000";
 
 
+	private static boolean playerIsInGame;
 
 	@Override
 	public void start(Stage primaryStage) {
 		
 		isSpectating = false;
+		playerIsInGame = false;
 		
 		BaseView.currentStage = primaryStage;
 		
@@ -143,17 +145,29 @@ public class BaseView extends Application implements Runnable {
 		currentStage.show();
 	}
 	
-	public void setCurrentTableID(int id) {
+	public static void setCurrentTableID(int id) {
 		currentTableID = id;
 	}
-	public void clearCurrentTaqbleID() {
+	public static void clearCurrentTaqbleID() {
 		currentTableID = -1;
 	}
 	
-	public void setIsSpectating() {
+	public static void setIsInGame() {
+		playerIsInGame = true;
+	}
+	
+	public static void setIsNotInGame() {
+		playerIsInGame = false;
+	}
+	
+	public static boolean getIsPlayerInGame() {
+		return playerIsInGame;
+	}
+	
+	public static void setIsSpectating() {
 		isSpectating = true;
 	}
-	public void setIsNotSpectating() {
+	public static void setIsNotSpectating() {
 		isSpectating = false;
 	}
 	

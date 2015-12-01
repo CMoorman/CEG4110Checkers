@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
@@ -17,10 +18,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	
 	public boolean isCurrentlyConnected;
 	
-	public String usrName;
-	
 	public NetworkingController() {
-		isCurrentlyConnected = false;
 		svrCommunicator = new ServerCommunicator( this );
 	}
 	
@@ -31,11 +29,11 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	}
 	
 	public void setUsrName( String usrName ) {
-		this.usrName = usrName;
+		userName = usrName;
 	}
 	
 	public String getUsrName() {
-		return this.usrName;
+		return userName;
 	}
 
 	@Override
@@ -56,19 +54,16 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void newMsg(String user, String msg, boolean pm) {
 		System.out.println("New message from: " + user + "." + " Message: " + msg + ". Private: " + pm );
-
-		Scene boardScene;
-		CheckersBoardViewController board;
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		
 		try {
-			boardScene = fxmlLoader.load(getClass().getResource("BoardView.fxml").openStream());
+			FXMLLoader fxmlLoader = new FXMLLoader();
+			AnchorPane boardScene = (AnchorPane) FXMLLoader.load( getClass().getResource("BoardView.fxml"));
+			CheckersBoardViewController controller = (CheckersBoardViewController) fxmlLoader.getController();
+			controller.addGameMessage(msg);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		board = (CheckersBoardViewController) fxmlLoader.getController();
-		board.addGameMessage(msg);
+		
 	}
 
 	@Override
@@ -93,6 +88,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	public void newTable(int tid) {
 		System.out.println("New table: " + tid);
 		svrCommunicator.joinTable(userName, tid);
+		setIsInGame();
 	}
 
 	@Override
@@ -100,12 +96,13 @@ public class NetworkingController extends BaseView implements CheckersClient {
 		currentTableID = tid;
 		isCurrentlyInGame = true;
 		System.out.println("Joined table: " + tid);
+		setIsInGame();
 	}
 
 	@Override
 	public void alertLeftTable() {
-		isCurrentlyInGame = false;
 		System.out.println("You have left the table.");
+		setIsNotInGame();
 	}
 
 	@Override
@@ -115,13 +112,13 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void colorBlack() {
-		
+		System.out.println("You're black");
 		
 	}
 
 	@Override
 	public void colorRed() {
-		
+		System.out.println("You're red");
 		
 	}
 
@@ -148,36 +145,26 @@ public class NetworkingController extends BaseView implements CheckersClient {
 		
 	}
 
+	private static boolean isOppRed = false;
+	private static boolean firstPass = true;
 	@Override
 	public void onTable(int tid, String blackSeat, String redSeat) {
-		
-		Scene boardScene;
-		CheckersBoardViewController board;
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		
-		try {
-			boardScene = fxmlLoader.load(getClass().getResource("BoardView.fxml").openStream());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		board = (CheckersBoardViewController) fxmlLoader.getController();
-		
 		// -- Not sure if we are going to be black or red.  So, check to see if the username matches our users name.
-		if( blackSeat != userName ){
-			
-			opponentName = blackSeat;
-			System.out.println("blackSeat: " + opponentName);
-			board.setOpponentUsername(opponentName);
+		if( getIsPlayerInGame() ) {
+			if( firstPass ) {
+				if( blackSeat.equals(userName) ) {
+					isOppRed = true; 
+				}
+				firstPass = false;
+			}
+			else {
+				if( !isOppRed ) {
+					opponentName = blackSeat;
+				}else {
+					opponentName = redSeat;
+				}
+			}	
 		}
-		else if( redSeat != userName ){
-			
-			opponentName = redSeat;
-			System.out.println("redSeat"  + opponentName);
-			board.setOpponentUsername(opponentName);
-		}
-		
-		
 	}
 
 	@Override
