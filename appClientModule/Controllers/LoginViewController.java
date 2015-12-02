@@ -5,16 +5,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import UIPanes.BaseView;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 public class LoginViewController extends BaseView implements Initializable {
@@ -33,14 +36,17 @@ public class LoginViewController extends BaseView implements Initializable {
 	@FXML
 	private javafx.scene.control.Label loginMenuTitle;
 
-
 	@FXML
 	Button cancelBtn;
 
 	@FXML
 	Pane loginViewPane;
 
+	@FXML
+	javafx.scene.Node currentTile;
 
+	@FXML
+	GridPane checkerBoard;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -57,7 +63,18 @@ public class LoginViewController extends BaseView implements Initializable {
 		);
 		loginViewPane.setStyle("-fx-background-color: #" + loginBackgroundColor);
 		loginMenuTitle.setStyle("-fx-text-fill: #" + loginTitleColor);
-		
+
+		ObservableList<Node> children = checkerBoard.getChildren();
+		for (int i = 0; i < children.size(); i++){
+			currentTile = children.get(i);
+
+			if(i %2 == 0){
+				currentTile.setStyle("-fx-background-color: #000000");
+			}else {
+				currentTile.setStyle("-fx-background-color: #ffffff");
+
+			}
+		}
 	}
 
 	/**

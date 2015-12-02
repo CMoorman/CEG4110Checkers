@@ -9,32 +9,32 @@
 
 <AnchorPane id="lobbyPane" fx:id="lobbyAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LobbyViewController">
   <children>
-    <ScrollPane id="inProgScrollPane" fx:id="observeListViewScrollPane" layoutX="14.0" layoutY="139.0" pannable="false" prefHeight="447.0" prefWidth="286.0">
+    <ScrollPane id="inProgScrollPane" fx:id="observeListViewScrollPane" layoutX="14.0" layoutY="110.0" pannable="false" prefHeight="436.0" prefWidth="286.0">
       <content>
-        <ListView id="inProgListView" fx:id="observeListView" orientation="VERTICAL" prefHeight="444.0" prefWidth="286.0" />
+        <ListView id="inProgListView" fx:id="observeListView" orientation="VERTICAL" prefHeight="423.0001220703125" prefWidth="286.0" />
       </content>
     </ScrollPane>
     <TilePane layoutX="81.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" />
-    <Label id="spectateTitle" fx:id="inProgressLbl" alignment="CENTER" layoutX="24.0" layoutY="101.0" prefHeight="41.0" prefWidth="266.0" text="In Progress" />
-    <Label id="playerIDTitle" fx:id="userNameLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" text="User02299" textAlignment="CENTER" textFill="#0029ff">
+    <Label id="spectateTitle" fx:id="inProgressLbl" alignment="CENTER" layoutX="14.0" layoutY="69.0" prefHeight="41.0" prefWidth="286.0" text="In Progress" />
+    <Label id="playerIDTitle" fx:id="userNameLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" text="User02299" textAlignment="CENTER" textFill="#0029ff">
       <font>
         <Font size="16.0" />
       </font>
     </Label>
-    <Button fx:id="spectateBtn" layoutX="24.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Spectate" />
-    <ScrollPane fx:id="joinScrollPane" layoutX="500.0" layoutY="137.0" prefHeight="447.0" prefWidth="286.0">
+    <Button fx:id="spectateBtn" layoutX="14.0" layoutY="557.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Spectate" />
+    <ScrollPane fx:id="joinScrollPane" layoutX="500.0" layoutY="109.0" prefHeight="437.0" prefWidth="286.0">
       <content>
         <ListView fx:id="joinListView" prefHeight="444.0" prefWidth="286.0" />
       </content>
     </ScrollPane>
-    <Label id="spectateTitle" fx:id="openTablesLbl" alignment="CENTER" layoutX="511.0" layoutY="101.0" prefHeight="36.0" prefWidth="266.0" text="Open Tables" />
-    <Button id="spectateBtn" fx:id="joinBtn" layoutX="511.0" layoutY="110.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Join" />
-    <Label id="playerIDTitle" fx:id="lobbyTitleLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" text="Lobby" textAlignment="CENTER" textFill="BLACK">
+    <Label id="spectateTitle" fx:id="openTablesLbl" alignment="CENTER" layoutX="500.0" layoutY="71.0" prefHeight="36.0" prefWidth="286.0" text="Open Tables" />
+    <Button id="spectateBtn" fx:id="joinBtn" layoutX="501.0" layoutY="557.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Join" />
+    <Label id="playerIDTitle" fx:id="lobbyTitleLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="41.0" prefWidth="114.0" text="Lobby" textAlignment="LEFT" textFill="BLACK">
       <font>
         <Font name="System Bold" size="24.0" />
       </font>
     </Label>
-    <Button id="spectateBtn" fx:id="refreshBtn" layoutX="702.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Refresh" />
-    <Button id="spectateBtn" fx:id="hostBtn" layoutX="363.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Host" />
+    <Button id="spectateBtn" fx:id="refreshBtn" layoutX="664.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Refresh" />
+    <Button id="spectateBtn" fx:id="hostBtn" layoutX="339.0" layoutY="288.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Host" />
   </children>
 </AnchorPane>

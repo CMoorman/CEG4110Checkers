@@ -14,13 +14,101 @@
         <Font name="Helvetica" size="64.0" />
       </font>
     </Label>
-    <Button id="settingsBtn" fx:id="cancelBtn" layoutX="329.0" layoutY="523.0" mnemonicParsing="false" prefWidth="143.0" text="Cancel">
+    <Button id="settingsBtn" fx:id="cancelBtn" layoutX="329.0" layoutY="514.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Cancel">
       <font>
         <Font size="18.0" fx:id="x1" />
       </font>
     </Button>
-    <Button id="settingsBtn" fx:id="submitBtn" font="$x1" layoutX="329.0" layoutY="469.0" mnemonicParsing="false" prefWidth="143.0" text="Submit" />
+    <Button id="settingsBtn" fx:id="submitBtn" font="$x1" layoutX="329.0" layoutY="469.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Submit" />
     <TextField fx:id="usernameTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="321.0" layoutY="416.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="Username" style="-fx-text-alignment: center&#10;" text="" />
     <TextField id="ipAddressTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="321.0" layoutY="373.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="IP Address" style="-fx-text-alignment: center&#10;" text="" />
+    <GridPane fx:id="checkerBoard" layoutX="85.0" layoutY="131.0" prefHeight="185.0" prefWidth="190.0" style="-fx-border-color:black;">
+      <children>
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+        <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+        <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
   </children>
 </AnchorPane>

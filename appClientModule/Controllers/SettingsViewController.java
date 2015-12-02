@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,79 +31,79 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	@FXML
 	Button saveBtn;
 	@FXML
-	TextField quitBtnTxtField;
+	ColorPicker quitBtnTxtField;
 	@FXML
-	TextField settingsBtnTextField;
+	ColorPicker settingsBtnTextField;
 	@FXML
-	TextField loginBtnTextField;
+	ColorPicker loginBtnTextField;
 	@FXML
-	TextField backgroundTxtField;
+	ColorPicker backgroundTxtField;
 	@FXML
-	TextField quitBtnTxtTextField;
+	ColorPicker quitBtnTxtTextField;
 	@FXML
-	TextField settingsBtnTxtTextField;
+	ColorPicker settingsBtnTxtTextField;
 	@FXML
-	TextField loginBtnTxtTextField;
+	ColorPicker loginBtnTxtTextField;
 	@FXML
-	TextField loginTitleTxtField;
+	ColorPicker loginTitleTxtField;
 	@FXML
-	TextField loginCancelBtnTxtField;
+	ColorPicker loginCancelBtnTxtField;
 	@FXML
-	TextField loginSubmitBtnTxtField;
+	ColorPicker loginSubmitBtnTxtField;
 	@FXML
-	TextField loginBackgroundTxtField;
+	ColorPicker loginBackgroundTxtField;
 	@FXML
-	TextField loginCancelBtnTextTxtField;
+	ColorPicker loginCancelBtnTextTxtField;
 	@FXML
-	TextField loginSubmitBtnTextTxtField;
+	ColorPicker loginSubmitBtnTextTxtField;
 	@FXML
-	TextField lobbyTitleTxtField;
+	ColorPicker lobbyTitleTxtField;
 	@FXML
-	TextField lobbySpectateBtnTxtField;
+	ColorPicker lobbySpectateBtnTxtField;
 	@FXML
-	TextField lobbyHostBtnTxtField;
+	ColorPicker lobbyHostBtnTxtField;
 	@FXML
-	TextField lobbyJoinBtnTxtField;
+	ColorPicker lobbyJoinBtnTxtField;
 	@FXML
-	TextField lobbyRefreshBtnTtxField;
+	ColorPicker lobbyRefreshBtnTtxField;
 	@FXML
-	TextField lobbyBackgroundTxtField;
+	ColorPicker lobbyBackgroundTxtField;
 	@FXML
-	TextField lobbySpectateBtnTextTxtField;
+	ColorPicker lobbySpectateBtnTextTxtField;
 	@FXML
-	TextField lobbyHostBtnTextTxtField;
+	ColorPicker lobbyHostBtnTextTxtField;
 	@FXML
-	TextField lobbyJoinBtnTxtTextField;
+	ColorPicker lobbyJoinBtnTxtTextField;
 	@FXML
-	TextField lobbyRefreshBtnTextTtxField;
+	ColorPicker lobbyRefreshBtnTextTtxField;
 	@FXML
-	TextField lobbyInProgressTxtField;
+	ColorPicker lobbyInProgressTxtField;
 	@FXML
-	TextField lobbyOpenTablesTxtField;
+	ColorPicker lobbyOpenTablesTxtField;
 	@FXML
-	TextField lobbyUsernameTxtField;
+	ColorPicker lobbyUsernameTxtField;
 	@FXML
-	TextField boardMySquareTxtField;
+	ColorPicker boardMySquareTxtField;
 	@FXML
-	TextField boardOpponentSquareTxtField;
+	ColorPicker boardOpponentSquareTxtField;
 	@FXML
-	TextField boardSendBtnTxtField;
+	ColorPicker boardSendBtnTxtField;
 	@FXML
-	TextField boardConcedeBtnTxtField;
+	ColorPicker boardConcedeBtnTxtField;
 	@FXML
-	TextField boardBackgroundTxtField;
+	ColorPicker boardBackgroundTxtField;
 	@FXML
-	TextField boardMyAvatarTxtField;
+	ColorPicker boardMyAvatarTxtField;
 	@FXML
-	TextField boardOpponentAvatarTxtField;
+	ColorPicker boardOpponentAvatarTxtField;
 	@FXML
-	TextField boardSendBtnTextTxtField;
+	ColorPicker boardSendBtnTextTxtField;
 	@FXML
-	TextField boardConcedeBtnTextTxtField;
+	ColorPicker boardConcedeBtnTextTxtField;
 	@FXML
-	TextField boardMyCheckersTxtField;
+	ColorPicker boardMyCheckersTxtField;
 	@FXML
-	TextField boardOpponentCheckerTxtField;
+	ColorPicker boardOpponentCheckerTxtField;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -143,131 +144,131 @@ public class SettingsViewController extends BaseView implements Initializable, B
 			if(!titleTxtField.getText().toString().trim().equals("")){
 				titleColor = titleTxtField.getText();
 			}
-			if(!quitBtnTxtField.getText().toString().trim().equals("")){
-				quitBtnColor = quitBtnTxtField.getText();
+			if(!quitBtnTxtField.getValue().toString().trim().equals("")){
+				quitBtnColor = quitBtnTxtField.getValue().toString();
 			}
-			if(!settingsBtnTextField.getText().toString().trim().equals("")){
-				settingsBtnColor = settingsBtnTextField.getText();
+			if(!settingsBtnTextField.getValue().toString().trim().equals("")){
+				settingsBtnColor = settingsBtnTextField.getValue().toString();
 			}
-			if(!loginBtnTextField.getText().toString().trim().equals("")){
-				loginBtnColor = loginBtnTextField.getText();
+			if(!loginBtnTextField.getValue().toString().trim().equals("")){
+				loginBtnColor = loginBtnTextField.getValue().toString();
 			}
-			if(!backgroundTxtField.getText().toString().trim().equals("")){
-				backgroundColor = backgroundTxtField.getText();
+			if(!backgroundTxtField.getValue().toString().trim().equals("")){
+				backgroundColor = backgroundTxtField.getValue().toString();
 			}
-			if(!quitBtnTxtTextField.getText().toString().trim().equals("")){
-				quitBtnTextColor = quitBtnTxtTextField.getText();
+			if(!quitBtnTxtTextField.getValue().toString().trim().equals("")){
+				quitBtnTextColor = quitBtnTxtTextField.getValue().toString();
 			}
-			if(!settingsBtnTxtTextField.getText().toString().trim().equals("")){
-				settingsBtnTextColor = settingsBtnTxtTextField.getText();
+			if(!settingsBtnTxtTextField.getValue().toString().trim().equals("")){
+				settingsBtnTextColor = settingsBtnTxtTextField.getValue().toString();
 			}
 
 
 
 			// -- LOGIN PAGE
-			if(!loginBtnTxtTextField.getText().toString().trim().equals("")){
-				loginBtnTextColor = loginBtnTxtTextField.getText();
+			if(!loginBtnTxtTextField.getValue().toString().trim().equals("")){
+				loginBtnTextColor = loginBtnTxtTextField.getValue().toString();
 			}
-			if(!loginTitleTxtField.getText().toString().trim().equals("")){
-				loginTitleColor = loginTitleTxtField.getText();
+			if(!loginTitleTxtField.getValue().toString().trim().equals("")){
+				loginTitleColor = loginTitleTxtField.getValue().toString();
 			}
-			if(!loginCancelBtnTxtField.getText().toString().trim().equals("")){
-				loginCancelBtnColor = loginCancelBtnTxtField.getText();
+			if(!loginCancelBtnTxtField.getValue().toString().trim().equals("")){
+				loginCancelBtnColor = loginCancelBtnTxtField.getValue().toString();
 			}
-			if(!loginSubmitBtnTxtField.getText().toString().trim().equals("")){
-				loginSubmitBtnColor = loginSubmitBtnTxtField.getText();
+			if(!loginSubmitBtnTxtField.getValue().toString().trim().equals("")){
+				loginSubmitBtnColor = loginSubmitBtnTxtField.getValue().toString();
 			}
-			if(!loginBackgroundTxtField.getText().toString().trim().equals("")){
-				loginBackgroundColor = loginBackgroundTxtField.getText();
+			if(!loginBackgroundTxtField.getValue().toString().trim().equals("")){
+				loginBackgroundColor = loginBackgroundTxtField.getValue().toString();
 			}
-			if(!loginCancelBtnTextTxtField.getText().toString().trim().equals("")){
-				loginCancelBtnTextColor = loginCancelBtnTextTxtField.getText();
+			if(!loginCancelBtnTextTxtField.getValue().toString().trim().equals("")){
+				loginCancelBtnTextColor = loginCancelBtnTextTxtField.getValue().toString();
 			}
-			if(!loginSubmitBtnTextTxtField.getText().toString().trim().equals("")){
-				loginSubmitBtnTextColor = loginSubmitBtnTextTxtField.getText();
+			if(!loginSubmitBtnTextTxtField.getValue().toString().trim().equals("")){
+				loginSubmitBtnTextColor = loginSubmitBtnTextTxtField.getValue().toString();
 			}
-			if(!loginSubmitBtnTextTxtField.getText().toString().trim().equals("")){
-				loginSubmitBtnTextColor = loginSubmitBtnTextTxtField.getText();
+			if(!loginSubmitBtnTextTxtField.getValue().toString().trim().equals("")){
+				loginSubmitBtnTextColor = loginSubmitBtnTextTxtField.getValue().toString();
 			}
 
 
 
 			// -- LOBBY PAGE
-			if(!lobbyTitleTxtField.getText().toString().trim().equals("")){
-				lobbyTitleColor = lobbyTitleTxtField.getText();
+			if(!lobbyTitleTxtField.getValue().toString().trim().equals("")){
+				lobbyTitleColor = lobbyTitleTxtField.getValue().toString();
 			}
-			if(!lobbySpectateBtnTxtField.getText().toString().trim().equals("")){
-				lobbySpectateBtnColor = lobbySpectateBtnTxtField.getText();
+			if(!lobbySpectateBtnTxtField.getValue().toString().trim().equals("")){
+				lobbySpectateBtnColor = lobbySpectateBtnTxtField.getValue().toString();
 			}
-			if(!lobbyHostBtnTxtField.getText().toString().trim().equals("")){
-				lobbyHostBtnColor = lobbyHostBtnTxtField.getText();
+			if(!lobbyHostBtnTxtField.getValue().toString().trim().equals("")){
+				lobbyHostBtnColor = lobbyHostBtnTxtField.getValue().toString();
 			}
-			if(!lobbyJoinBtnTxtField.getText().toString().trim().equals("")){
-				lobbyJoinBtnColor = lobbyJoinBtnTxtField.getText();
+			if(!lobbyJoinBtnTxtField.getValue().toString().trim().equals("")){
+				lobbyJoinBtnColor = lobbyJoinBtnTxtField.getValue().toString();
 			}
-			if(!lobbyRefreshBtnTtxField.getText().toString().trim().equals("")){
-				lobbyRefreshBtnColor = lobbyRefreshBtnTtxField.getText();
+			if(!lobbyRefreshBtnTtxField.getValue().toString().trim().equals("")){
+				lobbyRefreshBtnColor = lobbyRefreshBtnTtxField.getValue().toString();
 			}
-			if(!lobbyBackgroundTxtField.getText().toString().trim().equals("")){
-				lobbyBackgroundColor = lobbyBackgroundTxtField.getText();
+			if(!lobbyBackgroundTxtField.getValue().toString().trim().equals("")){
+				lobbyBackgroundColor = lobbyBackgroundTxtField.getValue().toString();
 			}
-			if(!lobbySpectateBtnTextTxtField.getText().toString().trim().equals("")){
-				lobbySpectateBtnTextColor = lobbySpectateBtnTextTxtField.getText();
+			if(!lobbySpectateBtnTextTxtField.getValue().toString().trim().equals("")){
+				lobbySpectateBtnTextColor = lobbySpectateBtnTextTxtField.getValue().toString();
 			}
-			if(!lobbyHostBtnTextTxtField.getText().toString().trim().equals("")){
-				lobbyHostBtnTextColor = lobbyHostBtnTextTxtField.getText();
+			if(!lobbyHostBtnTextTxtField.getValue().toString().trim().equals("")){
+				lobbyHostBtnTextColor = lobbyHostBtnTextTxtField.getValue().toString();
 			}
-			if(!lobbyJoinBtnTxtTextField.getText().toString().trim().equals("")){
-				lobbyJoinBtnTextColor = lobbyJoinBtnTxtTextField.getText();
+			if(!lobbyJoinBtnTxtTextField.getValue().toString().trim().equals("")){
+				lobbyJoinBtnTextColor = lobbyJoinBtnTxtTextField.getValue().toString();
 			}
-			if(!lobbyRefreshBtnTextTtxField.getText().toString().trim().equals("")){
-				lobbyRefreshBtnTextColor = lobbyRefreshBtnTextTtxField.getText();
+			if(!lobbyRefreshBtnTextTtxField.getValue().toString().trim().equals("")){
+				lobbyRefreshBtnTextColor = lobbyRefreshBtnTextTtxField.getValue().toString();
 			}
-			if(!lobbyInProgressTxtField.getText().toString().trim().equals("")){
-				lobbyInProgressColor = lobbyInProgressTxtField.getText();
+			if(!lobbyInProgressTxtField.getValue().toString().trim().equals("")){
+				lobbyInProgressColor = lobbyInProgressTxtField.getValue().toString();
 			}
-			if(!lobbyOpenTablesTxtField.getText().toString().trim().equals("")){
-				lobbyOpenTablesColor = lobbyOpenTablesTxtField.getText();
+			if(!lobbyOpenTablesTxtField.getValue().toString().trim().equals("")){
+				lobbyOpenTablesColor = lobbyOpenTablesTxtField.getValue().toString();
 			}
-			if(!lobbyUsernameTxtField.getText().toString().trim().equals("")){
-				lobbyUsernameColor = lobbyUsernameTxtField.getText();
+			if(!lobbyUsernameTxtField.getValue().toString().trim().equals("")){
+				lobbyUsernameColor = lobbyUsernameTxtField.getValue().toString();
 			}
 
 
 
 			// -- BOARD PAGE
-			if(!boardMySquareTxtField.getText().toString().trim().equals("")){
-				boardMySquareColor = boardMySquareTxtField.getText();
+			if(!boardMySquareTxtField.getValue().toString().trim().equals("")){
+				boardMySquareColor = boardMySquareTxtField.getValue().toString();
 			}
-			if(!boardOpponentSquareTxtField.getText().toString().trim().equals("")){
-				boardOpponentSquareColor = boardOpponentSquareTxtField.getText();
+			if(!boardOpponentSquareTxtField.getValue().toString().trim().equals("")){
+				boardOpponentSquareColor = boardOpponentSquareTxtField.getValue().toString();
 			}
-			if(!boardSendBtnTxtField.getText().toString().trim().equals("")){
-				boardSendBtnColor = boardSendBtnTxtField.getText();
+			if(!boardSendBtnTxtField.getValue().toString().trim().equals("")){
+				boardSendBtnColor = boardSendBtnTxtField.getValue().toString();
 			}
-			if(!boardConcedeBtnTxtField.getText().toString().trim().equals("")){
-				boardConcedeBtnColor = boardConcedeBtnTxtField.getText();
+			if(!boardConcedeBtnTxtField.getValue().toString().trim().equals("")){
+				boardConcedeBtnColor = boardConcedeBtnTxtField.getValue().toString();
 			}
-			if(!boardBackgroundTxtField.getText().toString().trim().equals("")){
-				boardBackgroundColor = boardBackgroundTxtField.getText();
+			if(!boardBackgroundTxtField.getValue().toString().trim().equals("")){
+				boardBackgroundColor = boardBackgroundTxtField.getValue().toString();
 			}
-			if(!boardMyAvatarTxtField.getText().toString().trim().equals("")){
-				boardMyAvatarColor = boardMyAvatarTxtField.getText();
+			if(!boardMyAvatarTxtField.getValue().toString().trim().equals("")){
+				boardMyAvatarColor = boardMyAvatarTxtField.getValue().toString();
 			}
-			if(!boardOpponentAvatarTxtField.getText().toString().trim().equals("")){
-				boardOpponentAvatarColor = boardOpponentAvatarTxtField.getText();
+			if(!boardOpponentAvatarTxtField.getValue().toString().trim().equals("")){
+				boardOpponentAvatarColor = boardOpponentAvatarTxtField.getValue().toString();
 			}
-			if(!boardSendBtnTextTxtField.getText().toString().trim().equals("")){
-				boardSendBtnTextColor = boardSendBtnTextTxtField.getText();
+			if(!boardSendBtnTextTxtField.getValue().toString().trim().equals("")){
+				boardSendBtnTextColor = boardSendBtnTextTxtField.getValue().toString();
 			}
-			if(!boardConcedeBtnTextTxtField.getText().toString().trim().equals("")){
-				boardConcedeBtnTextColor = boardConcedeBtnTextTxtField.getText();
+			if(!boardConcedeBtnTextTxtField.getValue().toString().trim().equals("")){
+				boardConcedeBtnTextColor = boardConcedeBtnTextTxtField.getValue().toString();
 			}
-			if(!boardMyCheckersTxtField.getText().toString().trim().equals("")){
-				boardMyCheckersColor = boardMyCheckersTxtField.getText();
+			if(!boardMyCheckersTxtField.getValue().toString().trim().equals("")){
+				boardMyCheckersColor = boardMyCheckersTxtField.getValue().toString();
 			}
-			if(!boardOpponentCheckerTxtField.getText().toString().trim().equals("")){
-				boardOpponentsCheckersColor = boardOpponentCheckerTxtField.getText();
+			if(!boardOpponentCheckerTxtField.getValue().toString().trim().equals("")){
+				boardOpponentsCheckersColor = boardOpponentCheckerTxtField.getValue().toString();
 			}
 
 

@@ -16,7 +16,7 @@
             <Font name="System Bold" size="32.0" />
           </font>
         </Label>
-        <Button fx:id="cancelBtn" layoutX="599.0" layoutY="560.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="91.0" text="Cancel">
+        <Button fx:id="cancelBtn" layoutX="514.0" layoutY="560.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="134.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Cancel">
           <font>
             <Font size="16.0" fx:id="x1" />
           </font>
@@ -27,26 +27,26 @@
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="772.0">
                   <children>
-                    <Label layoutX="117.0" layoutY="106.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT">
+                    <Label layoutX="27.0" layoutY="23.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT">
                       <font>
                         <Font size="20.0" fx:id="x2" />
                       </font>
                     </Label>
-                    <Label font="$x2" layoutX="118.0" layoutY="149.0" prefHeight="24.0" prefWidth="120.0" text="Quit Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="118.0" layoutY="193.0" prefHeight="24.0" prefWidth="157.0" text="Settings Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="118.0" layoutY="239.0" prefHeight="24.0" prefWidth="134.0" text="Login Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="118.0" layoutY="288.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
-                    <TextField fx:id="quitBtnTxtField" layoutX="284.0" layoutY="148.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsButtonTextField" fx:id="settingsBtnTextField" layoutX="284.0" layoutY="192.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField fx:id="loginBtnTextField" layoutX="284.0" layoutY="237.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField fx:id="backgroundTxtField" layoutX="284.0" layoutY="286.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField fx:id="titleTxtField" layoutX="284.0" layoutY="104.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="401.0" layoutY="150.0" prefHeight="24.0" prefWidth="170.0" text="Quit Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="401.0" layoutY="192.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Settings Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="401.0" layoutY="239.0" prefHeight="24.0" prefWidth="183.0" text="Login Button Text" textAlignment="RIGHT" />
-                    <TextField fx:id="quitBtnTxtTextField" layoutX="622.0" layoutY="148.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField fx:id="settingsBtnTxtTextField" layoutX="622.0" layoutY="192.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField fx:id="loginBtnTxtTextField" layoutX="622.0" layoutY="236.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
+                    <Label font="$x2" layoutX="28.0" layoutY="66.0" prefHeight="24.0" prefWidth="120.0" text="Quit Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="110.0" prefHeight="24.0" prefWidth="157.0" text="Settings Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="156.0" prefHeight="24.0" prefWidth="134.0" text="Login Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="200.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="67.0" prefHeight="24.0" prefWidth="170.0" text="Quit Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="109.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Settings Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="155.0" prefHeight="24.0" prefWidth="183.0" text="Login Button Text" textAlignment="RIGHT" />
+                    <ColorPicker fx:id="loginBtnTxtTextField" layoutX="532.0" layoutY="150.0" />
+                    <ColorPicker fx:id="settingsBtnTxtTextField" layoutX="532.0" layoutY="108.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="quitBtnTxtTextField" layoutX="532.0" layoutY="65.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="backgroundTxtField" layoutX="194.0" layoutY="199.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="loginBtnTextField" layoutX="194.0" layoutY="155.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="settingsBtnTextField" layoutX="194.0" layoutY="108.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="quitBtnTxtField" layoutX="194.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="titleTxtField" layoutX="194.0" layoutY="22.0" prefHeight="25.0" prefWidth="88.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -55,18 +55,18 @@
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <Label font="$x2" layoutX="109.0" layoutY="131.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="173.0" prefHeight="24.0" prefWidth="157.0" text="Cancel Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="218.0" prefHeight="24.0" prefWidth="157.0" text="Submit Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="263.0" prefHeight="24.0" prefWidth="134.0" text="Background" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtField" fx:id="loginCancelBtnTxtField" layoutX="276.0" layoutY="173.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsButtonTextField" fx:id="loginSubmitBtnTxtField" layoutX="276.0" layoutY="218.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTextField" fx:id="loginBackgroundTxtField" layoutX="276.0" layoutY="262.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="titleTxtField" fx:id="loginTitleTxtField" layoutX="276.0" layoutY="129.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="175.0" prefHeight="24.0" prefWidth="212.0" text="Cancel Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="393.0" layoutY="217.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Submit Button Text" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtTextField" fx:id="loginCancelBtnTextTxtField" layoutX="614.0" layoutY="173.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsBtnTxtTextField" fx:id="loginSubmitBtnTextTxtField" layoutX="614.0" layoutY="217.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
+                    <Label font="$x2" layoutX="27.0" layoutY="23.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="65.0" prefHeight="24.0" prefWidth="157.0" text="Cancel Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="110.0" prefHeight="24.0" prefWidth="157.0" text="Submit Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="150.0" prefHeight="24.0" prefWidth="134.0" text="Background" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="65.0" prefHeight="24.0" prefWidth="212.0" text="Cancel Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="109.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Submit Button Text" textAlignment="RIGHT" />
+                    <ColorPicker fx:id="loginSubmitBtnTextTxtField" layoutX="532.0" layoutY="104.0" />
+                    <ColorPicker fx:id="loginCancelBtnTextTxtField" layoutX="532.0" layoutY="65.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="loginBackgroundTxtField" layoutX="189.0" layoutY="144.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="loginSubmitBtnTxtField" layoutX="189.0" layoutY="104.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="loginCancelBtnTxtField" layoutX="189.0" layoutY="64.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="loginTitleTxtField" layoutX="189.0" layoutY="22.0" prefHeight="25.0" prefWidth="88.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -75,32 +75,32 @@
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <Label font="$x2" layoutX="37.0" layoutY="30.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="38.0" layoutY="73.0" prefHeight="24.0" prefWidth="170.0" text="Spectate Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="38.0" layoutY="117.0" prefHeight="24.0" prefWidth="157.0" text="Host Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="38.0" layoutY="163.0" prefHeight="24.0" prefWidth="134.0" text="Join Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="38.0" layoutY="212.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtField" fx:id="lobbySpectateBtnTxtField" layoutX="204.0" layoutY="72.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsButtonTextField" fx:id="lobbyHostBtnTxtField" layoutX="204.0" layoutY="117.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTextField" fx:id="lobbyJoinBtnTxtField" layoutX="204.0" layoutY="162.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="backgroundTxtField" fx:id="lobbyBackgroundTxtField" layoutX="204.0" layoutY="210.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="titleTxtField" fx:id="lobbyTitleTxtField" layoutX="204.0" layoutY="28.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="321.0" layoutY="74.0" prefHeight="24.0" prefWidth="221.0" text="Spectate Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="321.0" layoutY="116.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Host Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="321.0" layoutY="163.0" prefHeight="24.0" prefWidth="183.0" text="Join Button Text" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtTextField" fx:id="lobbySpectateBtnTextTxtField" layoutX="542.0" layoutY="72.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsBtnTxtTextField" fx:id="lobbyHostBtnTextTxtField" layoutX="542.0" layoutY="116.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTxtTextField" fx:id="lobbyJoinBtnTxtTextField" layoutX="542.0" layoutY="161.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="38.0" layoutY="263.0" prefHeight="24.0" prefWidth="157.0" text="Refresh Button" textAlignment="RIGHT" />
-                    <TextField id="loginBtnTextField" fx:id="lobbyRefreshBtnTtxField" layoutX="204.0" layoutY="261.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="321.0" layoutY="263.0" prefHeight="24.0" prefWidth="221.0" text="Refresh Button Text" textAlignment="RIGHT" />
-                    <TextField id="loginBtnTxtTextField" fx:id="lobbyRefreshBtnTextTtxField" layoutX="542.0" layoutY="260.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="320.0" layoutY="304.0" prefHeight="24.0" prefWidth="221.0" text="'In Progress' Text" textAlignment="RIGHT" />
-                    <TextField id="loginBtnTxtTextField" fx:id="lobbyInProgressTxtField" layoutX="542.0" layoutY="301.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="321.0" layoutY="346.0" prefHeight="24.0" prefWidth="221.0" text="'Open Tables' Text" textAlignment="RIGHT" />
-                    <TextField id="loginBtnTxtTextField" fx:id="lobbyOpenTablesTxtField" layoutX="543.0" layoutY="343.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="321.0" layoutY="386.0" prefHeight="24.0" prefWidth="221.0" text="Username Text" textAlignment="RIGHT" />
-                    <TextField id="loginBtnTxtTextField" fx:id="lobbyUsernameTxtField" layoutX="542.0" layoutY="384.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
+                    <Label font="$x2" layoutX="27.0" layoutY="23.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="66.0" prefHeight="24.0" prefWidth="170.0" text="Spectate Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="110.0" prefHeight="24.0" prefWidth="157.0" text="Host Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="156.0" prefHeight="24.0" prefWidth="134.0" text="Join Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="199.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="67.0" prefHeight="24.0" prefWidth="221.0" text="Spectate Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="109.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Host Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="151.0" prefHeight="24.0" prefWidth="183.0" text="Join Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="244.0" prefHeight="24.0" prefWidth="157.0" text="Refresh Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="311.0" layoutY="244.0" prefHeight="24.0" prefWidth="221.0" text="Refresh Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="312.0" layoutY="286.0" prefHeight="24.0" prefWidth="221.0" text="'In Progress' Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="312.0" layoutY="325.0" prefHeight="24.0" prefWidth="221.0" text="'Open Tables' Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="310.0" layoutY="366.0" prefHeight="24.0" prefWidth="221.0" text="Username Text" textAlignment="RIGHT" />
+                    <ColorPicker fx:id="lobbyUsernameTxtField" layoutX="531.0" layoutY="365.0" />
+                    <ColorPicker fx:id="lobbyOpenTablesTxtField" layoutX="531.0" layoutY="325.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyInProgressTxtField" layoutX="532.0" layoutY="286.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyRefreshBtnTextTtxField" layoutX="531.0" layoutY="243.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyJoinBtnTxtTextField" layoutX="532.0" layoutY="150.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyHostBtnTextTxtField" layoutX="531.0" layoutY="108.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbySpectateBtnTextTxtField" layoutX="531.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyTitleTxtField" layoutX="194.0" layoutY="25.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbySpectateBtnTxtField" layoutX="194.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyHostBtnTxtField" layoutX="194.0" layoutY="109.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyJoinBtnTxtField" layoutX="194.0" layoutY="150.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyBackgroundTxtField" layoutX="194.0" layoutY="193.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyRefreshBtnTtxField" layoutX="194.0" layoutY="241.0" prefHeight="25.0" prefWidth="88.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -109,59 +109,40 @@
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                    <Label font="$x2" layoutX="83.0" layoutY="131.0" prefHeight="24.0" prefWidth="170.0" text="My Squares" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="84.0" layoutY="174.0" prefHeight="24.0" prefWidth="192.0" text="Opponent Squares" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="84.0" layoutY="218.0" prefHeight="24.0" prefWidth="157.0" text="Send Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="84.0" layoutY="264.0" prefHeight="24.0" prefWidth="170.0" text="Concede Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="84.0" layoutY="313.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtField" fx:id="boardOpponentSquareTxtField" layoutX="276.0" layoutY="173.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsButtonTextField" fx:id="boardSendTxtField" layoutX="276.0" layoutY="217.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTextField" fx:id="boardConcedeBtnTxtField" layoutX="276.0" layoutY="263.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="backgroundTxtField" fx:id="boardBackgroundTxtField" layoutX="276.0" layoutY="311.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="titleTxtField" fx:id="boardMySquareTxtField" layoutX="276.0" layoutY="129.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="217.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Send Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="393.0" layoutY="264.0" prefHeight="24.0" prefWidth="221.0" text="Concede Button Text" textAlignment="RIGHT" />
-                    <TextField id="settingsBtnTxtTextField" fx:id="boardSendBtnTextTxtField" layoutX="614.0" layoutY="217.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTxtTextField" fx:id="boardConcedeBtnTextTxtField" layoutX="614.0" layoutY="262.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="313.0" prefHeight="24.0" prefWidth="170.0" text="My Checkers" textAlignment="RIGHT" />
-                    <TextField id="titleTxtField" fx:id="boardMyCheckersTxtField" layoutX="614.0" layoutY="311.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="356.0" prefHeight="24.0" prefWidth="221.0" text="Opponent Checkers" textAlignment="RIGHT" />
-                    <TextField id="titleTxtField" fx:id="boardOpponentCheckerTxtField" layoutX="614.0" layoutY="356.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="131.0" prefHeight="24.0" prefWidth="170.0" text="My Avatar" textAlignment="RIGHT" />
-                    <TextField id="titleTxtField" fx:id="boardMyAvatarTxtField" layoutX="614.0" layoutY="129.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="169.0" prefHeight="24.0" prefWidth="221.0" text="Opponent Avatar" textAlignment="RIGHT" />
-                    <TextField id="titleTxtField" fx:id="boardOpponentAvatarTxtField" layoutX="614.0" layoutY="169.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
+                    <Label font="$x2" layoutX="27.0" layoutY="23.0" prefHeight="24.0" prefWidth="170.0" text="My Squares" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="66.0" prefHeight="24.0" prefWidth="192.0" text="Opponent Squares" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="110.0" prefHeight="24.0" prefWidth="157.0" text="Send Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="156.0" prefHeight="24.0" prefWidth="170.0" text="Concede Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="205.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="337.0" layoutY="109.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Send Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="337.0" layoutY="151.0" prefHeight="24.0" prefWidth="221.0" text="Concede Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="337.0" layoutY="194.0" prefHeight="24.0" prefWidth="170.0" text="My Checkers" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="337.0" layoutY="237.0" prefHeight="24.0" prefWidth="221.0" text="Opponent Checkers" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="337.0" layoutY="23.0" prefHeight="24.0" prefWidth="170.0" text="My Avatar" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="337.0" layoutY="67.0" prefHeight="24.0" prefWidth="221.0" text="Opponent Avatar" textAlignment="RIGHT" />
+                    <ColorPicker fx:id="boardMySquareTxtField" layoutX="215.0" layoutY="23.0" />
+                    <ColorPicker fx:id="boardBackgroundTxtField" layoutX="215.0" layoutY="199.0" />
+                    <ColorPicker fx:id="boardConcedeBtnTxtField" layoutX="215.0" layoutY="156.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardSendBtnTxtField" layoutX="215.0" layoutY="110.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardOpponentSquareTxtField" layoutX="215.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardMyAvatarTxtField" layoutX="558.0" layoutY="22.0" />
+                    <ColorPicker fx:id="boardOpponentCheckerTxtField" layoutX="558.0" layoutY="236.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardMyCheckersTxtField" layoutX="558.0" layoutY="193.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardConcedeBtnTextTxtField" layoutX="558.0" layoutY="145.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardSendBtnTextTxtField" layoutX="558.0" layoutY="104.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardOpponentAvatarTxtField" layoutX="558.0" layoutY="61.0" prefHeight="25.0" prefWidth="88.0" />
                   </children>
                 </AnchorPane>
               </content>
             </Tab>
             <Tab text="Chat Window">
               <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                  <children>
-                    <Label font="$x2" layoutX="109.0" layoutY="131.0" prefHeight="24.0" prefWidth="49.0" text="Title" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="174.0" prefHeight="24.0" prefWidth="120.0" text="Quit Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="218.0" prefHeight="24.0" prefWidth="157.0" text="Settings Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="264.0" prefHeight="24.0" prefWidth="134.0" text="Login Button" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="110.0" layoutY="313.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtField" layoutX="276.0" layoutY="173.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsButtonTextField" layoutX="276.0" layoutY="217.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTextField" layoutX="276.0" layoutY="262.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="backgroundTxtField" layoutX="276.0" layoutY="311.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="titleTxtField" layoutX="276.0" layoutY="129.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <Label font="$x2" layoutX="393.0" layoutY="175.0" prefHeight="24.0" prefWidth="170.0" text="Quit Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="393.0" layoutY="217.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Settings Button Text" textAlignment="RIGHT" />
-                    <Label font="$x2" layoutX="393.0" layoutY="264.0" prefHeight="24.0" prefWidth="183.0" text="Login Button Text" textAlignment="RIGHT" />
-                    <TextField id="quitBtnTxtTextField" layoutX="614.0" layoutY="173.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="settingsBtnTxtTextField" layoutX="614.0" layoutY="217.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                    <TextField id="loginBtnTxtTextField" layoutX="614.0" layoutY="261.0" onKeyTyped="#checkInputLength" prefHeight="25.84375" prefWidth="78.0" />
-                  </children>
-                </AnchorPane>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
           </tabs>
         </TabPane>
-        <Button fx:id="saveBtn" font="$x1" layoutX="708.0" layoutY="560.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Save" textAlignment="CENTER" />
+        <Button fx:id="saveBtn" font="$x1" layoutX="665.0" layoutY="560.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-padding: 3 30 3 30;&#10;    -fx-text-fill: #242d35;&#10;    -fx-font-size: 14px;" text="Save" textAlignment="CENTER" />
         <Label layoutX="155.0" layoutY="31.0" text="for changing the color, enter a hexadecimal value (ex: ffffff or f2aab8)" />
       </children>
     </Pane>

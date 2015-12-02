@@ -24,6 +24,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	@FXML
 	Pane lobbyPane;
+
+	@FXML
+	AnchorPane lobbyAnchorPane;
 	
 	@FXML
 	Button refreshBtn;
@@ -39,6 +42,15 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	@FXML
 	Label userNameLbl;
+
+	@FXML
+	Label openTablesLbl;
+
+	@FXML
+	Label lobbyTitleLbl;
+
+	@FXML
+	Label inProgressLbl;
 	
 	@FXML
 	ListView<Integer> joinListView;
@@ -52,13 +64,34 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		System.out.println( "Username: " + BaseView.network.getUsrName() );
-		userNameLbl.setText( BaseView.network.getUsrName() );
+		System.out.println("Username: " + BaseView.network.getUsrName());
+		userNameLbl.setText(BaseView.network.getUsrName());
 	
-		joinBtn.setOnAction( e -> ButtonClicked(e) );
+		joinBtn.setOnAction(e -> ButtonClicked(e));
 		hostBtn.setOnAction( e -> ButtonClicked(e) );
-		refreshBtn.setOnAction( e -> ButtonClicked(e) );
-		spectateBtn.setOnAction( e -> ButtonClicked(e) );
+		refreshBtn.setOnAction(e -> ButtonClicked(e));
+		spectateBtn.setOnAction(e -> ButtonClicked(e));
+
+		refreshBtn.setStyle("-fx-background-color: #" + lobbyRefreshBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyRefreshBtnTextColor + ";"
+		);
+		hostBtn.setStyle("-fx-background-color: #" + lobbyHostBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyHostBtnTextColor + ";"
+		);
+		spectateBtn.setStyle("-fx-background-color: #" + lobbySpectateBtnColor + ";" +
+						"-fx-text-fill: #" + lobbySpectateBtnTextColor + ";"
+		);
+		joinBtn.setStyle("-fx-background-color: #" + lobbyJoinBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyJoinBtnTextColor + ";"
+		);
+		userNameLbl.setStyle("-fx-text-fill: #" + lobbyUsernameColor);
+		lobbyAnchorPane.setStyle("-fx-background-color: #" + lobbyBackgroundColor);
+		openTablesLbl.setStyle("-fx-text-fill: #" + lobbyOpenTablesColor);
+		inProgressLbl.setStyle("-fx-text-fill: #" + lobbyInProgressColor);
+		lobbyTitleLbl.setStyle("-fx-text-fill: #" + lobbyTitleColor);
+
+
+
 		
 		Platform.runLater( new Runnable() {
 
