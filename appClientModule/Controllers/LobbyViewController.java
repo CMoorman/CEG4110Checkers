@@ -76,7 +76,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		if ( source == hostBtn ) { 
 			svrCom.makeTable();
 			setIsNotSpectating();
-			switchScene(CheckersBoardViewController.getViewInstance());	
+			switchScene(CheckersBoardViewController.getInstance().getScene());	
 		}
 		else if( source == refreshBtn ) {
 			System.out.println("Refresh");
@@ -94,7 +94,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				
 				// -- DO SOMETHING HERE ****************************************
 				setIsNotSpectating();
-				switchScene(CheckersBoardViewController.getViewInstance());	
+				switchScene(CheckersBoardViewController.getInstance().getScene());	
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
@@ -111,7 +111,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				setIsSpectating();
 				
 				// -- DO SOMETHING HERE ****************************************
-				switchScene(CheckersBoardViewController.getViewInstance());
+				switchScene(CheckersBoardViewController.getInstance().getScene());
 				
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
@@ -143,22 +143,30 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		
 	}
 	
-	private static Scene lobbyView = null;
+	private Scene lobbyScene = null;
 
-	public static Scene getViewInstance() {
+	public Scene getScene() {
 
-		if (LobbyViewController.lobbyView == null) {
+		if (lobbyScene == null) {
 			try {
-				AnchorPane lobbyPane = (AnchorPane) FXMLLoader
-						.load(BaseView.class.getResource(LOBBY_VIEW_FXML));
-				LobbyViewController.lobbyView = new Scene(lobbyPane);
+				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(LOBBY_VIEW_FXML));
+				AnchorPane lobbyPane = (AnchorPane) loader.load();
+				lobbyScene = new Scene(lobbyPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 
 		}
-		return LobbyViewController.lobbyView;
+		return lobbyScene;
 
+	}
+	private static LobbyViewController instance = null;
+
+	public static LobbyViewController getInstance() {
+		if (instance == null) {
+			instance = new LobbyViewController();
+		}
+		return instance;
 	}
 }
 

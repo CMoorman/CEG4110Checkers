@@ -22,7 +22,7 @@ import javafx.scene.layout.Pane;
 
 public class CheckersBoardViewController extends BaseView implements Initializable {
 
-	private static Scene boardView = null;
+	private Scene boardScene = null;
 	
 	@FXML
 	Label yourUserNameLbl;
@@ -74,8 +74,8 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		);
 		checkersAnchorPane.setStyle("-fx-background-color: #" + boardBackgroundColor);
 
-		redSquare.setStyle("-fx-background-color: #" + boardMySquareColor);
-		blackSquare.setStyle("-fx-background-color: #" + boardOpponentSquareColor);
+		/*redSquare.setStyle("-fx-background-color: #" + boardMySquareColor);
+		blackSquare.setStyle("-fx-background-color: #" + boardOpponentSquareColor);*/
 
 		opponentAvatar.setStyle("-fx-background-color: #" + boardOpponentAvatarColor);
 		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
@@ -84,18 +84,17 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 
 	}
 
-	public static Scene getViewInstance() {
-		if (CheckersBoardViewController.boardView == null) {
+	public Scene getScene() {
+		if (boardScene == null) {
 			try {
-				AnchorPane boardPane = (AnchorPane) FXMLLoader
-						.load(BaseView.class.getResource(BOARD_VIEW_FXML));
-				CheckersBoardViewController.boardView = new Scene(boardPane);
+				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(BOARD_VIEW_FXML));
+				AnchorPane boardPane = (AnchorPane) loader.load();
+				boardScene = new Scene(boardPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-		return CheckersBoardViewController.boardView;
+		return boardScene;
 	}
 	
 	public void setOpponentUsername(String name) {
@@ -123,7 +122,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	
 	private void concedeBtnPressed( ActionEvent e ) {
 		network.svrCommunicator.leaveTable();
-		switchScene(LobbyViewController.getViewInstance());
+		switchScene(LobbyViewController.getInstance().getScene());
 	}
 	
 	private void sendBtnPressed( ActionEvent e ) {
@@ -170,5 +169,11 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 			}
 	    }
 	} // -- End of buttonPressed.
-
+	private static CheckersBoardViewController instance = null;
+	public static CheckersBoardViewController getInstance(){
+		if (instance == null) {
+			instance = new CheckersBoardViewController();
+		}
+		return instance;
+	}
 }

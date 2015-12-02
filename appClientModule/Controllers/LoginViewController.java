@@ -19,7 +19,7 @@ import javafx.scene.layout.Pane;
 
 public class LoginViewController extends BaseView implements Initializable {
 
-	private static Scene loginView = null;
+	private Scene loginScene = null;
 	
 	@FXML
 	TextField usernameTxtField;
@@ -64,44 +64,53 @@ public class LoginViewController extends BaseView implements Initializable {
 	 *  Grab the current state of the scene.  If the state does not exist, create it.
 	 * @return
 	 */
-	public static Scene getViewInstance() {
+	public Scene getScene() {
 
-		if (LoginViewController.loginView == null) {
+		if (loginScene == null) {
 			try {
-				AnchorPane loginPane = (AnchorPane) FXMLLoader
-						.load(BaseView.class.getResource(LOGIN_VIEW_FXML));
-				LoginViewController.loginView = new Scene(loginPane);
+				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(LOGIN_VIEW_FXML));
+				AnchorPane loginPane = (AnchorPane) loader.load();
+				loginScene = new Scene(loginPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-		
-		return LoginViewController.loginView;
+		return loginScene;
 	}
+	private static LoginViewController instance = null;
 
+	public static LoginViewController getInstance() {
+		if (instance == null) {
+			instance = new LoginViewController();
+		}
+		return instance;
+	}
 	public void submitBtnPressed( ActionEvent e ){
 		boolean loginSuccess = false;
 
 		String userName = usernameTxtField.getText();
-
+		
+		String optionalIPAddress = ipAddressTxtField.getText();
 		// -- Make sure that there is something there and that we set a
 		// limit on it.
 		if (userName.length() > 0 && userName.length() <= 20) {
-
-			loginSuccess = network.connectToServer(serverIP, userName);
+			if(optionalIPAddress.isEmpty()){
+				loginSuccess = network.connectToServer(serverIP, userName);
+			}else{
+				loginSuccess = network.connectToServer(optionalIPAddress, userName);
+			}
 
 			// -- Try to connect. Trying to connect will yield a boolean
 			// value.
 			if (loginSuccess) {
 				network.setUsrName(userName);
-				switchScene(LobbyViewController.getViewInstance());
+				switchScene(LobbyViewController.getInstance().getScene());
 			}
 		}
 	} // -- End submitBtnPressed
 	
 	public void cancelBtnPressed( ActionEvent e ){
-		switchScene(MainViewController.getViewInstance());
+		switchScene(MainViewController.getInstance().getScene());
 	}
 	
 	@FXML
@@ -122,7 +131,7 @@ public class LoginViewController extends BaseView implements Initializable {
 				// value.
 				if (loginSuccess) {
 					network.setUsrName(userName);
-					switchScene(LobbyViewController.getViewInstance());
+					switchScene(LobbyViewController.getInstance().getScene());
 				}
 			}
 	    }

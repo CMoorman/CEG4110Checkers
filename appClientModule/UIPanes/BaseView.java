@@ -1,7 +1,6 @@
 package UIPanes;
 
 import Controllers.MainViewController;
-import Controllers.SettingsViewController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -14,10 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
-
 import Controllers.NetworkingController;
-import Networking.*;
 
 public class BaseView extends Application implements Runnable {
 	
@@ -30,8 +26,6 @@ public class BaseView extends Application implements Runnable {
 
 	// -- Public network controller.  Used to house the current state or settings of the network.
 	public static NetworkingController network = new NetworkingController();
-
-	public static MainViewController main = new MainViewController();
 	
 	// -- FXML items.
 	@FXML
@@ -203,7 +197,7 @@ public class BaseView extends Application implements Runnable {
 		isSpectating = false;
 	}
 	
-	public static Scene getViewInstance(){
+	public Scene getScene(){
 		return null;
 	}
 }
