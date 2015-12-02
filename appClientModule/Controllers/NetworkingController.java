@@ -169,6 +169,9 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	public void tableList(int[] tids) {
 		// TODO Auto-generated method stub
 		setTableList(tids);
+		for( int i = 0; i < tids.length; i++ ){
+			svrCommunicator.getTblStatus(userName, tids[i]);
+		}
 	}
 
 	@Override

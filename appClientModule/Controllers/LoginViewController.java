@@ -105,6 +105,16 @@ public class LoginViewController extends BaseView implements Initializable {
 					loginSuccess = network.connectToServer(optionalIPAddress, userName);
 				}
 
+				int attempts = 0;
+				int maxAttempts = 10;
+				while( getTableList() == null && attempts <= maxAttempts ){
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				// -- Try to connect. Trying to connect will yield a boolean
 				// value.
 				if (loginSuccess) {
