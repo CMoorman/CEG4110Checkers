@@ -81,12 +81,35 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		);
 		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
 
+
 		/*redSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMySquareColor));
 		blackSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentSquareColor));*/
 
 		opponentAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentAvatarColor));
 		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 
+	}
+
+	public void updateUI(){
+		yourUserNameLbl.setText(BaseView.network.getUsrName());
+		oponentNameLbl.setText(BaseView.network.getOppName());
+		sendBtn.setOnAction(e -> sendBtnPressed(e));
+		concedeBtn.setOnAction(e -> concedeBtnPressed(e));
+
+		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardSendBtnColor) + ";" +
+						ColorStyleHelper.getTextFillStyle(boardSendBtnTextColor) + ";"
+		);
+		concedeBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardConcedeBtnColor) + ";" +
+						ColorStyleHelper.getTextFillStyle(boardConcedeBtnTextColor) + ";"
+		);
+		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
+
+
+		/*redSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMySquareColor));
+		blackSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentSquareColor));*/
+
+		opponentAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentAvatarColor));
+		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 	}
 
 
