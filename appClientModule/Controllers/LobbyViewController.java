@@ -167,27 +167,26 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	} 
 	
 	private void loadGames() {
-	try{
-		ServerCommunicator svrCom = BaseView.network.svrCommunicator;
-		
-		for( int i = 0; i < svrCom.getTables().length; i++ ){
-			System.out.println( svrCom.getTables()[i] );
-			tableList.add( svrCom.getTables()[i] );
+		try {
+			if (getTableList() != null) {
+				for (int i = 0; i < getTableList().length; i++) {
+					System.out.println(getTableList()[i]);
+					tableList.add(getTableList()[i]);
+				}
+
+				for (int i = 0; i < getTableList().length; i++) {
+					System.out.println(getTableList()[i]);
+					observerTableList.add(getTableList()[i]);
+				}
+
+				joinListView.setItems(tableList);
+				observeListView.setItems(observerTableList);
+
+				System.out.println(getTableList().length);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		for( int i = 0; i < svrCom.getTables().length; i++ ){
-			System.out.println( svrCom.getTables()[i] );
-			observerTableList.add( svrCom.getTables()[i] );
-		}
-		
-		joinListView.setItems( tableList );
-		observeListView.setItems( observerTableList );
-		
-		System.out.println( svrCom.getTables().length );
-	}catch(Exception e){
-		e.printStackTrace();
-	}
-		
 	}
 	
 	private static Scene lobbyScene = null;

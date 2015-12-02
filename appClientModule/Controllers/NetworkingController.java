@@ -167,7 +167,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void tableList(int[] tids) {
 		// TODO Auto-generated method stub
-		
+		setTableList(tids);
 	}
 
 	@Override
