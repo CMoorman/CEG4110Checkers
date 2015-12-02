@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import Networking.ServerCommunicator;
 import Objects.ColorStyleHelper;
+import Objects.TableListObject;
 import UIPanes.BaseView;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -58,13 +59,13 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	Label inProgressLbl;
 
 	@FXML
-	ListView<Integer> joinListView;
+	ListView<String> joinListView;
 
 	@FXML
-	ListView<Integer> observeListView;
+	ListView<String> observeListView;
 
-	ObservableList<Integer> tableList = FXCollections.observableArrayList();
-	ObservableList<Integer> observerTableList = FXCollections.observableArrayList();
+	ObservableList<String> tableList = FXCollections.observableArrayList();
+	ObservableList<String> observerTableList = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -177,25 +178,32 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	private void loadGames() {
 		try {
-			if (getTableList() != null) {
-				for (int i = 0; i < getTableList().length; i++) {
-					System.out.println(getTableList()[i]);
-					tableList.add(getTableList()[i]);
-				}
-
-				for (int i = 0; i < getTableList().length; i++) {
-					System.out.println(getTableList()[i]);
-					observerTableList.add(getTableList()[i]);
+			if ( getTableListObjects() != null) {
+				
+				for (int i = 0; i < getTableListObjects().size() - 1; i++) {
+					TableListObject table = getTableListObjects().get(i);
+					tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
 				}
 
 				joinListView.setItems(tableList);
-				observeListView.setItems(observerTableList);
+				observeListView.setItems(tableList);
 
 				System.out.println(getTableList().length);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void updateGameList( TableListObject table ) {
+
+		tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
+
+		joinListView.setItems(tableList);
+		observeListView.setItems(tableList);
+
+		System.out.println("Updating table list.");
+		
 	}
 
 	private static Scene lobbyScene = null;

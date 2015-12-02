@@ -90,28 +90,43 @@ public class LoginViewController extends BaseView implements Initializable {
 		boolean loginSuccess = false;
 
 		String userName = usernameTxtField.getText().trim();
+		
+		String optionalIPAddress = ipAddressTxtField.getText();
 
-		String optionalIPAddress = ipAddressTxtField.getText().trim();
-		// TODO: IP Address validation (if we want)
 		// -- Make sure that there is something there and that we set a
 		// limit on it.
 		if (userName.length() > 0 && userName.length() <= 20) {
-			if (optionalIPAddress.isEmpty()) {
-				loginSuccess = network.connectToServer(serverIP, userName);
-			} else {
-				loginSuccess = network.connectToServer(optionalIPAddress, userName);
-			}
+			
+			
 
-			// -- Try to connect. Trying to connect will yield a boolean
-			// value.
-			if (loginSuccess) {
-				network.setUsrName(userName);
-				switchScene(LobbyViewController.getInstance().getScene());
-			} else {
-				// TODO:pop up a error dialog to the user saying we failed to
-				// connect
+				if(optionalIPAddress.isEmpty()){
+					loginSuccess = network.connectToServer(serverIP, userName);
+				}else{
+					loginSuccess = network.connectToServer(optionalIPAddress, userName);
+				}
+
+				// -- Try to connect. Trying to connect will yield a boolean
+				// value.
+				if (loginSuccess) {
+					network.setUsrName(userName);
+					if ( grabTableList() ) { 
+						switchScene(LobbyViewController.getInstance().getScene());
+					}
+				}
 			}
 		}
+		
+	public boolean grabTableList() {
+		
+		int index = 0;
+		if( getTableListObjects() != null && getTableList() != null ) {
+			while( getTableListObjects().size() - 1 < getTableList().length ) {
+				if( getTableListObjects().size() - 1 < index ) {
+					index++;
+				}
+			}
+		}
+		return true;
 	}
 
 	private static Scene loginScene = null;

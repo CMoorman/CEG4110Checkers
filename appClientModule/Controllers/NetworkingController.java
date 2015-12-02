@@ -2,6 +2,7 @@ package Controllers;
 
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
+import Objects.TableListObject;
 import UIPanes.BaseView;
 
 public class NetworkingController extends BaseView implements CheckersClient {
@@ -135,21 +136,32 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	private static boolean firstPass = true;
 	@Override
 	public void onTable(int tid, String blackSeat, String redSeat) {
-		// -- Not sure if we are going to be black or red.  So, check to see if the username matches our users name.
-		if( getIsPlayerInGame() ) {
-			if( firstPass ) {
-				if( blackSeat.equals(userName) ) {
-					isOppRed = true; 
-				}
-				firstPass = false;
+		
+		if( !getIsPlayerInGame() ) {
+			TableListObject table = new TableListObject();
+			if( blackSeat.equals("-1") )
+				table.setBlackPlayer("(Empty Seat)");
+			else
+				table.setBlackPlayer(blackSeat);
+			
+			if( redSeat.equals("-1") )
+				table.setRedPlayer("(Empty Seat)");
+			else
+				table.setRedPlayer(redSeat);
+			
+			table.setTableId(tid);
+			
+			LobbyViewController controller = LobbyViewController.getInstance();
+			controller.updateGameList(table);
+			
+			addToTableList(table);
+			
+			try {
+				svrCommunicator.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			else {
-				if( !isOppRed ) {
-					opponentName = blackSeat;
-				}else {
-					opponentName = redSeat;
-				}
-			}	
 		}
 	}
 
