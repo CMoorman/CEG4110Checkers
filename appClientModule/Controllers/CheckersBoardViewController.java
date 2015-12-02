@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Objects.ColorStyleHelper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -72,19 +73,19 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		sendBtn.setOnAction(e -> sendBtnPressed(e));
 		concedeBtn.setOnAction(e -> concedeBtnPressed(e));
 
-		sendBtn.setStyle("-fx-background-color: #" + boardSendBtnColor + ";" +
-						"-fx-text-fill: #" + boardSendBtnTextColor + ";"
+		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardSendBtnColor) + ";" +
+				ColorStyleHelper.getTextFillStyle(boardSendBtnTextColor) + ";"
 		);
-		concedeBtn.setStyle("-fx-background-color: #" + boardConcedeBtnColor + ";" +
-						"-fx-text-fill: #" + boardConcedeBtnTextColor + ";"
+		concedeBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardConcedeBtnColor) + ";" +
+				ColorStyleHelper.getTextFillStyle(boardConcedeBtnTextColor) + ";"
 		);
-		checkersAnchorPane.setStyle("-fx-background-color: #" + boardBackgroundColor);
+		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
 
-		/*redSquare.setStyle("-fx-background-color: #" + boardMySquareColor);
-		blackSquare.setStyle("-fx-background-color: #" + boardOpponentSquareColor);*/
+		/*redSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMySquareColor));
+		blackSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentSquareColor));*/
 
-		opponentAvatar.setStyle("-fx-background-color: #" + boardOpponentAvatarColor);
-		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
+		opponentAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentAvatarColor));
+		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 
 	}
 	
