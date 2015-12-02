@@ -23,7 +23,7 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	@FXML
 	Pane settingsPane;
 	@FXML
-	TextField titleTxtField;
+	ColorPicker titleTxtField;
 	@FXML
 	Button cancelBtn;
 	@FXML
@@ -139,8 +139,8 @@ public class SettingsViewController extends BaseView implements Initializable, B
         	 */
 
 			// -- MAIN MENU PAGE
-			if(!titleTxtField.getText().toString().trim().equals("")){
-				titleColor = titleTxtField.getText();
+			if(!titleTxtField.getValue().toString().trim().equals("")){
+				titleColor = titleTxtField.getValue().toString();
 			}
 			if(!quitBtnTxtField.getValue().toString().trim().equals("")){
 				quitBtnColor = quitBtnTxtField.getValue().toString();

@@ -45,9 +45,6 @@ public class LoginViewController extends BaseView implements Initializable {
 	@FXML
 	javafx.scene.Node currentTile;
 
-	@FXML
-	GridPane checkerBoard;
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -64,17 +61,6 @@ public class LoginViewController extends BaseView implements Initializable {
 		loginViewPane.setStyle("-fx-background-color: #" + loginBackgroundColor);
 		loginMenuTitle.setStyle("-fx-text-fill: #" + loginTitleColor);
 
-		ObservableList<Node> children = checkerBoard.getChildren();
-		for (int i = 0; i < children.size(); i++){
-			currentTile = children.get(i);
-
-			if(i %2 == 0){
-				currentTile.setStyle("-fx-background-color: #000000");
-			}else {
-				currentTile.setStyle("-fx-background-color: #ffffff");
-
-			}
-		}
 	}
 
 	/**
