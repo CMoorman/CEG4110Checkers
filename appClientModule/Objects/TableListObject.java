@@ -1,6 +1,6 @@
 package Objects;
 
-public class tableListObject {
+public class TableListObject {
 
 	private String redPlayer;
 	private String blackPlayer;
