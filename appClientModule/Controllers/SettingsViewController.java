@@ -1,6 +1,5 @@
 package Controllers;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
@@ -17,8 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-
-import javax.xml.soap.Node;
 
 public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
 
@@ -134,7 +132,7 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		 * CANCEL OUT, DON"T SAVE ANYTHING.
 		 */
 		if ( e.getSource()== cancelBtn ){
-			switchScene(MainViewController.getViewInstance());
+			switchScene(MainViewController.getInstance().getScene());
         }else if ( e.getSource()== saveBtn){
         	/**
         	 * NEED TO THROW IN SAVING LOGIC HERE. WHAT EVER CHANGED, WE NEED TO SET IT IN THE BASE VIEW.
@@ -272,25 +270,31 @@ public class SettingsViewController extends BaseView implements Initializable, B
 			}
 
 
-        	switchScene(MainViewController.getViewInstance());
+        	switchScene(MainViewController.getInstance().getScene());
 		}
 	}
 
-	private static Scene settingsView = null;
+	private Scene settingsScene = null;
 
-	public static Scene getViewInstance() {
+	public Scene getScene() {
 
-		if (SettingsViewController.settingsView == null) {
+		if (settingsScene == null) {
 			try {
-				AnchorPane settingsPane = (AnchorPane) FXMLLoader
-						.load(BaseView.class.getResource(SETTINGS_VIEW_FXML));
-				SettingsViewController.settingsView = new Scene(settingsPane);
+				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(SETTINGS_VIEW_FXML));
+				AnchorPane settingsPane = (AnchorPane) loader.load();
+				settingsScene = new Scene(settingsPane);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 		}
-		return SettingsViewController.settingsView;
+		return settingsScene;
 
+	}
+	private static SettingsViewController instance = null;
+	public static SettingsViewController getInstance() {
+		if (instance == null) {
+			instance = new SettingsViewController();
+		}
+		return instance;
 	}
 }
