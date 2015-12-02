@@ -31,7 +31,7 @@ public class BaseView extends Application implements Runnable {
 	
 	// ------ Variables that will change throughout the lifecycle of the game.
 	public static String userName;
-	public static String opponentName;
+	public static String opponentName = "Seat is Empty";
 	
 	// -- Used for determining if we are joining a table to spectate. 
 	public static boolean isSpectating;

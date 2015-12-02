@@ -28,7 +28,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	Label yourUserNameLbl;
 	
 	@FXML
-	Label opponentNameLbl;
+	Label oponentNameLbl;
 
 	@FXML
 	GridPane checkerBoard;
@@ -68,7 +68,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		yourUserNameLbl.setText(BaseView.network.getUsrName());
-		
+		oponentNameLbl.setText(BaseView.network.getOppName());
 		sendBtn.setOnAction(e -> sendBtnPressed(e));
 		concedeBtn.setOnAction(e -> concedeBtnPressed(e));
 
@@ -89,7 +89,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	}
 	
 	public void setOpponentUsername(String name) {
-		opponentNameLbl.setText(BaseView.opponentName);
+		oponentNameLbl.setText(BaseView.opponentName);
 	}
 	
 	public void addGameMessage(String msg) {

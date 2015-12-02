@@ -270,5 +270,13 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	public void notInLobby() {
 		// TODO Auto-generated method stub
 		
-	}	
+	}
+
+	public void setOppName( String usrName ) {
+		opponentName = usrName;
+	}
+	
+	public String getOppName() {
+		return opponentName;
+	}
 }
