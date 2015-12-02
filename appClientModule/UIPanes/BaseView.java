@@ -1,5 +1,7 @@
 package UIPanes;
 
+import java.util.ArrayList;
+
 import Controllers.MainViewController;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -10,8 +12,8 @@ import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-
 import Controllers.NetworkingController;
+import Objects.TableListObject;
 
 public class BaseView extends Application implements Runnable {
 	
@@ -89,6 +91,8 @@ public class BaseView extends Application implements Runnable {
 	public static String lobbyBtnColor = "000000";
 
 	private static int[] tableList;
+	
+	private static ArrayList<TableListObject> tableListObjects;
 	
 	private static boolean playerIsInGame;
 
@@ -172,6 +176,15 @@ public class BaseView extends Application implements Runnable {
 	public static void setTableList(int[] tables) {
 		tableList = tables;
 	}
+	
+	public static void addToTableList( TableListObject table ) {
+		tableListObjects.add(table);
+	}
+	
+	public static ArrayList<TableListObject> getTableListObjects() {
+		return tableListObjects;
+	}
+	
 	public static int[] getTableList() {
 		return tableList;
 	}

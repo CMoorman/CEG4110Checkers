@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Networking.ServerCommunicator;
+import Objects.TableListObject;
 import UIPanes.BaseView;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -17,9 +18,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Callback;
 
 public class LobbyViewController extends BaseView implements Initializable, BaseViewController{
 
@@ -57,20 +60,20 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	Label inProgressLbl;
 	
 	@FXML
-	ListView<Integer> joinListView;
+	ListView<String> joinListView;
 	
 	@FXML
-	ListView<Integer> observeListView;
+	ListView<String> observeListView;
 	
-	ObservableList<Integer> tableList = FXCollections.observableArrayList();
-	ObservableList<Integer> observerTableList = FXCollections.observableArrayList();
+	ObservableList<String> tableList = FXCollections.observableArrayList();
+	ObservableList<String> observerTableList = FXCollections.observableArrayList();
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		System.out.println("Username: " + BaseView.network.getUsrName());
 		userNameLbl.setText(BaseView.network.getUsrName());
-	
+		
 		joinBtn.setOnAction(e -> ButtonClicked(e));
 		hostBtn.setOnAction( e -> ButtonClicked(e) );
 		refreshBtn.setOnAction(e -> ButtonClicked(e));
@@ -168,25 +171,32 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	private void loadGames() {
 		try {
-			if (getTableList() != null) {
-				for (int i = 0; i < getTableList().length; i++) {
-					System.out.println(getTableList()[i]);
-					tableList.add(getTableList()[i]);
-				}
-
-				for (int i = 0; i < getTableList().length; i++) {
-					System.out.println(getTableList()[i]);
-					observerTableList.add(getTableList()[i]);
+			if ( getTableListObjects() != null) {
+				
+				for (int i = 0; i < getTableListObjects().size() - 1; i++) {
+					TableListObject table = getTableListObjects().get(i);
+					tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
 				}
 
 				joinListView.setItems(tableList);
-				observeListView.setItems(observerTableList);
+				observeListView.setItems(tableList);
 
 				System.out.println(getTableList().length);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void updateGameList( TableListObject table ) {
+
+		tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
+
+		joinListView.setItems(tableList);
+		observeListView.setItems(tableList);
+
+		System.out.println("Updating table list.");
+		
 	}
 	
 	private static Scene lobbyScene = null;
