@@ -108,19 +108,19 @@ public class SettingsViewController extends BaseView implements Initializable, B
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		cancelBtn.setOnAction( e -> ButtonClicked(e) );
 		saveBtn.setOnAction( e -> ButtonClicked(e) );
-		
+
 	}
-	
+
 	@FXML
 	public void checkInputLength(KeyEvent ev){
-		
+
 		try {
 			// -- Make sure that we have the correct input and input length.
 			TextField currentField = (TextField) ev.getSource();
-			if( "1234567890abcdefABCDEF".contains( ev.getCharacter() ) && (currentField.getText().length() < 6 ) ) { 
+			if( "1234567890abcdefABCDEF".contains( ev.getCharacter() ) && (currentField.getText().length() < 6 ) ) {
 				// -- Empty if.  For some reason why I try to throw some nots in, it does not work.
 			}
 			else
