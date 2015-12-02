@@ -2,6 +2,7 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import Objects.ColorStyleHelper;
@@ -11,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -81,21 +83,36 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		);
 		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
 
-
-		/*redSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMySquareColor));
-		blackSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentSquareColor));*/
+		updateCheckerBoard();
 
 		opponentAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentAvatarColor));
 		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 
 	}
-
+private static final String RED_ID = "redSquare";
+	private static final String BLACK_ID = "blackSquare";
+	private void updateCheckerBoard(){
+		if(checkerBoard != null){
+			List<Node> children = checkerBoard.getChildren();
+			for(Node node : children){
+				String colorVal = "";
+				if(node.getId().equals(RED_ID)){
+					colorVal = ColorStyleHelper.getBackgroundColorStyle(boardMySquareColor);
+					if(!colorVal.trim().isEmpty()){
+						node.setStyle(colorVal);
+					}
+				}else if (node.getId().equals(BLACK_ID)){
+					colorVal = ColorStyleHelper.getBackgroundColorStyle(boardOpponentSquareColor);
+					if(!colorVal.trim().isEmpty()){
+						node.setStyle(colorVal);
+					}
+				}
+			}
+		}
+	}
 	public void updateUI(){
 		yourUserNameLbl.setText(BaseView.network.getUsrName());
 		oponentNameLbl.setText(BaseView.network.getOppName());
-		sendBtn.setOnAction(e -> sendBtnPressed(e));
-		concedeBtn.setOnAction(e -> concedeBtnPressed(e));
-
 		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardSendBtnColor) + ";" +
 						ColorStyleHelper.getTextFillStyle(boardSendBtnTextColor) + ";"
 		);

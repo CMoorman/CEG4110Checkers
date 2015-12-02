@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="checkersAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.CheckersBoardViewController">
   <children>
-    <GridPane layoutX="14.0" layoutY="14.0" prefHeight="360.0" prefWidth="360.0" style="-fx-border-color:black;">
+    <GridPane fx:id="checkerBoard" layoutX="14.0" layoutY="14.0" prefHeight="360.0" prefWidth="360.0" style="-fx-border-color:black;">
       <children>
         <Pane id="blackSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:black;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <Pane id="redSquare" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color:red;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
