@@ -55,9 +55,20 @@ public class LoginViewController extends BaseView implements Initializable {
 		cancelBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginCancelBtnColor) + ";"
 				+ ColorStyleHelper.getTextFillStyle(loginCancelBtnTextColor));
 
-		loginViewPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginBackgroundBtnColor));
+		loginViewPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginBackgroundColor));
 		loginMenuTitle.setStyle(ColorStyleHelper.getTextFillStyle(loginTitleColor));
 
+
+	}
+
+	public void updateUI(){
+		submitBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginSubmitBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(loginSubmitBtnTextColor));
+		cancelBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginCancelBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(loginCancelBtnTextColor));
+
+		loginViewPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginBackgroundColor));
+		loginMenuTitle.setStyle(ColorStyleHelper.getTextFillStyle(loginTitleColor));
 	}
 
 	private void submitBtnPressed(ActionEvent e) {

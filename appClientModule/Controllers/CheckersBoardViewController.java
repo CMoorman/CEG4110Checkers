@@ -88,6 +88,8 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 
 	}
+
+
 	
 	public void setOpponentUsername(String name) {
 		oponentNameLbl.setText(BaseView.opponentName);

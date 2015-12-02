@@ -272,6 +272,8 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		boardOpponentsCheckersColor = getColorFromPicker(boardOpponentCheckerTxtField);
 
 		MainViewController.getInstance().updateUI();
+		LoginViewController.getInstance().updateUI();;
+		LobbyViewController.getInstance().updateUI();;
 		// TODO: UPDATE ALL UIS here
 		switchScene(MainViewController.getInstance().getScene());
 	}

@@ -106,28 +106,23 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	}
 
 	public void updateUI(){
-		refreshBtn.setStyle("-fx-background-color: #" + lobbyRefreshBtnColor + ";" +
-						"-fx-text-fill: #" + lobbyRefreshBtnTextColor + ";"
-		);
-		hostBtn.setStyle("-fx-background-color: #" + lobbyHostBtnColor + ";" +
-						"-fx-text-fill: #" + lobbyHostBtnTextColor + ";"
-		);
-		spectateBtn.setStyle("-fx-background-color: #" + lobbySpectateBtnColor + ";" +
-						"-fx-text-fill: #" + lobbySpectateBtnTextColor + ";"
-		);
-		joinBtn.setStyle("-fx-background-color: #" + lobbyJoinBtnColor + ";" +
-						"-fx-text-fill: #" + lobbyJoinBtnTextColor + ";"
-		);
-		disconnectBtn.setStyle("-fx-background-color: #" + lobbyDisconnectBtnColor + ";" +
-						"-fx-text-fill: #" + lobbyDisconnectBtnTextColor + ";"
-		);
 
+		refreshBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyRefreshBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbyRefreshBtnTextColor) + ";");
+		hostBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyHostBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbyHostBtnTextColor) + ";");
+		spectateBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbySpectateBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbySpectateBtnTextColor) + ";");
+		joinBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyJoinBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbyJoinBtnTextColor) + ";");
+		disconnectBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyDisconnectBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbyDisconnectBtnTextColor) + ";");
 
-		userNameLbl.setStyle("-fx-text-fill: #" + lobbyUsernameColor);
-		lobbyAnchorPane.setStyle("-fx-background-color: #" + lobbyBackgroundColor);
-		openTablesLbl.setStyle("-fx-text-fill: #" + lobbyOpenTablesColor);
-		inProgressLbl.setStyle("-fx-text-fill: #" + lobbyInProgressColor);
-		lobbyTitleLbl.setStyle("-fx-text-fill: #" + lobbyTitleColor);
+		userNameLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyUsernameColor));
+		lobbyAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyBackgroundColor));
+		openTablesLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
+		inProgressLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyInProgressColor));
+		lobbyTitleLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyTitleColor));
 	}
 
 	@Override
