@@ -9,12 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
@@ -285,26 +285,25 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		}
 	}
 
-	private Scene settingsScene = null;
+	private static Scene settingsScene = null;
 
 	public Scene getScene() {
+		return settingsScene;
+	}
 
-		if (settingsScene == null) {
+	private static SettingsViewController instance = null;
+
+	public static SettingsViewController getInstance() {
+		if (instance == null) {
+			FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(SETTINGS_VIEW_FXML));
+			Parent mainPane = null;
 			try {
-				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(SETTINGS_VIEW_FXML));
-				AnchorPane settingsPane = (AnchorPane) loader.load();
-				settingsScene = new Scene(settingsPane);
+				mainPane = loader.load();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		return settingsScene;
-
-	}
-	private static SettingsViewController instance = null;
-	public static SettingsViewController getInstance() {
-		if (instance == null) {
-			instance = new SettingsViewController();
+			settingsScene = new Scene(mainPane);
+			instance = loader.getController();
 		}
 		return instance;
 	}

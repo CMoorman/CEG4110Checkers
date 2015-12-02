@@ -9,9 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import UIPanes.BaseView;
 import javafx.scene.layout.Pane;
 
@@ -47,7 +47,7 @@ public class MainViewController extends BaseView implements BaseViewController, 
 
 		mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
 		mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
-
+		System.out.println(this.toString());
 	}
 
 	public void updateUI() {
@@ -77,20 +77,9 @@ public class MainViewController extends BaseView implements BaseViewController, 
 		}
 	}
 
-	private Scene mainScene = null;
+	private static Scene mainScene = null;
 
 	public Scene getScene() {
-
-		if (mainScene == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(MAIN_VIEW_FMXL));
-				AnchorPane mainPane = (AnchorPane) loader.load();
-				mainScene = new Scene(mainPane);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
 		return mainScene;
 	}
 
@@ -98,7 +87,15 @@ public class MainViewController extends BaseView implements BaseViewController, 
 
 	public static MainViewController getInstance() {
 		if (instance == null) {
-			instance = new MainViewController();
+			FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(MAIN_VIEW_FMXL));
+			Parent mainPane = null;
+			try {
+				mainPane = loader.load();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			mainScene = new Scene(mainPane);
+			instance = loader.getController();
 		}
 		return instance;
 	}

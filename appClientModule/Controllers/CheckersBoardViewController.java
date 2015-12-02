@@ -2,7 +2,6 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -11,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,11 +22,7 @@ import UIPanes.BaseView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-import javax.xml.soap.Node;
-
 public class CheckersBoardViewController extends BaseView implements Initializable {
-
-	private Scene boardScene = null;
 	
 	@FXML
 	Label yourUserNameLbl;
@@ -90,19 +86,6 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		opponentAvatar.setStyle("-fx-background-color: #" + boardOpponentAvatarColor);
 		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
 
-	}
-
-	public Scene getScene() {
-		if (boardScene == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(BOARD_VIEW_FXML));
-				AnchorPane boardPane = (AnchorPane) loader.load();
-				boardScene = new Scene(boardPane);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return boardScene;
 	}
 	
 	public void setOpponentUsername(String name) {
@@ -177,10 +160,24 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 			}
 	    }
 	} // -- End of buttonPressed.
+	private static Scene boardScene = null;
+
+	public Scene getScene() {
+		return boardScene;
+	}
 	private static CheckersBoardViewController instance = null;
-	public static CheckersBoardViewController getInstance(){
+
+	public static CheckersBoardViewController getInstance() {
 		if (instance == null) {
-			instance = new CheckersBoardViewController();
+			FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(BOARD_VIEW_FXML));
+			Parent mainPane = null;
+			try {
+				mainPane = loader.load();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			boardScene = new Scene(mainPane);
+			instance = loader.getController();
 		}
 		return instance;
 	}

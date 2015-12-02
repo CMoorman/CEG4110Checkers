@@ -100,7 +100,6 @@ public class BaseView extends Application implements Runnable {
 		BaseView.currentStage = primaryStage;
 		
 		try {
-			
 			Scene scene = MainViewController.getInstance().getScene();
 			BaseView.currentStage.setScene( scene );
 			BaseView.currentStage.show();

@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -189,28 +190,24 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		
 	}
 	
-	private Scene lobbyScene = null;
+	private static Scene lobbyScene = null;
 
 	public Scene getScene() {
-
-		if (lobbyScene == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(LOBBY_VIEW_FXML));
-				AnchorPane lobbyPane = (AnchorPane) loader.load();
-				lobbyScene = new Scene(lobbyPane);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
 		return lobbyScene;
-
 	}
 	private static LobbyViewController instance = null;
 
 	public static LobbyViewController getInstance() {
 		if (instance == null) {
-			instance = new LobbyViewController();
+			FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(LOBBY_VIEW_FXML));
+			Parent mainPane = null;
+			try {
+				mainPane = loader.load();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			lobbyScene = new Scene(mainPane);
+			instance = loader.getController();
 		}
 		return instance;
 	}

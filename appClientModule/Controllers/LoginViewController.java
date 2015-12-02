@@ -9,16 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class LoginViewController extends BaseView implements Initializable {
-
-	private Scene loginScene = null;
 	
 	@FXML
 	TextField usernameTxtField;
@@ -59,28 +57,25 @@ public class LoginViewController extends BaseView implements Initializable {
 
 	}
 
-	/**
-	 *  Grab the current state of the scene.  If the state does not exist, create it.
-	 * @return
-	 */
-	public Scene getScene() {
+	private static Scene loginScene = null;
 
-		if (loginScene == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(LOGIN_VIEW_FXML));
-				AnchorPane loginPane = (AnchorPane) loader.load();
-				loginScene = new Scene(loginPane);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+	public Scene getScene() {
 		return loginScene;
 	}
+
 	private static LoginViewController instance = null;
 
 	public static LoginViewController getInstance() {
 		if (instance == null) {
-			instance = new LoginViewController();
+			FXMLLoader loader = new FXMLLoader(BaseView.class.getResource(LOGIN_VIEW_FXML));
+			Parent mainPane = null;
+			try {
+				mainPane = loader.load();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			loginScene = new Scene(mainPane);
+			instance = loader.getController();
 		}
 		return instance;
 	}
