@@ -1,6 +1,5 @@
 package Controllers;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.paint.Color;
 
-public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
+public class SettingsViewController extends BaseView implements Initializable, BaseViewController {
 
 	@FXML
 	Pane settingsPane;
@@ -112,8 +111,8 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		cancelBtn.setOnAction( e -> ButtonClicked(e));
-		saveBtn.setOnAction( e -> ButtonClicked(e) );
+		cancelBtn.setOnAction(e -> cancelClicked(e));
+		saveBtn.setOnAction(e -> saveClicked(e));
 
 		titleTxtField.setValue((Color) Paint.valueOf(titleColor));
 
@@ -195,182 +194,96 @@ public class SettingsViewController extends BaseView implements Initializable, B
 
 		boardOpponentCheckerTxtField.setValue((Color) Paint.valueOf(boardOpponentsCheckersColor));
 
-
 	}
 
 	@FXML
-	public void checkInputLength(KeyEvent ev){
+	public void checkInputLength(KeyEvent ev) {
 
 		try {
 			// -- Make sure that we have the correct input and input length.
 			TextField currentField = (TextField) ev.getSource();
-			if( "1234567890abcdefABCDEF".contains( ev.getCharacter() ) && (currentField.getText().length() < 6 ) ) {
-				// -- Empty if.  For some reason why I try to throw some nots in, it does not work.
-			}
-			else
+			if ("1234567890abcdefABCDEF".contains(ev.getCharacter()) && (currentField.getText().length() < 6)) {
+				// -- Empty if. For some reason why I try to throw some nots in,
+				// it does not work.
+			} else
 				ev.consume();
-		}catch(Exception e){
-			// -- Need a try catch here.  If the textfield does not have any text in it initially, throws an error
+		} catch (Exception e) {
+			// -- Need a try catch here. If the textfield does not have any text
+			// in it initially, throws an error
 		}
 	}
 
-	@Override
-	public void ButtonClicked(ActionEvent e) {
+	private void cancelClicked(ActionEvent e) {
+		switchScene(MainViewController.getInstance().getScene());
+	}
+
+	private void saveClicked(ActionEvent e) {
 		/**
-		 * CANCEL OUT, DON"T SAVE ANYTHING.
+		 * NEED TO THROW IN SAVING LOGIC HERE. WHAT EVER CHANGED, WE NEED TO SET
+		 * IT IN THE BASE VIEW.
 		 */
-		if ( e.getSource()== cancelBtn ){
-			switchScene(MainViewController.getInstance().getScene());
-        }else if ( e.getSource()== saveBtn){
-        	/**
-        	 * NEED TO THROW IN SAVING LOGIC HERE. WHAT EVER CHANGED, WE NEED TO SET IT IN THE BASE VIEW.
-        	 */
+		// -- Main Page
+		titleColor = getColorFromPicker(titleTxtField);
+		loginBtnColor = getColorFromPicker(loginBtnTextField);
+		backgroundColor = getColorFromPicker(backgroundTxtField);
+		quitBtnTextColor = getColorFromPicker(quitBtnTxtTextField);
+		quitBtnColor = getColorFromPicker(quitBtnTxtField);
+		settingsBtnColor = getColorFromPicker(settingsBtnTextField);
+		settingsBtnTextColor = getColorFromPicker(settingsBtnTxtTextField);
+		loginBtnColor = getColorFromPicker(loginBtnTextField);
 
-			// -- MAIN MENU PAGE
-			if(!titleTxtField.getValue().toString().trim().equals("")){
-				titleColor = titleTxtField.getValue().toString().substring(2);
-			}
-			if(!quitBtnTxtField.getValue().toString().trim().equals("")){
-				quitBtnColor = quitBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!settingsBtnTextField.getValue().toString().trim().equals("")){
-				settingsBtnColor = settingsBtnTextField.getValue().toString().substring(2);
-			}
-			if(!loginBtnTextField.getValue().toString().trim().equals("")){
-				loginBtnColor = loginBtnTextField.getValue().toString().substring(2);
-			}
-			if(!backgroundTxtField.getValue().toString().trim().equals("")){
-				backgroundColor = backgroundTxtField.getValue().toString().substring(2);
-			}
-			if(!quitBtnTxtTextField.getValue().toString().trim().equals("")){
-				quitBtnTextColor = quitBtnTxtTextField.getValue().toString().substring(2);
-			}
-			if(!settingsBtnTxtTextField.getValue().toString().trim().equals("")){
-				settingsBtnTextColor = settingsBtnTxtTextField.getValue().toString().substring(2);
-			}
+		// -- LOGIN PAGE
+		loginBtnTextColor = getColorFromPicker(loginBtnTxtTextField);
+		loginTitleColor = getColorFromPicker(loginTitleTxtField);
+		loginCancelBtnColor = getColorFromPicker(loginCancelBtnTxtField);
+		loginSubmitBtnColor = getColorFromPicker(loginSubmitBtnTxtField);
+		loginBackgroundColor = getColorFromPicker(loginBackgroundTxtField);
+		loginCancelBtnTextColor = getColorFromPicker(loginCancelBtnTextTxtField);
+		loginSubmitBtnTextColor = getColorFromPicker(loginSubmitBtnTextTxtField);
 
+		// -- LOBBY PAGE
+		lobbySpectateBtnColor = getColorFromPicker(lobbySpectateBtnTxtField);
+		lobbyTitleColor = getColorFromPicker(lobbyTitleTxtField);
+		lobbyHostBtnColor = getColorFromPicker(lobbyHostBtnTxtField);
+		lobbyJoinBtnColor = getColorFromPicker(lobbyJoinBtnTxtField);
+		lobbyRefreshBtnColor = getColorFromPicker(lobbyRefreshBtnTtxField);
+		lobbyBackgroundColor = getColorFromPicker(lobbyBackgroundTxtField);
+		lobbySpectateBtnTextColor = getColorFromPicker(lobbySpectateBtnTextTxtField);
+		lobbyHostBtnTextColor = getColorFromPicker(lobbyHostBtnTextTxtField);
+		lobbyJoinBtnTextColor = getColorFromPicker(lobbyJoinBtnTxtTextField);
+		lobbyRefreshBtnTextColor = getColorFromPicker(lobbyRefreshBtnTextTtxField);
+		lobbyInProgressColor = getColorFromPicker(lobbyInProgressTxtField);
+		lobbyOpenTablesColor = getColorFromPicker(lobbyOpenTablesTxtField);
+		lobbyUsernameColor = getColorFromPicker(lobbyUsernameTxtField);
+		lobbyDisconnectBtnColor = getColorFromPicker(lobbyDisconnectBtnTxtField);
+		lobbyDisconnectBtnTextColor = getColorFromPicker(lobbyDisconnectBtnTxtTextField);
 
+		// -- BOARD PAGE
+		boardMySquareColor = getColorFromPicker(boardMySquareTxtField);
+		boardOpponentSquareColor = getColorFromPicker(boardOpponentSquareTxtField);
+		boardSendBtnColor = getColorFromPicker(boardSendBtnTxtField);
+		boardConcedeBtnColor = getColorFromPicker(boardConcedeBtnTxtField);
+		boardBackgroundColor = getColorFromPicker(boardBackgroundTxtField);
+		boardMyAvatarColor = getColorFromPicker(boardMyAvatarTxtField);
+		boardOpponentAvatarColor = getColorFromPicker(boardOpponentAvatarTxtField);
+		boardSendBtnTextColor = getColorFromPicker(boardSendBtnTextTxtField);
+		boardConcedeBtnTextColor = getColorFromPicker(boardConcedeBtnTextTxtField);
+		boardMyCheckersColor = getColorFromPicker(boardMyCheckersTxtField);
+		boardOpponentsCheckersColor = getColorFromPicker(boardOpponentCheckerTxtField);
 
-			// -- LOGIN PAGE
-			if(!loginBtnTxtTextField.getValue().toString().trim().equals("")){
-				loginBtnTextColor = loginBtnTxtTextField.getValue().toString().substring(2);
-			}
-			if(!loginTitleTxtField.getValue().toString().trim().equals("")){
-				loginTitleColor = loginTitleTxtField.getValue().toString().substring(2);
-			}
-			if(!loginCancelBtnTxtField.getValue().toString().trim().equals("")){
-				loginCancelBtnColor = loginCancelBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!loginSubmitBtnTxtField.getValue().toString().trim().equals("")){
-				loginSubmitBtnColor = loginSubmitBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!loginBackgroundTxtField.getValue().toString().trim().equals("")){
-				loginBackgroundColor = loginBackgroundTxtField.getValue().toString().substring(2);
-			}
-			if(!loginCancelBtnTextTxtField.getValue().toString().trim().equals("")){
-				loginCancelBtnTextColor = loginCancelBtnTextTxtField.getValue().toString().substring(2);
-			}
-			if(!loginSubmitBtnTextTxtField.getValue().toString().trim().equals("")){
-				loginSubmitBtnTextColor = loginSubmitBtnTextTxtField.getValue().toString().substring(2);
-			}
-			if(!loginSubmitBtnTextTxtField.getValue().toString().trim().equals("")){
-				loginSubmitBtnTextColor = loginSubmitBtnTextTxtField.getValue().toString().substring(2);
-			}
+		MainViewController.getInstance().updateUI();
+		// TODO: UPDATE ALL UIS here
+		switchScene(MainViewController.getInstance().getScene());
+	}
 
-
-
-			// -- LOBBY PAGE
-			if(!lobbyTitleTxtField.getValue().toString().trim().equals("")){
-				lobbyTitleColor = lobbyTitleTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbySpectateBtnTxtField.getValue().toString().trim().equals("")){
-				lobbySpectateBtnColor = lobbySpectateBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyHostBtnTxtField.getValue().toString().trim().equals("")){
-				lobbyHostBtnColor = lobbyHostBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyJoinBtnTxtField.getValue().toString().trim().equals("")){
-				lobbyJoinBtnColor = lobbyJoinBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyRefreshBtnTtxField.getValue().toString().trim().equals("")){
-				lobbyRefreshBtnColor = lobbyRefreshBtnTtxField.getValue().toString().substring(2);
-			}
-			if(!lobbyBackgroundTxtField.getValue().toString().trim().equals("")){
-				lobbyBackgroundColor = lobbyBackgroundTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbySpectateBtnTextTxtField.getValue().toString().trim().equals("")){
-				lobbySpectateBtnTextColor = lobbySpectateBtnTextTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyHostBtnTextTxtField.getValue().toString().trim().equals("")){
-				lobbyHostBtnTextColor = lobbyHostBtnTextTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyJoinBtnTxtTextField.getValue().toString().trim().equals("")){
-				lobbyJoinBtnTextColor = lobbyJoinBtnTxtTextField.getValue().toString().substring(2);
-			}
-			if(!lobbyRefreshBtnTextTtxField.getValue().toString().trim().equals("")){
-				lobbyRefreshBtnTextColor = lobbyRefreshBtnTextTtxField.getValue().toString().substring(2);
-			}
-			if(!lobbyInProgressTxtField.getValue().toString().trim().equals("")){
-				lobbyInProgressColor = lobbyInProgressTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyOpenTablesTxtField.getValue().toString().trim().equals("")){
-				lobbyOpenTablesColor = lobbyOpenTablesTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyUsernameTxtField.getValue().toString().trim().equals("")){
-				lobbyUsernameColor = lobbyUsernameTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyDisconnectBtnTxtField.getValue().toString().trim().equals("")){
-				lobbyDisconnectBtnColor = lobbyDisconnectBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!lobbyDisconnectBtnTxtTextField.getValue().toString().trim().equals("")){
-				lobbyDisconnectBtnTextColor = lobbyDisconnectBtnTxtTextField.getValue().toString().substring(2);
-			}
-
-
-
-			// -- BOARD PAGE
-			if(!boardMySquareTxtField.getValue().toString().trim().equals("")){
-				boardMySquareColor = boardMySquareTxtField.getValue().toString().substring(2);
-			}
-			if(!boardOpponentSquareTxtField.getValue().toString().trim().equals("")){
-				boardOpponentSquareColor = boardOpponentSquareTxtField.getValue().toString().substring(2);
-			}
-			if(!boardSendBtnTxtField.getValue().toString().trim().equals("")){
-				boardSendBtnColor = boardSendBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!boardConcedeBtnTxtField.getValue().toString().trim().equals("")){
-				boardConcedeBtnColor = boardConcedeBtnTxtField.getValue().toString().substring(2);
-			}
-			if(!boardBackgroundTxtField.getValue().toString().trim().equals("")){
-				boardBackgroundColor = boardBackgroundTxtField.getValue().toString().substring(2);
-			}
-			if(!boardMyAvatarTxtField.getValue().toString().trim().equals("")){
-				boardMyAvatarColor = boardMyAvatarTxtField.getValue().toString().substring(2);
-			}
-			if(!boardOpponentAvatarTxtField.getValue().toString().trim().equals("")){
-				boardOpponentAvatarColor = boardOpponentAvatarTxtField.getValue().toString().substring(2);
-			}
-			if(!boardSendBtnTextTxtField.getValue().toString().trim().equals("")){
-				boardSendBtnTextColor = boardSendBtnTextTxtField.getValue().toString().substring(2);
-			}
-			if(!boardConcedeBtnTextTxtField.getValue().toString().trim().equals("")){
-				boardConcedeBtnTextColor = boardConcedeBtnTextTxtField.getValue().toString().substring(2);
-			}
-			if(!boardMyCheckersTxtField.getValue().toString().trim().equals("")){
-				boardMyCheckersColor = boardMyCheckersTxtField.getValue().toString().substring(2);
-			}
-			if(!boardOpponentCheckerTxtField.getValue().toString().trim().equals("")){
-				boardOpponentsCheckersColor = boardOpponentCheckerTxtField.getValue().toString().substring(2);
-			}
-
-			MainViewController.getInstance().updateUI();
-			//TODO uncomment this later?
-			//LobbyViewController.getInstance().updateUI();
-			//CheckersBoardViewController.getInstance().updateUI();
-			//LoginViewController.getInstance().updateUI();
-
-        	switchScene(MainViewController.getInstance().getScene());
+	private String getColorFromPicker(ColorPicker picker) {
+		String pickerColor = picker.getValue().toString().trim();
+		if (!pickerColor.isEmpty() && pickerColor.length() > 3) {
+			pickerColor = pickerColor.substring(2);
+		} else {
+			pickerColor = "";
 		}
+		return pickerColor;
 	}
 
 	private static Scene settingsScene = null;
@@ -394,5 +307,11 @@ public class SettingsViewController extends BaseView implements Initializable, B
 			instance = loader.getController();
 		}
 		return instance;
+	}
+
+	@Override
+	public void ButtonClicked(ActionEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 }

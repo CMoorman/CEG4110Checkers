@@ -101,10 +101,6 @@ public class ServerCommunicator implements ServerInterface {
 		serverCon.makeTable(userName);
 	}
 	
-	public int[] getTables() {
-		return listener.tids;
-	}
-
 	//@Override
 	public void move(int fr, int fc, int tr, int tc) {
 		serverCon.move(userName, fr, fc, tr, tc);

@@ -1,9 +1,5 @@
 package Controllers;
 
-import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
 import UIPanes.BaseView;
@@ -50,16 +46,9 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void newMsg(String user, String msg, boolean pm) {
-		System.out.println("New message from: " + user + "." + " Message: " + msg + ". Private: " + pm );
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader();
-			AnchorPane boardScene = (AnchorPane) FXMLLoader.load( getClass().getResource("BoardView.fxml"));
-			CheckersBoardViewController controller = (CheckersBoardViewController) fxmlLoader.getController();
-			controller.addGameMessage(msg);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("New message from: " + user + "." + " Message: " + msg + ". Private: " + pm);
+		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+		controller.addGameMessage(msg);
 		
 	}
 
@@ -167,7 +156,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void tableList(int[] tids) {
 		// TODO Auto-generated method stub
-		
+		setTableList(tids);
 	}
 
 	@Override

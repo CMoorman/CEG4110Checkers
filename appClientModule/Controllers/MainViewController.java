@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Objects.ColorStyleHelper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import UIPanes.BaseView;
 import javafx.scene.layout.Pane;
 
 public class MainViewController extends BaseView implements BaseViewController, Initializable {
-
+	
 	@FXML
 	private Button settingsBtn;
 
@@ -35,48 +36,51 @@ public class MainViewController extends BaseView implements BaseViewController, 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		settingsBtn.setOnAction(e -> ButtonClicked(e));
-		loginBtn.setOnAction(e -> ButtonClicked(e));
-		quitBtn.setOnAction(e -> ButtonClicked(e));
-		settingsBtn.setStyle(
-				"-fx-background-color: #" + settingsBtnColor + ";" + "-fx-text-fill: #" + settingsBtnTextColor + ";");
+		settingsBtn.setOnAction(e -> settingsClicked(e));
+		loginBtn.setOnAction(e -> loginClicked(e));
+		quitBtn.setOnAction(e -> quitClicked(e));
+		
+		settingsBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(settingsBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(settingsBtnTextColor) + ";");
+		loginBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(loginBtnTextColor) + ";");
+		quitBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(quitBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(quitBtnTextColor) + ";");
 
-		loginBtn.setStyle(
-				"-fx-background-color: #" + loginBtnColor + ";" + "-fx-text-fill: #" + loginBtnTextColor + ";");
-		quitBtn.setStyle("-fx-background-color: #" + quitBtnColor + ";" + "-fx-text-fill: #" + quitBtnTextColor + ";");
-
-		mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
-		mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
-		System.out.println(this.toString());
+		mainViewPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(backgroundColor));
+		mainMenuTitle.setStyle(ColorStyleHelper.getTextFillStyle(titleColor));
+		
 	}
 
 	public void updateUI() {
 
-		settingsBtn.setStyle(
-				"-fx-background-color: #" + settingsBtnColor + ";" + "-fx-text-fill: #" + settingsBtnTextColor + ";");
-		loginBtn.setStyle(
-				"-fx-background-color: #" + loginBtnColor + ";" + "-fx-text-fill: #" + loginBtnTextColor + ";");
-		quitBtn.setStyle("-fx-background-color: #" + quitBtnColor + ";" + "-fx-text-fill: #" + quitBtnTextColor + ";");
-		mainViewPane.setStyle("-fx-background-color: #" + backgroundColor);
-		mainMenuTitle.setStyle("-fx-text-fill: #" + titleColor);
+		settingsBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(settingsBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(settingsBtnTextColor) + ";");
+		loginBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(loginBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(loginBtnTextColor) + ";");
+		quitBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(quitBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(quitBtnTextColor) + ";");
+		mainViewPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(backgroundColor));
+		mainMenuTitle.setStyle(ColorStyleHelper.getTextFillStyle(titleColor));
 	}
 
-	@Override
-	public void ButtonClicked(ActionEvent e) {
-		if (e.getSource() == settingsBtn) {
-			switchScene(SettingsViewController.getInstance().getScene());
-		} else if (e.getSource() == loginBtn) {
-			switchScene(LoginViewController.getInstance().getScene());
-		} else if (e.getSource() == quitBtn) {
 
-			if (network.isCurrentlyConnected) {
-				network.svrCommunicator.disconnect(true);
-			}
-			Platform.exit();
-			System.exit(0);
+
+	private void settingsClicked(ActionEvent e) {
+		switchScene(SettingsViewController.getInstance().getScene());
+	}
+	
+	private void loginClicked(ActionEvent e) {
+		switchScene(LoginViewController.getInstance().getScene());
+	}
+
+	private void quitClicked(ActionEvent e){
+		if (network.isCurrentlyConnected) {
+			network.svrCommunicator.disconnect(true);
 		}
+		Platform.exit();
+		System.exit(0);
 	}
-
 	private static Scene mainScene = null;
 
 	public Scene getScene() {
@@ -98,5 +102,11 @@ public class MainViewController extends BaseView implements BaseViewController, 
 			instance = loader.getController();
 		}
 		return instance;
+	}
+
+	@Override
+	public void ButtonClicked(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -88,7 +88,8 @@ public class BaseView extends Application implements Runnable {
 
 	public static String lobbyBtnColor = "000000";
 
-
+	private static int[] tableList;
+	
 	private static boolean playerIsInGame;
 
 	@Override
@@ -166,6 +167,13 @@ public class BaseView extends Application implements Runnable {
 	}
 	public static void clearCurrentTaqbleID() {
 		currentTableID = -1;
+	}
+	
+	public static void setTableList(int[] tables) {
+		tableList = tables;
+	}
+	public static int[] getTableList() {
+		return tableList;
 	}
 	
 	public static void setIsInGame() {
