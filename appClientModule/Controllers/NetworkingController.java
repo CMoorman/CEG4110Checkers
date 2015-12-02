@@ -10,7 +10,7 @@ import UIPanes.BaseView;
 
 public class NetworkingController extends BaseView implements CheckersClient {
 
-	public String serverIP = "fdb2:2c26:f4e4:0:391c:faef:1b48:b1c2";//"127.0.0.1";
+	public String serverIP = "127.0.0.1";
 	public ServerCommunicator svrCommunicator;
 	
 	public boolean isCurrentlyConnected;
