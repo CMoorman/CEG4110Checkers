@@ -5,20 +5,17 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 
 import Controllers.NetworkingController;
 
 public class BaseView extends Application implements Runnable {
 	
 	private static Stage currentStage;
-	private static AnchorPane currentView;
 	Thread gameThread;
 	
 	// -- static server communication items.
@@ -101,8 +98,8 @@ public class BaseView extends Application implements Runnable {
 		BaseView.currentStage = primaryStage;
 		
 		try {
-			setCurrentView((AnchorPane) FXMLLoader.load(BaseView.class.getResource("MainView.fxml")));
-			Scene scene = new Scene( getCurrentView() );
+			
+			Scene scene = MainViewController.getInstance().getScene();
 			BaseView.currentStage.setScene( scene );
 			BaseView.currentStage.show();
 			
@@ -139,14 +136,6 @@ public class BaseView extends Application implements Runnable {
 
 	public Stage getCurrentStage() {
 		return currentStage;
-	}
-	
-	public AnchorPane getCurrentView() {
-		return currentView;
-	}
-
-	public void setCurrentView(AnchorPane currentView) {
-		BaseView.currentView = currentView;
 	}
 
 	public void ButtonClicked(MouseEvent e) {

@@ -90,27 +90,6 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		opponentAvatar.setStyle("-fx-background-color: #" + boardOpponentAvatarColor);
 		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
 
-		//ArrayList<Node> childrenInRow = new ArrayList<Node>();
-		ObservableList<javafx.scene.Node> children = checkerBoard.getChildren();
-		for (int i = 0; i < children.size(); ++i){
-			currentTile = children.get(i);
-			if(i %2 == 0){
-				currentTile.setStyle("-fx-background-color: #000000");
-			}else {
-				currentTile.setStyle("-fx-background-color: #ffffff");
-
-			}
-
-		}
-//			if (checkerBoard.getRowIndex(children.get(i)) == index)
-//			{
-//				childrenInRow.add(children.get(i));
-//
-//				children.remove(i);
-//			}
-		//gridPane.addRow(index, toReplace);
-
-
 	}
 
 	public Scene getScene() {
