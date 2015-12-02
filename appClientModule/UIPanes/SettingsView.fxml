@@ -101,6 +101,14 @@
                     <ColorPicker fx:id="lobbyJoinBtnTxtField" layoutX="194.0" layoutY="150.0" prefHeight="-1.0" prefWidth="90.0" />
                     <ColorPicker fx:id="lobbyBackgroundTxtField" layoutX="194.0" layoutY="193.0" prefHeight="-1.0" prefWidth="90.0" />
                     <ColorPicker fx:id="lobbyRefreshBtnTtxField" layoutX="194.0" layoutY="241.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <Label layoutX="27.0" layoutY="291.0" prefHeight="24.0" prefWidth="157.0" text="Disconnect Button" textAlignment="RIGHT">
+                      <font>
+                        <Font size="19.0" fx:id="x3" />
+                      </font>
+                    </Label>
+                    <ColorPicker id="lobbyRefreshBtnTtxField" fx:id="lobbyDisconnectBtnTxtField" layoutX="194.0" layoutY="292.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <Label font="$x3" layoutX="310.0" layoutY="193.0" prefHeight="26.0" prefWidth="197.0" text="Disconnect Button Text" textAlignment="RIGHT" />
+                    <ColorPicker id="lobbyJoinBtnTxtTextField" fx:id="lobbyDisconnectBtnTxtTextField" layoutX="531.0" layoutY="196.0" prefHeight="-1.0" prefWidth="90.0" />
                   </children>
                 </AnchorPane>
               </content>

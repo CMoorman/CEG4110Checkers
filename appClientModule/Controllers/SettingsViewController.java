@@ -80,6 +80,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	@FXML
 	ColorPicker lobbyUsernameTxtField;
 	@FXML
+	ColorPicker lobbyDisconnectBtnTxtField;
+	@FXML
+	ColorPicker lobbyDisconnectBtnTxtTextField;
+	@FXML
 	ColorPicker boardMySquareTxtField;
 	@FXML
 	ColorPicker boardOpponentSquareTxtField;
@@ -230,6 +234,12 @@ public class SettingsViewController extends BaseView implements Initializable, B
 			}
 			if(!lobbyUsernameTxtField.getValue().toString().trim().equals("")){
 				lobbyUsernameColor = lobbyUsernameTxtField.getValue().toString().substring(2);
+			}
+			if(!lobbyDisconnectBtnTxtField.getValue().toString().trim().equals("")){
+				lobbyDisconnectBtnColor = lobbyDisconnectBtnTxtField.getValue().toString();
+			}
+			if(!lobbyDisconnectBtnTxtTextField.getValue().toString().trim().equals("")){
+				lobbyDisconnectBtnTextColor = lobbyDisconnectBtnTxtTextField.getValue().toString();
 			}
 
 

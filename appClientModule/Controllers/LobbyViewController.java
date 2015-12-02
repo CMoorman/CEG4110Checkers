@@ -41,6 +41,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	Button hostBtn;
 	
 	@FXML
+	Button disconnectBtn;
+	
+	@FXML
 	Label userNameLbl;
 
 	@FXML
@@ -71,6 +74,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		hostBtn.setOnAction( e -> ButtonClicked(e) );
 		refreshBtn.setOnAction(e -> ButtonClicked(e));
 		spectateBtn.setOnAction(e -> ButtonClicked(e));
+		disconnectBtn.setOnAction(e -> ButtonClicked(e));
 
 		refreshBtn.setStyle("-fx-background-color: #" + lobbyRefreshBtnColor + ";" +
 						"-fx-text-fill: #" + lobbyRefreshBtnTextColor + ";"
@@ -84,6 +88,11 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		joinBtn.setStyle("-fx-background-color: #" + lobbyJoinBtnColor + ";" +
 						"-fx-text-fill: #" + lobbyJoinBtnTextColor + ";"
 		);
+		disconnectBtn.setStyle("-fx-background-color: #" + lobbyDisconnectBtnColor + ";" +
+				"-fx-text-fill: #" + lobbyDisconnectBtnTextColor + ";"
+		);
+
+		
 		userNameLbl.setStyle("-fx-text-fill: #" + lobbyUsernameColor);
 		lobbyAnchorPane.setStyle("-fx-background-color: #" + lobbyBackgroundColor);
 		openTablesLbl.setStyle("-fx-text-fill: #" + lobbyOpenTablesColor);
@@ -149,6 +158,10 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			}catch( Exception ex ){
 				// -- we tried to click join without selecting anything.
 			}
+		}
+		else if( source == disconnectBtn ) {
+			svrCom.disconnect(false);
+			switchScene(MainViewController.getInstance().getScene());	
 		}
 	} 
 	
