@@ -39,14 +39,14 @@
                     <Label font="$x2" layoutX="311.0" layoutY="67.0" prefHeight="24.0" prefWidth="170.0" text="Quit Button Text" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="311.0" layoutY="109.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Settings Button Text" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="311.0" layoutY="155.0" prefHeight="24.0" prefWidth="183.0" text="Login Button Text" textAlignment="RIGHT" />
-                    <ColorPicker fx:id="loginBtnTxtTextField" layoutX="532.0" layoutY="150.0" />
-                    <ColorPicker fx:id="settingsBtnTxtTextField" layoutX="532.0" layoutY="108.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="quitBtnTxtTextField" layoutX="532.0" layoutY="65.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="backgroundTxtField" layoutX="194.0" layoutY="199.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="loginBtnTextField" layoutX="194.0" layoutY="155.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="settingsBtnTextField" layoutX="194.0" layoutY="108.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="quitBtnTxtField" layoutX="194.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="titleTxtField" layoutX="194.0" layoutY="22.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="settingsBtnTxtTextField" layoutX="532.0" layoutY="108.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="quitBtnTxtTextField" layoutX="532.0" layoutY="65.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="backgroundTxtField" layoutX="194.0" layoutY="199.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginBtnTextField" layoutX="194.0" layoutY="155.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="settingsBtnTextField" layoutX="194.0" layoutY="108.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="quitBtnTxtField" layoutX="194.0" layoutY="66.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="titleTxtField" layoutX="194.0" layoutY="22.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginBtnTxtTextField" layoutX="532.0" layoutY="156.0" prefWidth="90.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -61,12 +61,12 @@
                     <Label font="$x2" layoutX="28.0" layoutY="150.0" prefHeight="24.0" prefWidth="134.0" text="Background" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="311.0" layoutY="65.0" prefHeight="24.0" prefWidth="212.0" text="Cancel Button Text" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="311.0" layoutY="109.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Submit Button Text" textAlignment="RIGHT" />
-                    <ColorPicker fx:id="loginSubmitBtnTextTxtField" layoutX="532.0" layoutY="104.0" />
-                    <ColorPicker fx:id="loginCancelBtnTextTxtField" layoutX="532.0" layoutY="65.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="loginBackgroundTxtField" layoutX="189.0" layoutY="144.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="loginSubmitBtnTxtField" layoutX="189.0" layoutY="104.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="loginCancelBtnTxtField" layoutX="189.0" layoutY="64.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="loginTitleTxtField" layoutX="189.0" layoutY="22.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="loginSubmitBtnTextTxtField" layoutX="532.0" layoutY="104.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginCancelBtnTextTxtField" layoutX="532.0" layoutY="65.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginBackgroundTxtField" layoutX="189.0" layoutY="144.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginSubmitBtnTxtField" layoutX="189.0" layoutY="104.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginCancelBtnTxtField" layoutX="189.0" layoutY="64.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="loginTitleTxtField" layoutX="189.0" layoutY="22.0" prefHeight="-1.0" prefWidth="90.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -88,19 +88,19 @@
                     <Label font="$x2" layoutX="312.0" layoutY="286.0" prefHeight="24.0" prefWidth="221.0" text="'In Progress' Text" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="312.0" layoutY="325.0" prefHeight="24.0" prefWidth="221.0" text="'Open Tables' Text" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="310.0" layoutY="366.0" prefHeight="24.0" prefWidth="221.0" text="Username Text" textAlignment="RIGHT" />
-                    <ColorPicker fx:id="lobbyUsernameTxtField" layoutX="531.0" layoutY="365.0" />
-                    <ColorPicker fx:id="lobbyOpenTablesTxtField" layoutX="531.0" layoutY="325.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyInProgressTxtField" layoutX="532.0" layoutY="286.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyRefreshBtnTextTtxField" layoutX="531.0" layoutY="243.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyJoinBtnTxtTextField" layoutX="532.0" layoutY="150.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyHostBtnTextTxtField" layoutX="531.0" layoutY="108.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbySpectateBtnTextTxtField" layoutX="531.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyTitleTxtField" layoutX="194.0" layoutY="25.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbySpectateBtnTxtField" layoutX="194.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyHostBtnTxtField" layoutX="194.0" layoutY="109.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyJoinBtnTxtField" layoutX="194.0" layoutY="150.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyBackgroundTxtField" layoutX="194.0" layoutY="193.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="lobbyRefreshBtnTtxField" layoutX="194.0" layoutY="241.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="lobbyUsernameTxtField" layoutX="531.0" layoutY="365.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyOpenTablesTxtField" layoutX="531.0" layoutY="325.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyInProgressTxtField" layoutX="532.0" layoutY="286.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyRefreshBtnTextTtxField" layoutX="531.0" layoutY="243.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyJoinBtnTxtTextField" layoutX="532.0" layoutY="150.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyHostBtnTextTxtField" layoutX="531.0" layoutY="108.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbySpectateBtnTextTxtField" layoutX="531.0" layoutY="66.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyTitleTxtField" layoutX="194.0" layoutY="25.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbySpectateBtnTxtField" layoutX="194.0" layoutY="66.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyHostBtnTxtField" layoutX="194.0" layoutY="109.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyJoinBtnTxtField" layoutX="194.0" layoutY="150.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyBackgroundTxtField" layoutX="194.0" layoutY="193.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="lobbyRefreshBtnTtxField" layoutX="194.0" layoutY="241.0" prefHeight="-1.0" prefWidth="90.0" />
                   </children>
                 </AnchorPane>
               </content>
@@ -120,17 +120,17 @@
                     <Label font="$x2" layoutX="337.0" layoutY="237.0" prefHeight="24.0" prefWidth="221.0" text="Opponent Checkers" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="337.0" layoutY="23.0" prefHeight="24.0" prefWidth="170.0" text="My Avatar" textAlignment="RIGHT" />
                     <Label font="$x2" layoutX="337.0" layoutY="67.0" prefHeight="24.0" prefWidth="221.0" text="Opponent Avatar" textAlignment="RIGHT" />
-                    <ColorPicker fx:id="boardMySquareTxtField" layoutX="215.0" layoutY="23.0" />
-                    <ColorPicker fx:id="boardBackgroundTxtField" layoutX="215.0" layoutY="199.0" />
-                    <ColorPicker fx:id="boardConcedeBtnTxtField" layoutX="215.0" layoutY="156.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardSendBtnTxtField" layoutX="215.0" layoutY="110.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardOpponentSquareTxtField" layoutX="215.0" layoutY="66.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardMyAvatarTxtField" layoutX="558.0" layoutY="22.0" />
-                    <ColorPicker fx:id="boardOpponentCheckerTxtField" layoutX="558.0" layoutY="236.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardMyCheckersTxtField" layoutX="558.0" layoutY="193.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardConcedeBtnTextTxtField" layoutX="558.0" layoutY="145.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardSendBtnTextTxtField" layoutX="558.0" layoutY="104.0" prefHeight="25.0" prefWidth="88.0" />
-                    <ColorPicker fx:id="boardOpponentAvatarTxtField" layoutX="558.0" layoutY="61.0" prefHeight="25.0" prefWidth="88.0" />
+                    <ColorPicker fx:id="boardMySquareTxtField" layoutX="215.0" layoutY="23.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardBackgroundTxtField" layoutX="215.0" layoutY="199.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardConcedeBtnTxtField" layoutX="215.0" layoutY="156.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardSendBtnTxtField" layoutX="215.0" layoutY="110.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardOpponentSquareTxtField" layoutX="215.0" layoutY="66.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardMyAvatarTxtField" layoutX="558.0" layoutY="22.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardOpponentCheckerTxtField" layoutX="558.0" layoutY="236.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardMyCheckersTxtField" layoutX="558.0" layoutY="193.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardConcedeBtnTextTxtField" layoutX="558.0" layoutY="145.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardSendBtnTextTxtField" layoutX="558.0" layoutY="104.0" prefHeight="-1.0" prefWidth="90.0" />
+                    <ColorPicker fx:id="boardOpponentAvatarTxtField" layoutX="558.0" layoutY="61.0" prefHeight="-1.0" prefWidth="90.0" />
                   </children>
                 </AnchorPane>
               </content>
