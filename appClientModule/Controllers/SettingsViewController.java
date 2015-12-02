@@ -1,5 +1,6 @@
 package Controllers;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,8 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.scene.paint.Color;
 
 public class SettingsViewController extends BaseView implements Initializable, BaseViewController{
 
@@ -109,8 +112,89 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		cancelBtn.setOnAction( e -> ButtonClicked(e) );
+		cancelBtn.setOnAction( e -> ButtonClicked(e));
 		saveBtn.setOnAction( e -> ButtonClicked(e) );
+
+		titleTxtField.setValue((Color) Paint.valueOf(titleColor));
+
+		quitBtnTxtField.setValue((Color) Paint.valueOf(quitBtnColor));
+
+		settingsBtnTextField.setValue((Color) Paint.valueOf(settingsBtnColor));
+
+		loginBtnTextField.setValue((Color) Paint.valueOf(loginBtnColor));
+
+		backgroundTxtField.setValue((Color) Paint.valueOf(backgroundColor));
+
+		quitBtnTxtTextField.setValue((Color) Paint.valueOf(quitBtnTextColor));
+
+		settingsBtnTxtTextField.setValue((Color) Paint.valueOf(settingsBtnTextColor));
+
+		loginBtnTxtTextField.setValue((Color) Paint.valueOf(loginBtnTextColor));
+
+		loginTitleTxtField.setValue((Color) Paint.valueOf(loginTitleColor));
+
+		loginCancelBtnTxtField.setValue((Color) Paint.valueOf(loginCancelBtnColor));
+
+		loginSubmitBtnTxtField.setValue((Color) Paint.valueOf(loginSubmitBtnColor));
+
+		loginBackgroundTxtField.setValue((Color) Paint.valueOf(loginBackgroundColor));
+
+		loginCancelBtnTextTxtField.setValue((Color) Paint.valueOf(loginCancelBtnTextColor));
+
+		loginSubmitBtnTextTxtField.setValue((Color) Paint.valueOf(loginSubmitBtnTextColor));
+
+		lobbyTitleTxtField.setValue((Color) Paint.valueOf(lobbyTitleColor));
+
+		lobbySpectateBtnTxtField.setValue((Color) Paint.valueOf(lobbySpectateBtnColor));
+
+		lobbyHostBtnTxtField.setValue((Color) Paint.valueOf(lobbyHostBtnColor));
+
+		lobbyJoinBtnTxtField.setValue((Color) Paint.valueOf(lobbyJoinBtnColor));
+
+		lobbyRefreshBtnTtxField.setValue((Color) Paint.valueOf(lobbyRefreshBtnColor));
+
+		lobbyBackgroundTxtField.setValue((Color) Paint.valueOf(lobbyBackgroundColor));
+
+		lobbySpectateBtnTextTxtField.setValue((Color) Paint.valueOf(lobbySpectateBtnTextColor));
+
+		lobbyHostBtnTextTxtField.setValue((Color) Paint.valueOf(lobbyHostBtnTextColor));
+
+		lobbyJoinBtnTxtTextField.setValue((Color) Paint.valueOf(lobbyJoinBtnTextColor));
+
+		lobbyRefreshBtnTextTtxField.setValue((Color) Paint.valueOf(lobbyRefreshBtnTextColor));
+
+		lobbyInProgressTxtField.setValue((Color) Paint.valueOf(lobbyInProgressColor));
+
+		lobbyOpenTablesTxtField.setValue((Color) Paint.valueOf(lobbyOpenTablesColor));
+
+		lobbyUsernameTxtField.setValue((Color) Paint.valueOf(lobbyUsernameColor));
+
+		lobbyDisconnectBtnTxtField.setValue((Color) Paint.valueOf(lobbyDisconnectBtnColor));
+
+		lobbyDisconnectBtnTxtTextField.setValue((Color) Paint.valueOf(lobbyDisconnectBtnTextColor));
+
+		boardMySquareTxtField.setValue((Color) Paint.valueOf(boardMySquareColor));
+
+		boardOpponentSquareTxtField.setValue((Color) Paint.valueOf(boardOpponentSquareColor));
+
+		boardSendBtnTxtField.setValue((Color) Paint.valueOf(boardSendBtnColor));
+
+		boardConcedeBtnTxtField.setValue((Color) Paint.valueOf(boardConcedeBtnColor));
+
+		boardBackgroundTxtField.setValue((Color) Paint.valueOf(boardBackgroundColor));
+
+		boardMyAvatarTxtField.setValue((Color) Paint.valueOf(boardMyAvatarColor));
+
+		boardOpponentAvatarTxtField.setValue((Color) Paint.valueOf(boardOpponentAvatarColor));
+
+		boardSendBtnTextTxtField.setValue((Color) Paint.valueOf(boardSendBtnTextColor));
+
+		boardConcedeBtnTextTxtField.setValue((Color) Paint.valueOf(boardConcedeBtnTextColor));
+
+		boardMyCheckersTxtField.setValue((Color) Paint.valueOf(boardMyCheckersColor));
+
+		boardOpponentCheckerTxtField.setValue((Color) Paint.valueOf(boardOpponentsCheckersColor));
+
 
 	}
 
@@ -236,10 +320,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 				lobbyUsernameColor = lobbyUsernameTxtField.getValue().toString().substring(2);
 			}
 			if(!lobbyDisconnectBtnTxtField.getValue().toString().trim().equals("")){
-				lobbyDisconnectBtnColor = lobbyDisconnectBtnTxtField.getValue().toString();
+				lobbyDisconnectBtnColor = lobbyDisconnectBtnTxtField.getValue().toString().substring(2);
 			}
 			if(!lobbyDisconnectBtnTxtTextField.getValue().toString().trim().equals("")){
-				lobbyDisconnectBtnTextColor = lobbyDisconnectBtnTxtTextField.getValue().toString();
+				lobbyDisconnectBtnTextColor = lobbyDisconnectBtnTxtTextField.getValue().toString().substring(2);
 			}
 
 
