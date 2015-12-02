@@ -57,6 +57,18 @@ public class LoginViewController extends BaseView implements Initializable {
 
 	}
 
+	public void updateUI(){
+		submitBtn.setStyle("-fx-background-color: #" + loginSubmitBtnColor +";" +
+						"-fx-text-fill: #" + loginSubmitBtnTextColor + ";"
+		);
+		cancelBtn.setStyle("-fx-background-color: #" + loginCancelBtnColor + ";" +
+						"-fx-text-fill: #" + loginCancelBtnTextColor + ";"
+		);
+		loginViewPane.setStyle("-fx-background-color: #" + loginBackgroundColor);
+		loginMenuTitle.setStyle("-fx-text-fill: #" + loginTitleColor);
+
+	}
+
 	private static Scene loginScene = null;
 
 	public Scene getScene() {

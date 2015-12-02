@@ -87,6 +87,23 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
 
 	}
+
+	public void updateUI(){
+		sendBtn.setStyle("-fx-background-color: #" + boardSendBtnColor + ";" +
+						"-fx-text-fill: #" + boardSendBtnTextColor + ";"
+		);
+		concedeBtn.setStyle("-fx-background-color: #" + boardConcedeBtnColor + ";" +
+						"-fx-text-fill: #" + boardConcedeBtnTextColor + ";"
+		);
+		checkersAnchorPane.setStyle("-fx-background-color: #" + boardBackgroundColor);
+
+		/*redSquare.setStyle("-fx-background-color: #" + boardMySquareColor);
+		blackSquare.setStyle("-fx-background-color: #" + boardOpponentSquareColor);*/
+
+		opponentAvatar.setStyle("-fx-background-color: #" + boardOpponentAvatarColor);
+		myAvatar.setStyle("-fx-background-color: #" + boardMyAvatarColor);
+	}
+
 	
 	public void setOpponentUsername(String name) {
 		opponentNameLbl.setText(BaseView.opponentName);

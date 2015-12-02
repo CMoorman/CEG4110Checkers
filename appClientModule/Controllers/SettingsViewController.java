@@ -364,6 +364,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 			}
 
 			MainViewController.getInstance().updateUI();
+			//TODO uncomment this later?
+			//LobbyViewController.getInstance().updateUI();
+			//CheckersBoardViewController.getInstance().updateUI();
+			//LoginViewController.getInstance().updateUI();
 
         	switchScene(MainViewController.getInstance().getScene());
 		}

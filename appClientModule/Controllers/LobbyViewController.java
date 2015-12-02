@@ -112,6 +112,31 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		});
 	}
 
+	public void updateUI(){
+		refreshBtn.setStyle("-fx-background-color: #" + lobbyRefreshBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyRefreshBtnTextColor + ";"
+		);
+		hostBtn.setStyle("-fx-background-color: #" + lobbyHostBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyHostBtnTextColor + ";"
+		);
+		spectateBtn.setStyle("-fx-background-color: #" + lobbySpectateBtnColor + ";" +
+						"-fx-text-fill: #" + lobbySpectateBtnTextColor + ";"
+		);
+		joinBtn.setStyle("-fx-background-color: #" + lobbyJoinBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyJoinBtnTextColor + ";"
+		);
+		disconnectBtn.setStyle("-fx-background-color: #" + lobbyDisconnectBtnColor + ";" +
+						"-fx-text-fill: #" + lobbyDisconnectBtnTextColor + ";"
+		);
+
+
+		userNameLbl.setStyle("-fx-text-fill: #" + lobbyUsernameColor);
+		lobbyAnchorPane.setStyle("-fx-background-color: #" + lobbyBackgroundColor);
+		openTablesLbl.setStyle("-fx-text-fill: #" + lobbyOpenTablesColor);
+		inProgressLbl.setStyle("-fx-text-fill: #" + lobbyInProgressColor);
+		lobbyTitleLbl.setStyle("-fx-text-fill: #" + lobbyTitleColor);
+	}
+
 	@Override
 	public void ButtonClicked(ActionEvent e) {
 		ServerCommunicator svrCom = BaseView.network.svrCommunicator;
