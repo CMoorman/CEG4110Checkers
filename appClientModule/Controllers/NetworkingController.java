@@ -170,20 +170,11 @@ public class NetworkingController extends BaseView implements CheckersClient {
 					// TODO Auto-generated method stub
 					CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 
-					if( blackSeat == userName )
-						isOppRed = true;
-
-					if( isOppRed ) {
-						if( !redSeat.equals("-1") )
-							controller.oponentNameLbl.setText(redSeat);
-						if( !blackSeat.equals("-1") )
-							controller.yourUserNameLbl.setText(blackSeat);
+					if( blackSeat.equals(userName) && !redSeat.equals("-1") ) {
+						controller.oponentNameLbl.setText(redSeat);
 					}
-					else {
-						if( !redSeat.equals("-1") )
-							controller.oponentNameLbl.setText(blackSeat);
-						if( !blackSeat.equals("-1") )
-							controller.yourUserNameLbl.setText(redSeat);
+					else if( redSeat.equals(userName) && !blackSeat.equals("-1") ){
+						controller.oponentNameLbl.setText(blackSeat);
 					}
 				}
 			});
