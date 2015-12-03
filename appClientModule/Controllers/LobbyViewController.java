@@ -141,14 +141,17 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			loadGames();
 		} else if (source == joinBtn) {
 			try {
+				
 				// -- We have selected a table, grab it's number
 				String option = joinListView.getSelectionModel().getSelectedItem().toString();
 
-				// -- Send the message to join the table.
-				svrCom.joinTable(Integer.parseInt(option));
+				// - grab the table id off of the string.
+				String tableId = option.substring(6, 10);
 
-				// -- DO SOMETHING HERE ****************************************
+				svrCom.joinTable(Integer.parseInt(tableId));
+
 				setIsNotSpectating();
+				
 				switchScene(CheckersBoardViewController.getInstance().getScene());
 
 			} catch (Exception ex) {
@@ -157,10 +160,12 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		} else if (source == spectateBtn) {
 			try {
 				// -- We have selected a table, grab it's number
-				String option = observeListView.getSelectionModel().getSelectedItem().toString();
+				String option = joinListView.getSelectionModel().getSelectedItem().toString();
 
-				// -- Send the message to observe the table.
-				svrCom.observeTable(userName, Integer.parseInt(option));
+				// - grab the table id off of the string.
+				String tableId = option.substring(6, 10);
+
+				svrCom.observeTable( userName, Integer.parseInt(tableId) );
 
 				setIsSpectating();
 
