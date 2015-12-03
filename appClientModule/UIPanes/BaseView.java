@@ -93,7 +93,7 @@ public class BaseView extends Application implements Runnable {
 
 	private static int[] tableList;
 	
-	private static ArrayList<TableListObject> tableListObjects;
+	public static ArrayList<TableListObject> tableListObjects;
 	
 	private static boolean playerIsInGame;
 
