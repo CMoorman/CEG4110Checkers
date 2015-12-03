@@ -96,42 +96,42 @@ public class LoginViewController extends BaseView implements Initializable {
 		// -- Make sure that there is something there and that we set a
 		// limit on it.
 		if (userName.length() > 0 && userName.length() <= 20) {
-			
-			
+			if (optionalIPAddress.isEmpty()) {
+				loginSuccess = network.connectToServer(serverIP, userName);
+			} else {
+				loginSuccess = network.connectToServer(optionalIPAddress,
+						userName);
+			}
 
-				if(optionalIPAddress.isEmpty()){
-					loginSuccess = network.connectToServer(serverIP, userName);
-				}else{
-					loginSuccess = network.connectToServer(optionalIPAddress, userName);
+			int attempts = 0;
+			int maxAttempts = 10;
+			while (getTableList() == null && attempts <= maxAttempts) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-
-				int attempts = 0;
-				int maxAttempts = 10;
-				while( getTableList() == null && attempts <= maxAttempts ){
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				// -- Try to connect. Trying to connect will yield a boolean
-				// value.
-				if (loginSuccess) {
-					network.setUsrName(userName);
-					if ( grabTableList() ) { 
-						switchScene(LobbyViewController.getInstance().getScene());
-					}
+			}
+			// -- Try to connect. Trying to connect will yield a boolean
+			// value.
+			if (loginSuccess) {
+				network.setUsrName(userName);
+				if (grabTableList()) {
+					switchScene(LobbyViewController.getInstance().getScene());
 				}
 			}
 		}
-		
+	}
+
 	public boolean grabTableList() {
 		
+		LobbyViewController controller = LobbyViewController.getInstance();
+		
 		int index = 0;
-		if( getTableListObjects() != null && getTableList() != null ) {
-			while( getTableListObjects().size() - 1 < getTableList().length ) {
-				if( getTableListObjects().size() - 1 < index ) {
+		if( controller.getTableListObjects() != null && getTableList() != null ) {
+			while( controller.getTableListObjects().size() - 1 < getTableList().length ) {
+				if( controller.getTableListObjects().size() - 1 < index ) {
 					index++;
 				}
 			}

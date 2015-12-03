@@ -1,5 +1,8 @@
 package Controllers;
 
+import java.util.ArrayList;
+
+import javafx.application.Platform;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
 import Objects.TableListObject;
@@ -17,7 +20,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	}
 	
 	public boolean connectToServer(String ip, String userName ){
-		System.out.println("Connecting to server!");
 		isCurrentlyConnected = svrCommunicator.connectToServer(ip, userName);
 		return isCurrentlyConnected;
 	}
@@ -73,7 +75,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void newTable(int tid) {
-		System.out.println("New table: " + tid);
 		svrCommunicator.joinTable(userName, tid);
 		setIsInGame();
 	}
@@ -133,7 +134,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	}
 
 	private static boolean isOppRed = false;
-	private static boolean firstPass = true;
+	//private static boolean firstPass = true;
 	@Override
 	public void onTable(int tid, String blackSeat, String redSeat) {
 		
@@ -153,15 +154,39 @@ public class NetworkingController extends BaseView implements CheckersClient {
 			
 			LobbyViewController controller = LobbyViewController.getInstance();
 			controller.updateGameList(table);
-			
-			addToTableList(table);
-			
+
 			try {
 				svrCommunicator.wait();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		else if( getIsPlayerInGame() ) {
+			Platform.runLater( new Runnable() {
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+
+					if( blackSeat == userName )
+						isOppRed = true;
+
+					if( isOppRed ) {
+						if( !redSeat.equals("-1") )
+							controller.oponentNameLbl.setText(redSeat);
+						if( !blackSeat.equals("-1") )
+							controller.yourUserNameLbl.setText(blackSeat);
+					}
+					else {
+						if( !redSeat.equals("-1") )
+							controller.oponentNameLbl.setText(blackSeat);
+						if( !blackSeat.equals("-1") )
+							controller.yourUserNameLbl.setText(redSeat);
+					}
+				}
+			});
 		}
 	}
 

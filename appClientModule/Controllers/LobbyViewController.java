@@ -2,6 +2,7 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Networking.ServerCommunicator;
@@ -66,6 +67,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	ObservableList<String> tableList = FXCollections.observableArrayList();
 	ObservableList<String> observerTableList = FXCollections.observableArrayList();
+	
+	public ArrayList<TableListObject> tableListObjects;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -125,6 +128,14 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		inProgressLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyInProgressColor));
 		lobbyTitleLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyTitleColor));
 	}
+	
+	public void addToTableList( TableListObject table ) {
+		tableListObjects.add(table);
+	}
+	
+	public ArrayList<TableListObject> getTableListObjects() {
+		return tableListObjects;
+	}
 
 	@Override
 	public void ButtonClicked(ActionEvent e) {
@@ -142,6 +153,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		} else if (source == joinBtn) {
 			try {
 				
+				CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 				// -- We have selected a table, grab it's number
 				String option = joinListView.getSelectionModel().getSelectedItem().toString();
 
@@ -152,10 +164,11 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 				setIsNotSpectating();
 				
-				switchScene(CheckersBoardViewController.getInstance().getScene());
+				switchScene(controller.getScene());
 
 			} catch (Exception ex) {
 				// -- we tried to click join without selecting anything.
+				ex.printStackTrace();
 			}
 		} else if (source == spectateBtn) {
 			try {
@@ -183,10 +196,10 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	private void loadGames() {
 		try {
-			if ( getTableListObjects() != null) {
+			if ( this.tableListObjects != null) {
 				
-				for (int i = 0; i < getTableListObjects().size() - 1; i++) {
-					TableListObject table = getTableListObjects().get(i);
+				for (int i = 0; i < this.tableListObjects.size() - 1; i++) {
+					TableListObject table = this.tableListObjects.get(i);
 					tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
 				}
 
@@ -209,6 +222,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				observeListView.setItems(tableList);
 			}
 		});
+		this.tableListObjects.add(table);
 	}
 
 	private static Scene lobbyScene = null;

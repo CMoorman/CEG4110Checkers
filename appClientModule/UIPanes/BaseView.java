@@ -93,8 +93,6 @@ public class BaseView extends Application implements Runnable {
 
 	private static int[] tableList;
 	
-	public static ArrayList<TableListObject> tableListObjects;
-	
 	private static boolean playerIsInGame;
 
 	@Override
@@ -178,13 +176,6 @@ public class BaseView extends Application implements Runnable {
 		tableList = tables;
 	}
 
-	public static void addToTableList( TableListObject table ) {
-		tableListObjects.add(table);
-	}
-	
-	public static ArrayList<TableListObject> getTableListObjects() {
-		return tableListObjects;
-	}
 	
 	public static int[] getTableList() {
 		return tableList;
