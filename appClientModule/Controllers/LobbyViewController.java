@@ -68,6 +68,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	ObservableList<String> tableList = FXCollections.observableArrayList();
 	ObservableList<String> observerTableList = FXCollections.observableArrayList();
 	
+	private ArrayList<Integer> tableIdList = new ArrayList<>();
+	
 	public ArrayList<TableListObject> tableListObjects;
 
 	@Override
@@ -217,9 +219,12 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		Platform.runLater( new Runnable() {
 			@Override
 			public void run() {
-				tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
-				joinListView.setItems(tableList);
-				observeListView.setItems(tableList);
+				if( !tableIdList.contains(table.getTableId() ) ) {
+					tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
+					joinListView.setItems(tableList);
+					observeListView.setItems(tableList);
+					tableIdList.add( table.getTableId() );
+				}
 			}
 		});
 		this.tableListObjects.add(table);
