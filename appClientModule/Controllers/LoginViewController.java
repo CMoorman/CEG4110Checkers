@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Objects.DialogHelper;
 import Objects.ColorStyleHelper;
 import UIPanes.BaseView;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -102,26 +104,38 @@ public class LoginViewController extends BaseView implements Initializable {
 				loginSuccess = network.connectToServer(optionalIPAddress,
 						userName);
 			}
-
+			
 			int attempts = 0;
 			int maxAttempts = 10;
 			while (getTableList() == null && attempts <= maxAttempts) {
 				try {
 					Thread.sleep(1000);
+					++attempts;
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-			// -- Try to connect. Trying to connect will yield a boolean
-			// value.
 			if (loginSuccess) {
 				network.setUsrName(userName);
 				if (grabTableList()) {
 					switchScene(LobbyViewController.getInstance().getScene());
 				}
+			} else {
+				DialogHelper.showErrorDialog("Unable to Connect", null,
+						"A server connection could not be established. Please check the IP address and try again");
+				clearLoginControls();
 			}
+			
+			
+			
 		}
+	}
+
+	private void clearLoginControls() {
+		usernameTxtField.setText("");
+		ipAddressTxtField.setText("");
+		
 	}
 
 	public boolean grabTableList() {
