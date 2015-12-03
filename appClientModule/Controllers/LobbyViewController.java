@@ -201,14 +201,14 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	}
 	
 	public void updateGameList( TableListObject table ) {
-
-		tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
-
-		joinListView.setItems(tableList);
-		observeListView.setItems(tableList);
-
-		System.out.println("Updating table list.");
-		
+		Platform.runLater( new Runnable() {
+			@Override
+			public void run() {
+				tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
+				joinListView.setItems(tableList);
+				observeListView.setItems(tableList);
+			}
+		});
 	}
 
 	private static Scene lobbyScene = null;
