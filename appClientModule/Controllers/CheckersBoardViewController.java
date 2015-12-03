@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Objects.ColorStyleHelper;
-import Objects.TableListObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -90,7 +89,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 
 	}
-private static final String RED_ID = "redSquare";
+	private static final String RED_ID = "redSquare";
 	private static final String BLACK_ID = "blackSquare";
 	private void updateCheckerBoard(){
 		if(checkerBoard != null){
@@ -140,10 +139,10 @@ private static final String RED_ID = "redSquare";
 		System.out.println("Adding a new message");
 		messageList.add(msg);
 		System.out.println("Message list: " + messageList.toString());
-		UpdateChatBox();
+		updateChatBox();
 	}
 	
-	public void UpdateChatBox() {
+	public void updateChatBox() {
 		System.out.println("Updating chat box " + messageList.toString() );
 		messageBox.setItems(messageList);
 		
@@ -166,7 +165,7 @@ private static final String RED_ID = "redSquare";
 		try {
 			msg = sendMessageBox.getText();
 		}catch( Exception ex ) {
-			// -- Do some error handling here
+			// TODO: investigate removing this try/catch, was probably null pointer related
 		};
 
 		if( msg.length() > 0 ) {
@@ -174,7 +173,7 @@ private static final String RED_ID = "redSquare";
 			System.out.println( "********Sending the message: " + msg );
 			network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
 			messageList.add(msg);
-			UpdateChatBox();
+			updateChatBox();
 			// -- Clear out the text field.
 			sendMessageBox.setText("");
 		}
@@ -198,7 +197,7 @@ private static final String RED_ID = "redSquare";
 				System.out.println( "********Sending the message: " + msg );
 				network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
 				messageList.add(msg);
-				UpdateChatBox();
+				updateChatBox();
 				// -- Clear out the text field.
 				sendMessageBox.setText("");
 			}

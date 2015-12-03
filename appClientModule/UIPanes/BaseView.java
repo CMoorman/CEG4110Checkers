@@ -1,6 +1,5 @@
 package UIPanes;
 
-import java.util.ArrayList;
 
 import Controllers.MainViewController;
 import javafx.application.Application;
@@ -12,9 +11,9 @@ import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import Objects.TableListObject;
 
 import Controllers.NetworkingController;
+import Objects.DialogHelper;
 
 public class BaseView extends Application implements Runnable {
 	
@@ -102,7 +101,7 @@ public class BaseView extends Application implements Runnable {
 		playerIsInGame = false;
 		
 		BaseView.currentStage = primaryStage;
-		
+		DialogHelper.initOwner(BaseView.currentStage.getOwner());
 		try {
 			Scene scene = MainViewController.getInstance().getScene();
 			BaseView.currentStage.setScene( scene );
