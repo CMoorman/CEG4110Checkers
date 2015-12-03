@@ -172,6 +172,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			}
 		} else if (source == spectateBtn) {
 			try {
+				SpectateViewController controller = SpectateViewController.getInstance();
+
 				// -- We have selected a table, grab it's number
 				String option = joinListView.getSelectionModel().getSelectedItem().toString();
 
@@ -183,7 +185,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				setIsSpectating();
 
 				// -- DO SOMETHING HERE ****************************************
-				switchScene(CheckersBoardViewController.getInstance().getScene());
+				switchScene(controller.getScene());
+
 
 			} catch (Exception ex) {
 				// -- we tried to click join without selecting anything.
@@ -214,10 +217,10 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	}
 	
 	public void updateGameList( TableListObject table ) {
-		Platform.runLater( new Runnable() {
+		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
-				tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
+				tableList.add("Table " + table.getTableId() + ": " + table.getRedPlayer() + "   VS   " + table.getBlackPlayer());
 				joinListView.setItems(tableList);
 				observeListView.setItems(tableList);
 			}

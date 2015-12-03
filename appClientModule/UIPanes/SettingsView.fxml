@@ -71,7 +71,37 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Lobby Settings">
+            <Tab text="Spectate">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <Label font="$x2" layoutX="27.0" layoutY="23.0" prefHeight="24.0" prefWidth="170.0" text="Player 1 Squares" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="66.0" prefHeight="24.0" prefWidth="192.0" text="Player 2 Squares" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="110.0" prefHeight="24.0" prefWidth="157.0" text="Send Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="156.0" prefHeight="24.0" prefWidth="170.0" text="Return Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="205.0" prefHeight="24.0" prefWidth="120.00009999999747" text="Background" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="363.0" layoutY="110.0" prefHeight="24.0" prefWidth="211.00009999999747" text="Send Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="363.0" layoutY="155.0" prefHeight="24.0" prefWidth="221.0" text="Return Button Text" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="328.0" prefHeight="24.0" prefWidth="186.0" text="Player 1 Checkers" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="366.0" prefHeight="24.0" prefWidth="186.0" text="Player 2 Checkers" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="242.0" prefHeight="24.0" prefWidth="170.0" text="Player 1 Avatar" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="28.0" layoutY="286.0" prefHeight="24.0" prefWidth="170.0" text="Player 2 Avatar" textAlignment="RIGHT" />
+                    <ColorPicker id="boardMySquareTxtField" layoutX="215.0" layoutY="23.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardBackgroundTxtField" layoutX="215.0" layoutY="199.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardConcedeBtnTxtField" layoutX="215.0" layoutY="156.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardSendBtnTxtField" layoutX="215.0" layoutY="110.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardOpponentSquareTxtField" layoutX="215.0" layoutY="66.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardMyAvatarTxtField" layoutX="214.0" layoutY="244.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardOpponentCheckerTxtField" layoutX="215.0" layoutY="367.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardMyCheckersTxtField" layoutX="215.0" layoutY="328.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardConcedeBtnTextTxtField" layoutX="584.0" layoutY="156.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardSendBtnTextTxtField" layoutX="584.0" layoutY="110.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker id="boardOpponentAvatarTxtField" layoutX="215.0" layoutY="286.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Lobby">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -113,7 +143,7 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Board Settings">
+            <Tab text="Board">
               <content>
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
@@ -136,7 +166,7 @@
                     <ColorPicker fx:id="boardMyAvatarTxtField" layoutX="584.0" layoutY="22.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
                     <ColorPicker fx:id="boardOpponentCheckerTxtField" layoutX="584.0" layoutY="236.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
                     <ColorPicker fx:id="boardMyCheckersTxtField" layoutX="584.0" layoutY="193.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
-                    <ColorPicker fx:id="boardConcedeBtnTextTxtField" layoutX="584.0" layoutY="145.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
+                    <ColorPicker fx:id="boardConcedeBtnTextTxtField" layoutX="584.0" layoutY="149.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
                     <ColorPicker fx:id="boardSendBtnTextTxtField" layoutX="584.0" layoutY="104.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
                     <ColorPicker fx:id="boardOpponentAvatarTxtField" layoutX="584.0" layoutY="61.0" prefHeight="-1.0" prefWidth="120.0" style="   -fx-background-color: &#10;        rgba(0,0,0,0.08),&#10;        linear-gradient(#5a61af, #51536d),&#10;        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);&#10;    -fx-background-insets: 0 0 -1 0,0,1;&#10;    -fx-background-radius: 5,5,4;&#10;    -fx-text-fill: #242d35;" />
                   </children>

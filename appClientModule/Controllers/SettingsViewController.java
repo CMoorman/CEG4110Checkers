@@ -107,6 +107,29 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	ColorPicker boardMyCheckersTxtField;
 	@FXML
 	ColorPicker boardOpponentCheckerTxtField;
+	@FXML
+	ColorPicker spectatePlayer1SquareTxtField;
+	@FXML
+	ColorPicker spectatePlayer2SquareTxtField;
+	@FXML
+	ColorPicker spectateSendBtnTxtField;
+	@FXML
+	ColorPicker spectateReturnBtnTxtField;
+	@FXML
+	ColorPicker spectateBackgroundTxtField;
+	@FXML
+	ColorPicker spectatePlayer1AvatarTxtField;
+	@FXML
+	ColorPicker spectatePlayer2AvatarTxtField;
+	@FXML
+	ColorPicker spectatePlayer1CheckerTxtField;
+	@FXML
+	ColorPicker spectatePlayer2CheckerTxtField;
+	@FXML
+	ColorPicker spectateSendBtnTextTxtField;
+	@FXML
+	ColorPicker spectateReturnBtnTextTxtField;
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -194,6 +217,27 @@ public class SettingsViewController extends BaseView implements Initializable, B
 
 		boardOpponentCheckerTxtField.setValue((Color) Paint.valueOf(boardOpponentsCheckersColor));
 
+		spectatePlayer1SquareTxtField.setValue((Color) Paint.valueOf(spectatePlayer1SquareColor));
+
+		spectatePlayer2SquareTxtField.setValue((Color) Paint.valueOf(spectatePlayer2SquareColor));
+
+		spectateSendBtnTxtField.setValue((Color) Paint.valueOf(spectateSendBtnColor));
+
+		spectateReturnBtnTxtField.setValue((Color) Paint.valueOf(spectateReturnBtnColor));
+
+		spectateBackgroundTxtField.setValue((Color) Paint.valueOf(spectateBackground));
+
+		spectatePlayer1AvatarTxtField.setValue((Color) Paint.valueOf(spectatePlayer1AvatarColor));
+
+		spectatePlayer2AvatarTxtField.setValue((Color) Paint.valueOf(spectatePlayer2AvatarColor));
+
+		spectatePlayer1CheckerTxtField.setValue((Color) Paint.valueOf(spectatePlayer1CheckerColor));
+
+		spectatePlayer2CheckerTxtField.setValue((Color) Paint.valueOf(spectatePlayer2CheckerColor));
+
+		spectateSendBtnTextTxtField.setValue((Color) Paint.valueOf(spectateSendBtnTextColor));
+
+		spectateReturnBtnTextTxtField.setValue((Color) Paint.valueOf(spectateReturnBtnTextColor));
 	}
 
 	@FXML
@@ -271,10 +315,25 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		boardMyCheckersColor = getColorFromPicker(boardMyCheckersTxtField);
 		boardOpponentsCheckersColor = getColorFromPicker(boardOpponentCheckerTxtField);
 
+		// --- SPECTATE PAGE
+		spectatePlayer1SquareColor = getColorFromPicker(spectatePlayer1SquareTxtField);
+		spectatePlayer2SquareColor = getColorFromPicker(spectatePlayer2SquareTxtField);
+		spectateSendBtnColor = getColorFromPicker(spectateSendBtnTxtField);
+		spectateReturnBtnColor = getColorFromPicker(spectateReturnBtnTxtField);
+		spectateBackground = getColorFromPicker(spectateBackgroundTxtField);
+		spectatePlayer1AvatarColor = getColorFromPicker(spectatePlayer1AvatarTxtField);
+		spectatePlayer2AvatarColor = getColorFromPicker(spectatePlayer2AvatarTxtField);
+		spectatePlayer1CheckerColor = getColorFromPicker(spectatePlayer1CheckerTxtField);
+		spectatePlayer2CheckerColor = getColorFromPicker(spectatePlayer2CheckerTxtField);
+		spectateSendBtnTextColor = getColorFromPicker(spectateSendBtnTextTxtField);
+		spectateReturnBtnTextColor = getColorFromPicker(spectateReturnBtnTextTxtField);
+
 		MainViewController.getInstance().updateUI();
 		LoginViewController.getInstance().updateUI();
 		LobbyViewController.getInstance().updateUI();
 		CheckersBoardViewController.getInstance().updateUI();
+		SpectateViewController.getInstance().updateUI();
+
 		switchScene(MainViewController.getInstance().getScene());
 	}
 

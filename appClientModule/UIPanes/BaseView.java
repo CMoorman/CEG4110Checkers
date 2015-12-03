@@ -89,6 +89,23 @@ public class BaseView extends Application implements Runnable {
 	public static String boardMyCheckersColor = "0000cc";
 	public static String boardOpponentsCheckersColor = "00b300";
 
+	//SPECTATE PAGE
+	public static String spectatePlayer1SquareColor = "ffffff";
+	public static String spectatePlayer2SquareColor = "000000";
+	public static String spectateReturnBtnColor = "8b979c";
+	public static String spectateReturnBtnTextColor = "000000";
+	public static String spectateSendBtnColor = "8b979c";
+	public static String spectateSendBtnTextColor = "000000";
+	public static String spectatePlayer1AvatarColor = "f3f3f3";
+	public static String spectatePlayer2AvatarColor = "000000";
+	public static String spectateBackground = "ffffff";
+	public static String spectatePaneColor = "f3f3f3";
+	public static String spectatePlayer1CheckerColor;
+	public static String spectatePlayer2CheckerColor;
+
+
+
+
 	public static String lobbyBtnColor = "000000";
 
 	private static int[] tableList;
@@ -156,6 +173,7 @@ public class BaseView extends Application implements Runnable {
 	public static final String BOARD_VIEW_FXML = "BoardView.fxml";
 	public static final String LOGIN_VIEW_FXML = "LoginView.fxml";
 	public static final String SETTINGS_VIEW_FXML = "SettingsView.fxml";
+	public static final String SPECTATE_VIEW_FXML = "SpectateView.fxml";
 	/**
 	 * changes the stage of the current view
 	 * @param anchorPane: anchorpane who's view will be set as the main stage's current view
