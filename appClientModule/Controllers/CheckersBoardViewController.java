@@ -209,7 +209,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		return instance;
 	}
 	
-	private void SendMessage() {
+	public void SendMessage() {
 		String msg = "";
 		String receiver = "";
 		
