@@ -174,18 +174,20 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			}
 		} else if (source == spectateBtn) {
 			try {
+				SpectateViewController controller = SpectateViewController.getInstance();
+
 				// -- We have selected a table, grab it's number
-				String option = joinListView.getSelectionModel().getSelectedItem().toString();
+				//String option = joinListView.getSelectionModel().getSelectedItem().toString();
 
 				// - grab the table id off of the string.
-				String tableId = option.substring(6, 10);
+				//String tableId = option.substring(6, 10);
 
-				svrCom.observeTable( userName, Integer.parseInt(tableId) );
+				//svrCom.observeTable( userName, Integer.parseInt(tableId) );
 
-				setIsSpectating();
+				//setIsSpectating();
 
 				// -- DO SOMETHING HERE ****************************************
-				switchScene(CheckersBoardViewController.getInstance().getScene());
+				switchScene(controller.getScene());
 
 			} catch (Exception ex) {
 				// -- we tried to click join without selecting anything.
