@@ -38,8 +38,8 @@ public class BaseView extends Application implements Runnable {
 	public static String opponentName = "Seat is Empty";
 	
 	// -- Used for determining if we are joining a table to spectate. 
-	public static boolean isSpectating;
-	public static boolean isCurrentlyInGame;
+	public static boolean isSpectating = false;
+	public static boolean isCurrentlyInGame = false;
 	public static int currentTableID = -1;
 
 

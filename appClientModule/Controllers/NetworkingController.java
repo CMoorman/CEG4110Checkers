@@ -1,7 +1,6 @@
 package Controllers;
 
-import java.util.ArrayList;
-
+import Controllers.CheckersBoardViewController.PlayerType;
 import javafx.application.Platform;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
@@ -11,9 +10,12 @@ import UIPanes.BaseView;
 
 public class NetworkingController extends BaseView implements CheckersClient {
 
-	public String serverIP = "127.0.0.1";
+	public String serverIP = "192.168.0.109";
 	public ServerCommunicator svrCommunicator;
-	
+	private static CheckersBoardViewController checkersView = null;
+	public static void setBoardView(CheckersBoardViewController boardView){
+		checkersView = boardView;
+	}
 	public boolean isCurrentlyConnected;
 	
 	public NetworkingController() {
@@ -83,8 +85,10 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void newTable(int tid) {
-		svrCommunicator.joinTable(userName, tid);
-		setIsInGame();
+		TableListObject tbl = new TableListObject();
+		tbl.setTableId(tid);
+		LobbyViewController.getInstance().addToTableList(tbl);
+		
 	}
 
 	@Override
@@ -104,44 +108,47 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void gameStart() {
 		System.out.println("The game has started.");
+		checkersView.drawBoard();
 	}
 
 	@Override
 	public void colorBlack() {
-		System.out.println("You're black");
-		
+		System.out.println("You're black: ");
+		checkersView.checkerColor = PlayerType.BLACK;
 	}
 
 	@Override
 	public void colorRed() {
 		System.out.println("You're red");
-		
+		checkersView.checkerColor = PlayerType.RED;
 	}
 
 	@Override
 	public void oppMove(int fr, int fc, int tr, int tc) {
-		
-		
+		System.out.println("Opponent has moved");
 	}
 
 	@Override
 	public void curBoardState(int tid, byte[][] boardState) {
-		
+		checkersView.updateBoardState(tid, boardState);
 	}
 
 	@Override
 	public void youWin() {
-		// TODO Auto-generated method stub
+		DialogHelper.showInfoDialog("Winner!", "You are the man", "You are a Checkers Champion");
+		clearBoard();
+	}
+
+	private void clearBoard() {
 		
 	}
 
 	@Override
 	public void youLose() {
-		// TODO Auto-generated method stub
-		
+		DialogHelper.showInfoDialog("Loser!", "You are not the man", "You are a not Checkers Champion");
+		clearBoard();
 	}
 
-	//private static boolean firstPass = true;
 	@Override
 	public void onTable(int tid, String blackSeat, String redSeat) {
 		
@@ -163,7 +170,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 			controller.updateGameList(table);
 
 			try {
-				svrCommunicator.wait();
+				svrCommunicator.wait(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -175,7 +182,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+					CheckersBoardViewController controller = checkersView;
 
 					if( blackSeat.equals(userName) && !redSeat.equals("-1") ) {
 						controller.oponentNameLbl.setText(redSeat);
@@ -199,8 +206,15 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void yourTurn() {
-		// TODO Auto-generated method stub
-		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+		System.out.println("Players turn");
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				DialogHelper.showInfoDialog("Make a move", null, "It is now your turn. Please make a move");
+				checkersView.setTurn(true);
+			}
+		});
 	}
 
 	@Override
@@ -224,7 +238,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void nameInUseError() {
-		// TODO Auto-generated method stub
+		System.out.println("NAme in use");
 		LoginViewController controller = LoginViewController.getInstance();
 		controller.nameAvailable=false;
 		controller.loginSuccess=false;
@@ -232,7 +246,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void nameIllegal() {
-		// TODO Auto-generated method stub
+		System.out.println("Name illegal");
 		LoginViewController controller = LoginViewController.getInstance();
 		controller.nameIllegal=true;
 		controller.loginSuccess=false;
@@ -240,7 +254,14 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void illegalMove() {
-		// TODO Auto-generated method stub
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				DialogHelper.showErrorDialog("Illegal Move", null, "The move is illegal");
+				
+			}
+		});
 		//CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 		//handled in view
 	}
