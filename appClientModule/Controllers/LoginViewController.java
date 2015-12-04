@@ -44,7 +44,10 @@ public class LoginViewController extends BaseView implements Initializable {
 	javafx.scene.Node currentTile;
 
 	private String loginBackgroundBtnColor;
-
+	boolean loginSuccess = false;
+	boolean nameIllegal = false;
+	boolean nameAvailable = true;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -89,8 +92,9 @@ public class LoginViewController extends BaseView implements Initializable {
 	} // -- End of buttonPressed.
 
 	private void login() {
-		boolean loginSuccess = false;
-
+		nameAvailable = true;
+		nameIllegal = false;
+		loginSuccess = false;
 		String userName = usernameTxtField.getText().trim();
 		
 		String optionalIPAddress = ipAddressTxtField.getText();
@@ -107,7 +111,7 @@ public class LoginViewController extends BaseView implements Initializable {
 			
 			int attempts = 0;
 			int maxAttempts = 10;
-			while (getTableList() == null && attempts <= maxAttempts) {
+			while (getTableList() == null && attempts <= maxAttempts && nameAvailable==true) {
 				try {
 					Thread.sleep(1000);
 					++attempts;
@@ -122,9 +126,22 @@ public class LoginViewController extends BaseView implements Initializable {
 					switchScene(LobbyViewController.getInstance().getScene());
 				}
 			} else {
-				DialogHelper.showErrorDialog("Unable to Connect", null,
+				if (nameAvailable == false){
+					DialogHelper.showErrorDialog("Unable to Connect", null,
+							"Name is Not Available.");
+					clearLoginControls(); 
+				}
+				else if (nameIllegal == true ){
+					DialogHelper.showErrorDialog("Unable to Connect", null,
+							"Illegal Name.");
+					clearLoginControls(); 
+				}
+				else{
+					DialogHelper.showErrorDialog("Unable to Connect", null,
 						"A server connection could not be established. Please check the IP address and try again");
-				clearLoginControls();
+					clearLoginControls();
+				}
+				
 			}
 			
 			
