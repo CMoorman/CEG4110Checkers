@@ -274,6 +274,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				if( pm ){
 					newMsg = "**PM FROM " + user + ": " + msg;
 				}
+				else {
+					newMsg = user +": " + msg;
+				}
 				messageList.add(newMsg);
 				updateChatBox();
 			}
