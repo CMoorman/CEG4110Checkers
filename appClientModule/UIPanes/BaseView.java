@@ -230,7 +230,6 @@ public class BaseView extends Application implements Runnable {
 		//don't think I need this
 		Boolean fileFound = false;
 
-		//setDefaultColors();
 
 		try {
 			br = new BufferedReader(new FileReader("ColorSettings.txt"));

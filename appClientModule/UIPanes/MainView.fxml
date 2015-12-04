@@ -11,14 +11,14 @@
   <children>
     <Pane id="mainPane" fx:id="mainViewPane" layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="800.0">
       <children>
-        <Button fx:id="settingsBtn" layoutX="329.0" layoutY="485.0" mnemonicParsing="false" prefHeight="30.48828125" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Settings">
+        <Button fx:id="settingsBtn" layoutX="329.0" layoutY="358.0" mnemonicParsing="false" prefHeight="30.48828125" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Settings">
           <font>
             <Font size="18.0" fx:id="x1" />
           </font>
         </Button>
-        <Button id="lobbyBtn" fx:id="loginBtn" font="$x1" layoutX="329.0" layoutY="443.0" mnemonicParsing="false" prefHeight="30.48828125" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Login" />
-        <Button id="settingsBtn" fx:id="quitBtn" font="$x1" layoutX="329.0" layoutY="527.0" mnemonicParsing="false" prefHeight="30.48828125" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Quit" />
-        <Label fx:id="mainMenuTitle" layoutX="113.0" layoutY="79.0" prefHeight="56.0" prefWidth="574.0" text="Internet Checkers Y'all">
+        <Button id="lobbyBtn" fx:id="loginBtn" font="$x1" layoutX="329.0" layoutY="318.0" mnemonicParsing="false" prefHeight="30.48828125" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Login" />
+        <Button id="settingsBtn" fx:id="quitBtn" font="$x1" layoutX="329.0" layoutY="397.0" mnemonicParsing="false" prefHeight="30.48828125" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Quit" />
+        <Label fx:id="mainMenuTitle" layoutX="113.0" layoutY="168.0" prefHeight="56.0" prefWidth="574.0" text="Internet Checkers Y'all">
           <font>
             <Font name="Helvetica" size="56.0" />
           </font>
