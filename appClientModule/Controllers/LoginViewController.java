@@ -78,7 +78,7 @@ public class LoginViewController extends BaseView implements Initializable {
 
 	private void submitBtnPressed(ActionEvent e) {
 		login();
-	}
+	} 
 
 	private void cancelBtnPressed(ActionEvent e) {
 		switchScene(MainViewController.getInstance().getScene());
