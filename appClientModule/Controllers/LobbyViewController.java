@@ -82,7 +82,12 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	@FXML
 	Button sendBtn;
-	
+
+	@FXML
+	Label lobbyInfoLbl;
+
+	@FXML
+	Label lobbyWhosInLobbyLbl;
 	
 	// -- Lists to hold the table objects.
 	ObservableList<String> tableList = FXCollections.observableArrayList();
@@ -90,8 +95,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	ObservableList<String> messageList = FXCollections.observableArrayList();
 	
-	private ArrayList<Integer> tableIdList = new ArrayList<>();
+	ObservableList<String> lobbyUserList = FXCollections.observableArrayList();
 	
+	private ArrayList<Integer> tableIdList = new ArrayList<>();
 	public ArrayList<TableListObject> tableListObjects;
 
 	@Override
@@ -126,6 +132,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		openTablesLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 		inProgressLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyInProgressColor));
 		lobbyTitleLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyTitleColor));
+		lobbyInfoLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
+		lobbyWhosInLobbyLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 
 		Platform.runLater(new Runnable() {
 
@@ -151,11 +159,14 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbySendMsgBtnColor) + ";"
 				+ ColorStyleHelper.getTextFillStyle(lobbySendMsgBtnTextColor) + ";");
 
+
 		userNameLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyUsernameColor));
 		lobbyAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyBackgroundColor));
 		openTablesLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 		inProgressLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyInProgressColor));
 		lobbyTitleLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyTitleColor));
+		lobbyInfoLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
+		lobbyWhosInLobbyLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 	}
 	
 	public void addToTableList( TableListObject table ) {
@@ -274,10 +285,44 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				if( pm ){
 					newMsg = "**PM FROM " + user + ": " + msg;
 				}
+				else {
+					newMsg = user +": " + msg;
+				}
 				messageList.add(newMsg);
+				
 				updateChatBox();
 			}
 		});
+	}
+	
+	public void addLobbyUser(String user) {
+		Platform.runLater( new Runnable() {
+
+			@Override
+			public void run() {
+				if( !lobbyUserList.contains(user) ) {
+					lobbyUserList.add(user);
+					updateLobbyBox();
+				}	
+			}
+		});
+	}
+	
+	public void removeLobbyUser(String user) {
+		Platform.runLater( new Runnable() {
+
+			@Override
+			public void run() {
+				if( lobbyUserList.contains(user) ) {
+					lobbyUserList.remove(user);
+					updateLobbyBox();
+				}	
+			}
+		});
+	}
+	
+	public void updateLobbyBox() {
+		lobbyWhosInLobbyListView.setItems(lobbyUserList);
 	}
 	
 	public void updateChatBox() {
@@ -318,17 +363,13 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		}
 		
 		if( msg.length() > 0 && isPM ) {
-			msg = "**PM TO " + receiver + ": " + msg;
 			network.svrCommunicator.sendMsg(receiver, msg);
+			msg = "**PM TO " + receiver + ": " + msg;
 			messageList.add(msg);
 			updateChatBox();
-			// -- Clear out the text field.
 			sendMessageBox.setText("");
 		}else if( msg.length() > 0 ) {
-			msg = userName + ": " + msg;
-			network.svrCommunicator.sendMsg(receiver, msg);
-			messageList.add(msg);
-			updateChatBox();
+			network.svrCommunicator.sendMsg_All(msg);
 			// -- Clear out the text field.
 			sendMessageBox.setText("");
 		}

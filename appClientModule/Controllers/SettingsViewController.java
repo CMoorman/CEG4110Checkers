@@ -133,6 +133,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	ColorPicker boardReadyBtnTxtField;
 	@FXML
 	ColorPicker boardReadyBtnTextTxtField;
+	@FXML
+	ColorPicker lobbySendBtnTxtField;
+	@FXML
+	ColorPicker lobbySendBtnTextTxtField;
 
 
 	@Override
@@ -247,6 +251,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 
 		spectateReturnBtnTextTxtField.setValue((Color) Paint.valueOf(spectateReturnBtnTextColor));
 
+		lobbySendBtnTxtField.setValue((Color) Paint.valueOf(lobbySendMsgBtnColor));
+
+		lobbySendBtnTextTxtField.setValue((Color) Paint.valueOf(lobbySendMsgBtnTextColor));
+
 	}
 
 	@FXML
@@ -310,6 +318,8 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		lobbyUsernameColor = getColorFromPicker(lobbyUsernameTxtField);
 		lobbyDisconnectBtnColor = getColorFromPicker(lobbyDisconnectBtnTxtField);
 		lobbyDisconnectBtnTextColor = getColorFromPicker(lobbyDisconnectBtnTxtTextField);
+		lobbySendMsgBtnColor = getColorFromPicker(lobbySendBtnTxtField);
+		lobbySendMsgBtnTextColor = getColorFromPicker(lobbySendBtnTextTxtField);
 
 		// -- BOARD PAGE
 		boardMySquareColor = getColorFromPicker(boardMySquareTxtField);
@@ -338,10 +348,11 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		spectateReturnBtnTextColor = getColorFromPicker(spectateReturnBtnTextTxtField);
 
 		MainViewController.getInstance().updateUI();
+		MainViewController.getInstance().saveColors();
 		LoginViewController.getInstance().updateUI();
 		LobbyViewController.getInstance().updateUI();
 		CheckersBoardViewController.getInstance().updateUI();
-		SpectateViewController.getInstance().updateUI();
+		//SpectateViewController.getInstance().updateUI();
 
 		switchScene(MainViewController.getInstance().getScene());
 	}

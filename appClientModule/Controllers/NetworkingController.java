@@ -58,26 +58,27 @@ public class NetworkingController extends BaseView implements CheckersClient {
 		else {
 			// -- Send message to global chat in lobby.
 			LobbyViewController controller = LobbyViewController.getInstance();
-			controller.addGameMessage(msg, user, pm);
+			controller.addGameMessage(user, msg, pm);
 		}
 	}
 
 	@Override
 	public void usersInLobby(String[] users) {
-		String usrs = "";
+		LobbyViewController controller = LobbyViewController.getInstance();
 		for(int i = 0; i < users.length; i++ )
-			usrs += users[i];
-		System.out.println("Users in the lobby: " + usrs );
+			controller.addLobbyUser(users[i]);
 	}
 
 	@Override
 	public void nowJoinedLobby(String user) {
-		System.out.println(user + " join the lobby." );
+		LobbyViewController controller = LobbyViewController.getInstance();
+		controller.addLobbyUser(user);
 	}
 
 	@Override
 	public void nowLeftLobby(String user) {
-		System.out.println(user + " left the lobby." );
+		LobbyViewController controller = LobbyViewController.getInstance();
+		controller.removeLobbyUser(user);
 	}
 
 	@Override
