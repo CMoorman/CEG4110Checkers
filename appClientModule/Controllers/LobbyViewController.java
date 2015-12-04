@@ -202,11 +202,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			try {
 				svrCom.disconnect(false);
 				Thread.sleep(3000);
-				svrCom.connectToServer(refreshIp, userName);
+				if( svrCom.connectToServer(refreshIp, userName) )
+					loadGames();
 			} catch(Exception ex) {}
-
-			
-			loadGames();
 			
 		} else if (source == joinBtn) {
 			try {
