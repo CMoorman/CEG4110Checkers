@@ -71,7 +71,8 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void nowJoinedLobby(String user) {
-		System.out.println(user + " join the lobby." );
+		LobbyViewController controller = LobbyViewController.getInstance();
+		controller.addLobbyUser(user);
 	}
 
 	@Override
