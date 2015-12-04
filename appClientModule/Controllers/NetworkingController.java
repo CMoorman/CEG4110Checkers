@@ -103,6 +103,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	public void alertLeftTable() {
 		System.out.println("You have left the table.");
 		setIsNotInGame();
+		clearBoard();
 	}
 
 	@Override
@@ -137,16 +138,30 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	public void youWin() {
 		DialogHelper.showInfoDialog("Winner!", "You are the man", "You are a Checkers Champion");
 		clearBoard();
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				switchScene(LobbyViewController.getInstance().getScene());
+			}
+		});
 	}
 
 	private void clearBoard() {
-		
+		checkersView.clearUI();
 	}
 
 	@Override
 	public void youLose() {
 		DialogHelper.showInfoDialog("Loser!", "You are not the man", "You are a not Checkers Champion");
 		clearBoard();
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				switchScene(LobbyViewController.getInstance().getScene());
+			}
+		});
 	}
 
 	@Override
@@ -154,15 +169,19 @@ public class NetworkingController extends BaseView implements CheckersClient {
 		
 		if( !getIsPlayerInGame() ) {
 			TableListObject table = new TableListObject();
-			if( blackSeat.equals("-1") )
+			if( blackSeat.equals("-1") ){
 				table.setBlackPlayer("(Empty Seat)");
-			else
+			}
+			else{
 				table.setBlackPlayer(blackSeat);
+			}
 			
-			if( redSeat.equals("-1") )
+			if( redSeat.equals("-1") ){
 				table.setRedPlayer("(Empty Seat)");
-			else
+			}
+			else{
 				table.setRedPlayer(redSeat);
+			}
 			
 			table.setTableId(tid);
 			
@@ -172,7 +191,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 			try {
 				svrCommunicator.wait(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -181,7 +199,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
 					CheckersBoardViewController controller = checkersView;
 
 					if( blackSeat.equals(userName) && !redSeat.equals("-1") ) {
@@ -197,7 +214,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void tableList(int[] tids) {
-		// TODO Auto-generated method stub
 		setTableList(tids);
 		for( int i = 0; i < tids.length; i++ ){
 			svrCommunicator.getTblStatus(userName, tids[i]);
@@ -219,26 +235,22 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void nowObserving(int tid) {
-		// TODO Auto-generated method stub
-		// revoke moving peices capabilities
-		// remove concede button?
+		
 	}
 
 	@Override
 	public void stoppedObserving(int tid) {
-		// TODO Auto-generated method stub
-		// change scene?
+		
 	}
 
 	@Override
 	public void networkException(String msg) {
-		// TODO Auto-generated method stub
 		System.out.println("Hmm, not sure. Feels Bad Man.");
 	}
 
 	@Override
 	public void nameInUseError() {
-		System.out.println("NAme in use");
+		System.out.println("Name in use");
 		LoginViewController controller = LoginViewController.getInstance();
 		controller.nameAvailable=false;
 		controller.loginSuccess=false;
@@ -262,32 +274,26 @@ public class NetworkingController extends BaseView implements CheckersClient {
 				
 			}
 		});
-		//CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
-		//handled in view
 	}
 
 	@Override
 	public void tableFull() {
-		// TODO Auto-generated method stub
 		LobbyViewController controller = LobbyViewController.getInstance();
 		controller.joinedTableFull = true;
 	}
 
 	@Override
 	public void tblNotExists() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void gameNotCreatedYet() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void notYourTurn() {
-		// TODO Auto-generated method stub
 		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 		controller.sendMessageBox.setText("It is not my turn!!");
 		controller.SendMessage();
@@ -295,13 +301,11 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void notObserving() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void oppNotReady() {
-		// TODO Auto-generated method stub
 		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 		controller.sendMessageBox.setText("Im Ready! Let's GO!");
 		controller.SendMessage();
@@ -309,25 +313,22 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void errorInLobby() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void badMessage() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void oppLeftTable() {
-		// TODO Auto-generated method stub
-		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+		clearBoard();
+		DialogHelper.showErrorDialog("Opponent Left table", null, "The opponent quit");
+		
 	}
 
 	@Override
 	public void notInLobby() {
-		// TODO Auto-generated method stub
 		
 	}
 

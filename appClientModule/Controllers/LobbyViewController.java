@@ -98,7 +98,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	ObservableList<String> lobbyUserList = FXCollections.observableArrayList();
 	
 	private ArrayList<Integer> tableIdList = new ArrayList<>();
-	public ArrayList<TableListObject> tableListObjects;
+	public ArrayList<TableListObject> tableListObjects = new ArrayList<TableListObject>();
 	
 	private String refreshIp = "127.0.0.1";
 
@@ -255,13 +255,19 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		try {
 			if ( this.tableListObjects != null) {
 				
-				for (int i = 0; i < this.tableListObjects.size() - 1; i++) {
-					TableListObject table = this.tableListObjects.get(i);
-					tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
-				}
-
-				joinListView.setItems(tableList);
-				observeListView.setItems(tableList);
+				
+				Platform.runLater(new Runnable() {
+					
+					@Override
+					public void run() {
+						for (int i = 0; i < tableListObjects.size() - 1; i++) {
+							TableListObject table = tableListObjects.get(i);
+							tableList.add("Table " + table.getTableId() + ": "+ table.getRedPlayer() + "   VS   " + table.getBlackPlayer() );
+						}
+						joinListView.setItems(tableList);
+						observeListView.setItems(tableList);
+					}
+				});
 
 				System.out.println(getTableList().length);
 			}
@@ -363,7 +369,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			// TODO: investigate removing this try/catch, was probably null pointer related
 		};
 
-		if( msg.charAt(0) == '@' ){
+		if( msg.length() > 0 && msg.charAt(0) == '@' ){
 			receiver = msg.substring(0, msg.indexOf(' '));
 			receiver = receiver.substring(receiver.indexOf('@') + 1);
 			isPM = true;

@@ -13,7 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -43,7 +42,6 @@ public class LoginViewController extends BaseView implements Initializable {
 	@FXML
 	javafx.scene.Node currentTile;
 
-	private String loginBackgroundBtnColor;
 	boolean loginSuccess = false;
 	boolean nameIllegal = false;
 	boolean nameAvailable = true;
@@ -113,7 +111,7 @@ public class LoginViewController extends BaseView implements Initializable {
 			
 			
 			int attempts = 0;
-			int maxAttempts = 10;
+			int maxAttempts = 5;
 			while (getTableList() == null && attempts <= maxAttempts && nameAvailable==true) {
 				try {
 					Thread.sleep(1000);
@@ -164,8 +162,8 @@ public class LoginViewController extends BaseView implements Initializable {
 		
 		int index = 0;
 		if( controller.getTableListObjects() != null && getTableList() != null ) {
-			while( controller.getTableListObjects().size() - 1 < getTableList().length ) {
-				if( controller.getTableListObjects().size() - 1 < index ) {
+			while( controller.getTableListObjects().size() < getTableList().length ) {
+				if( controller.getTableListObjects().size() - 1 > index ) {
 					index++;
 				}
 			}

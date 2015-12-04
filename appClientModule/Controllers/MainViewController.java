@@ -14,7 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import UIPanes.BaseView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class MainViewController extends BaseView implements BaseViewController, Initializable {

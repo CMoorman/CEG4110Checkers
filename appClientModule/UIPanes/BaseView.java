@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 
 import Controllers.NetworkingController;
 import Objects.DialogHelper;
@@ -161,11 +160,6 @@ public class BaseView extends Application implements Runnable {
 
 	public Stage getCurrentStage() {
 		return currentStage;
-	}
-
-	public void ButtonClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	/*

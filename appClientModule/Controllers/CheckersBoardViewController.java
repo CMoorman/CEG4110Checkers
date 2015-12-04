@@ -2,7 +2,6 @@ package Controllers;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -33,7 +32,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class CheckersBoardViewController extends BaseView implements Initializable {
@@ -151,15 +149,24 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 	}
 	
-	private void clearUI(){
-		boardState = new byte[8][8];
-		opponentName = "";
-		checkerColor = null;
+	public void clearUI(){
+		Platform.runLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				boardState = initBoard();
+				opponentName = "";
+				oponentNameLbl.setText("Empty ");
+				checkerColor = null;
+				for(Node pane : checkerBoard.getChildren()){
+					((Pane)pane).getChildren().clear();
+				}
+				messageList.clear();
+			}
+		});
 		
 	}
 
-
-	private List<Pane> squares = new ArrayList<Pane>();
 	private void setupBoardListener() {
 		if(checkerBoard != null){
 			for(Node child: checkerBoard.getChildren()){
@@ -175,17 +182,20 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 							PlayerType checker = null;
 							if(pane.getChildren().size() > 0 && pane.getChildren().size() < 3){
 								Circle c = (Circle)pane.getChildren().get(0);
-								if(c.getFill().equals(Color.BLACK)){
-									checker = PlayerType.BLACK;
-								}else if(c.getFill().equals(Color.RED)){
-									checker = PlayerType.RED;
+								if(c.getUserData() != null){
+									if(c.getUserData().equals(PlayerType.BLACK)){
+										checker = PlayerType.BLACK;
+									}else if(c.getUserData().equals(PlayerType.RED)){
+										checker = PlayerType.RED;
+									}
 								}
 							}
-							boardPressed(row, col, checker);
+							boardPressed(row, col, checker, pane);
+							
 						}
 					}
 				});
-				squares.add(pane);
+				
 			}
 		}
 		
@@ -196,9 +206,10 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	}
 	private Location firstPressLocation = null;
 	private Location secondPressLocation = null;
-	protected void boardPressed(int row, int col, PlayerType type) {
+	protected void boardPressed(int row, int col, PlayerType type, Pane pane) {
 		if(!isTurn){
 			DialogHelper.showInfoDialog("Not Your Move", null, "Please Wait for your turn");
+			return;
 		}
 		if(firstPressLocation == null){
 			if(type == null || !type.equals(checkerColor)){
@@ -333,8 +344,8 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 							circle.setCenterY(node.getHeight() / 2);
 						    node.getChildren().add(circle);
 						    if(state > 2){
-						    	Text king = new Text( circle.getCenterX(), circle.getCenterY(), "K");
-						    	king.setFill(Color.WHITE);;
+						    	Text king = new Text( circle.getCenterX() - 5, circle.getCenterY(), "K");
+						    	king.setFill(Color.WHITE);
 						    	node.getChildren().add(king);
 						    }
 						}
@@ -344,16 +355,69 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 				}
 
 				private Circle getChecker(byte state) {
-					Circle circle = null;
-					if(state == 1 || state == 3){
-						circle = new Circle(15, Color.BLACK);
-					}else if(state == 2 || state == 4){
-						circle = new Circle(15, Color.RED);
+					int oppColor = 0x000000;
+					int myColor = 0x000000;
+					try{
+						oppColor = Integer.parseInt(boardOpponentsCheckersColor, 16);
+					}catch(NumberFormatException nfe){
+						
 					}
-					
-					return circle;
+					try{
+						myColor = Integer.parseInt(boardMyCheckersColor, 16);
+					}catch(NumberFormatException nfe){
+						
+					}
+					Color color = null;
+					Object userData = null;
+					if (state == 1 || state == 3) {
+						color = Color.BLACK;
+						userData = PlayerType.BLACK;
+						if (checkerColor.equals(PlayerType.BLACK)) {
+							if (!boardMyCheckersColor.equals(noColorVal)) {
+								java.awt.Color awtColor = new java.awt.Color(myColor);
+								int r = awtColor.getRed();
+								int g = awtColor.getGreen();
+								int b = awtColor.getBlue();
+								color = javafx.scene.paint.Color.rgb(r, g, b);
+							}
+						} else {
+							if (!boardOpponentsCheckersColor.equals(noColorVal)) {
+								java.awt.Color awtColor = new java.awt.Color(oppColor);
+								int r = awtColor.getRed();
+								int g = awtColor.getGreen();
+								int b = awtColor.getBlue();
+								color = javafx.scene.paint.Color.rgb(r, g, b);
+							}
+						}
+					} else if (state == 4 || state == 2) {
+						color = Color.RED;
+						userData = PlayerType.RED;
+						if (checkerColor.equals(PlayerType.RED)) {
+							if (!boardMyCheckersColor.equals(noColorVal)) {
+								java.awt.Color awtColor = new java.awt.Color(myColor);
+								int r = awtColor.getRed();
+								int g = awtColor.getGreen();
+								int b = awtColor.getBlue();
+								color = javafx.scene.paint.Color.rgb(r, g, b);
+							}
+						} else {
+							if (!boardOpponentsCheckersColor.equals(noColorVal)) {
+								java.awt.Color awtColor = new java.awt.Color(oppColor);
+								int r = awtColor.getRed();
+								int g = awtColor.getGreen();
+								int b = awtColor.getBlue();
+								color = javafx.scene.paint.Color.rgb(r, g, b);
+							}
+						}
+					}
+					if(color == null){
+						return null;
+					}
+					Circle c = new Circle(15, color);
+					c.setUserData(userData);
+					return c;
 				}
-			});
+				});
 			
 		}
 	}
@@ -364,6 +428,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		}
 		drawBoard();
 	}
+	private final String noColorVal = "000000";
 	private byte[][] initBoard() {
 		byte[][] b = new byte[8][8];
 		for(int i = 0; i < 8; ++i){
