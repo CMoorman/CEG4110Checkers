@@ -82,7 +82,12 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	@FXML
 	Button sendBtn;
-	
+
+	@FXML
+	Label lobbyInfoLbl;
+
+	@FXML
+	Label lobbyWhosInLobbyLbl;
 	
 	// -- Lists to hold the table objects.
 	ObservableList<String> tableList = FXCollections.observableArrayList();
@@ -126,6 +131,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		openTablesLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 		inProgressLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyInProgressColor));
 		lobbyTitleLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyTitleColor));
+		lobbyInfoLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
+		lobbyWhosInLobbyLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 
 		Platform.runLater(new Runnable() {
 
@@ -151,11 +158,14 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbySendMsgBtnColor) + ";"
 				+ ColorStyleHelper.getTextFillStyle(lobbySendMsgBtnTextColor) + ";");
 
+
 		userNameLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyUsernameColor));
 		lobbyAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyBackgroundColor));
 		openTablesLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 		inProgressLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyInProgressColor));
 		lobbyTitleLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyTitleColor));
+		lobbyInfoLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
+		lobbyWhosInLobbyLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyOpenTablesColor));
 	}
 	
 	public void addToTableList( TableListObject table ) {

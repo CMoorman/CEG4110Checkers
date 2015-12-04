@@ -99,6 +99,8 @@ public class BaseView extends Application implements Runnable {
 	public static String spectatePaneColor;
 	public static String spectatePlayer1CheckerColor;
 	public static String spectatePlayer2CheckerColor;
+	public static String lobbySendMsgBtnColor;
+	public static String lobbySendMsgBtnTextColor;
 
 
 
@@ -175,10 +177,8 @@ public class BaseView extends Application implements Runnable {
 	public static final String LOGIN_VIEW_FXML = "LoginView.fxml";
 	public static final String SETTINGS_VIEW_FXML = "SettingsView.fxml";
 	public static final String SPECTATE_VIEW_FXML = "SpectateView.fxml";
-	/**
-	 * changes the stage of the current view
-	 * @param anchorPane: anchorpane who's view will be set as the main stage's current view
-	 */
+
+
 	public void switchScene(Scene scene){
 		currentStage.setScene(scene);
 		currentStage.show();
@@ -253,7 +253,7 @@ public class BaseView extends Application implements Runnable {
 			System.out.println("File found!");
 			System.out.println(values);
 			System.out.println("Value Lenth: " + values.length);
-			if(values.length == 54){
+			if(values.length == 56){
 				for(int i = 0; i < values.length; i++){
 					if(values[i].length() != 6){
 						setDefaultColors();
@@ -324,6 +324,8 @@ public class BaseView extends Application implements Runnable {
 		spectatePaneColor = values[51];
 		spectatePlayer1CheckerColor = values[52];
 		spectatePlayer2CheckerColor = values[53];
+		lobbySendMsgBtnColor = values[54];
+		lobbySendMsgBtnTextColor = values[55];
 	}
 
 	public static void saveColors(){
@@ -400,6 +402,9 @@ public class BaseView extends Application implements Runnable {
 		printWriter.print(trimColor(spectatePlayer1CheckerColor) + ", ");
 		printWriter.print(trimColor(spectatePlayer2CheckerColor) + ", ");
 
+		//LOBBY BUTTON
+		printWriter.print(trimColor(lobbySendMsgBtnColor) + ", ");
+		printWriter.print(trimColor(lobbySendMsgBtnTextColor) + ", ");
 		printWriter.close();
 
 	}
@@ -458,6 +463,8 @@ public class BaseView extends Application implements Runnable {
 		spectatePaneColor = "f3f3f3";
 		spectatePlayer1CheckerColor = "ffffff";
 		spectatePlayer2CheckerColor = "000000";
+		lobbySendMsgBtnColor = "8b979c";
+		lobbySendMsgBtnTextColor = "000000";
 	}
 
 

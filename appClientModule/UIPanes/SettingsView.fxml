@@ -139,6 +139,10 @@
                     <ColorPicker id="lobbyRefreshBtnTtxField" fx:id="lobbyDisconnectBtnTxtField" layoutX="273.0" layoutY="279.0" prefHeight="-1.0" prefWidth="120.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" />
                     <Label font="$x3" layoutX="418.0" layoutY="280.0" prefHeight="26.0" prefWidth="235.0" text="Disconnect Button Text" textAlignment="RIGHT" />
                     <ColorPicker id="lobbyJoinBtnTxtTextField" fx:id="lobbyDisconnectBtnTxtTextField" layoutX="646.0" layoutY="281.0" prefHeight="-1.0" prefWidth="120.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" />
+                    <Label font="$x2" layoutX="27.0" layoutY="436.0" prefHeight="24.0" prefWidth="157.0" text="Send Button" textAlignment="RIGHT" />
+                    <Label font="$x2" layoutX="419.0" layoutY="435.0" prefHeight="24.0" prefWidth="221.0" text="Send Button Text" textAlignment="RIGHT" />
+                    <ColorPicker id="lobbyRefreshBtnTextTtxField" fx:id="lobbySendBtnTextTxtField" layoutX="646.0" layoutY="434.0" prefHeight="-1.0" prefWidth="120.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" />
+                    <ColorPicker id="lobbyRefreshBtnTtxField" fx:id="lobbySendBtnTxtField" layoutX="273.0" layoutY="435.0" prefHeight="-1.0" prefWidth="120.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" />
                   </children>
                 </AnchorPane>
               </content>
