@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.application.Platform;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
+import Objects.DialogHelper;
 import Objects.TableListObject;
 import UIPanes.BaseView;
 
@@ -49,10 +50,16 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void newMsg(String user, String msg, boolean pm) {
-		System.out.println("New message from: " + user + "." + " Message: " + msg + ". Private: " + pm);
-		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
-		controller.addGameMessage(msg);
-		
+		if( getIsPlayerInGame() ) {
+			// -- Send message to chat box in checkerboard view.
+			CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+			controller.addGameMessage(msg);
+		}
+		else {
+			// -- Send message to global chat in lobby.
+			LobbyViewController controller = LobbyViewController.getInstance();
+			controller.addGameMessage(user, msg, pm);
+		}
 	}
 
 	@Override
@@ -193,37 +200,43 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void yourTurn() {
 		// TODO Auto-generated method stub
-		
+		// allow user to move peice
+		// write "your turn" to text box?
 	}
 
 	@Override
 	public void nowObserving(int tid) {
 		// TODO Auto-generated method stub
-		
+		// revoke moving peices capabilities
+		// remove concede button?
 	}
 
 	@Override
 	public void stoppedObserving(int tid) {
 		// TODO Auto-generated method stub
-		
+		// change scene?
 	}
 
 	@Override
 	public void networkException(String msg) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Hmm, not sure. Feels Bad Man.");
 	}
 
 	@Override
 	public void nameInUseError() {
 		// TODO Auto-generated method stub
-		
+		LoginViewController controller = LoginViewController.getInstance();
+		controller.nameAvailable=false;
+		controller.loginSuccess=false;
 	}
 
 	@Override
 	public void nameIllegal() {
 		// TODO Auto-generated method stub
-		
+		LoginViewController controller = LoginViewController.getInstance();
+		controller.nameIllegal=true;
+		controller.loginSuccess=false;
 	}
 
 	@Override
@@ -235,7 +248,8 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void tableFull() {
 		// TODO Auto-generated method stub
-		
+		LobbyViewController controller = LobbyViewController.getInstance();
+		controller.joinedTableFull = true;
 	}
 
 	@Override

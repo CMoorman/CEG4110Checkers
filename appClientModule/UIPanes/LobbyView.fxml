@@ -9,9 +9,9 @@
 
 <AnchorPane id="lobbyPane" fx:id="lobbyAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LobbyViewController">
   <children>
-    <ScrollPane id="inProgScrollPane" fx:id="observeListViewScrollPane" layoutX="14.0" layoutY="110.0" pannable="false" prefHeight="436.0" prefWidth="286.0">
+    <ScrollPane id="inProgScrollPane" fx:id="observeListViewScrollPane" layoutX="14.0" layoutY="110.0" pannable="false" prefHeight="215.0" prefWidth="286.0">
       <content>
-        <ListView id="inProgListView" fx:id="observeListView" orientation="VERTICAL" prefHeight="423.0001220703125" prefWidth="286.0" />
+        <ListView id="inProgListView" fx:id="observeListView" orientation="VERTICAL" prefHeight="213.0" prefWidth="286.0" />
       </content>
     </ScrollPane>
     <TilePane layoutX="81.0" layoutY="16.0" prefHeight="41.0" prefWidth="142.0" />
@@ -21,21 +21,35 @@
         <Font size="16.0" />
       </font>
     </Label>
-    <Button fx:id="spectateBtn" layoutX="14.0" layoutY="557.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Spectate" />
-    <ScrollPane fx:id="joinScrollPane" layoutX="500.0" layoutY="109.0" prefHeight="437.0" prefWidth="286.0">
+    <Button fx:id="spectateBtn" layoutX="15.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Spectate" />
+    <ScrollPane fx:id="joinScrollPane" layoutX="500.0" layoutY="109.0" prefHeight="215.0" prefWidth="286.0">
       <content>
-        <ListView fx:id="joinListView" prefHeight="444.0" prefWidth="286.0" />
+        <ListView fx:id="joinListView" prefHeight="215.0" prefWidth="286.0" />
       </content>
     </ScrollPane>
     <Label id="spectateTitle" fx:id="openTablesLbl" alignment="CENTER" layoutX="500.0" layoutY="71.0" prefHeight="36.0" prefWidth="286.0" text="Open Tables" />
-    <Button id="spectateBtn" fx:id="joinBtn" layoutX="501.0" layoutY="557.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Join" />
+    <Button id="spectateBtn" fx:id="joinBtn" layoutX="500.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="286.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Join" />
     <Label id="playerIDTitle" fx:id="lobbyTitleLbl" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="41.0" prefWidth="114.0" text="Lobby" textAlignment="LEFT" textFill="BLACK">
       <font>
         <Font name="System Bold" size="24.0" />
       </font>
     </Label>
     <Button id="spectateBtn" fx:id="refreshBtn" layoutX="653.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Refresh" />
-    <Button id="spectateBtn" fx:id="hostBtn" layoutX="339.0" layoutY="288.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Host" />
+    <Button id="spectateBtn" fx:id="hostBtn" layoutX="339.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Host" />
     <Button id="spectateBtn" fx:id="disconnectBtn" layoutX="653.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Disconnect" />
+    <ScrollPane id="inProgScrollPane" fx:id="lobbyMessageScrollPane" layoutX="14.0" layoutY="394.0" pannable="false" prefHeight="162.0" prefWidth="458.0">
+      <content>
+        <ListView id="inProgListView" fx:id="messageBox" orientation="VERTICAL" prefHeight="166.0" prefWidth="457.0" />
+      </content>
+    </ScrollPane>
+    <ScrollPane id="inProgScrollPane" fx:id="lobbyWhosInLobbyScrollPane" layoutX="621.0" layoutY="394.0" pannable="false" prefHeight="193.0" prefWidth="166.0">
+      <content>
+        <ListView id="inProgListView" fx:id="lobbyWhosInLobbyListView" orientation="VERTICAL" prefHeight="200.0" prefWidth="166.0" />
+      </content>
+    </ScrollPane>
+    <Label id="spectateTitle" fx:id="lobbyWhosInLobbyLbl" alignment="CENTER" layoutX="621.0" layoutY="366.0" prefHeight="25.0" prefWidth="159.0" text="Who's In Lobby" />
+    <Button id="spectateBtn" fx:id="sendBtn" layoutX="483.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Send Message" />
+    <TextField id="lobbtTxtInputField" fx:id="sendMessageBox" layoutX="14.0" layoutY="561.0" onKeyPressed="#buttonPressed" prefWidth="458.0" style="-fx-background-radius: 5;" />
+    <Label id="spectateTitle" alignment="CENTER" layoutX="472.0" layoutY="506.0" prefHeight="39.0" prefWidth="149.0" text="Click a name to send a private message" textAlignment="CENTER" wrapText="true" />
   </children>
 </AnchorPane>
