@@ -221,6 +221,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		};
 
 		if( msg.length() > 0 && receiver != "Seat is Empty" && receiver != "" ) {
+			msg = userName + ": " + msg;
 			network.svrCommunicator.sendMsg(receiver, msg);
 			messageList.add(msg);
 			updateChatBox();

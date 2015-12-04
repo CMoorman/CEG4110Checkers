@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -65,7 +66,26 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	@FXML
 	ListView<String> observeListView;
+<<<<<<< HEAD
 	boolean joinedTableFull = false;
+=======
+	
+	// -- Chat box and who's in lobby views
+	@FXML
+	ListView<String> lobbyMessageListView;
+	
+	@FXML
+	ListView<String> lobbyWhosInLobbyListView;
+	
+	@FXML
+	TextField lobbtTxtInputField;
+	
+	@FXML
+	Button lobbySendMsgBtn;
+	
+	
+	// -- Lists to hold the table objects.
+>>>>>>> branch 'masterFX' of https://github.com/CMoorman/CEG4110Checkers.git
 	ObservableList<String> tableList = FXCollections.observableArrayList();
 	ObservableList<String> observerTableList = FXCollections.observableArrayList();
 	
