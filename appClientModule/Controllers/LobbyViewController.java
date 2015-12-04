@@ -90,8 +90,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	ObservableList<String> messageList = FXCollections.observableArrayList();
 	
-	private ArrayList<Integer> tableIdList = new ArrayList<>();
+	ObservableList<String> lobbyUserList = FXCollections.observableArrayList();
 	
+	private ArrayList<Integer> tableIdList = new ArrayList<>();
 	public ArrayList<TableListObject> tableListObjects;
 
 	@Override
@@ -282,6 +283,23 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				updateChatBox();
 			}
 		});
+	}
+	
+	public void addLobbyUser(String user) {
+		Platform.runLater( new Runnable() {
+
+			@Override
+			public void run() {
+				if( !lobbyUserList.contains(user) ) {
+					lobbyUserList.add(user);
+					updateLobbyBox();
+				}	
+			}
+		});
+	}
+	
+	public void updateLobbyBox() {
+		lobbyWhosInLobbyListView.setItems(lobbyUserList);
 	}
 	
 	public void updateChatBox() {

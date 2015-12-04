@@ -64,10 +64,9 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void usersInLobby(String[] users) {
-		String usrs = "";
+		LobbyViewController controller = LobbyViewController.getInstance();
 		for(int i = 0; i < users.length; i++ )
-			usrs += users[i];
-		System.out.println("Users in the lobby: " + usrs );
+			controller.addLobbyUser(users[i]);
 	}
 
 	@Override
