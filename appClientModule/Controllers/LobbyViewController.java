@@ -236,17 +236,6 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			try {
 				SpectateViewController controller = SpectateViewController.getInstance();
 
-				// -- We have selected a table, grab it's number
-				//String option = joinListView.getSelectionModel().getSelectedItem().toString();
-
-				// - grab the table id off of the string.
-				//String tableId = option.substring(6, 10);
-
-				//svrCom.observeTable( userName, Integer.parseInt(tableId) );
-
-				//setIsSpectating();
-
-				// -- DO SOMETHING HERE ****************************************
 				switchScene(controller.getScene());
 
 			} catch (Exception ex) {
