@@ -318,15 +318,14 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		}
 		
 		if( msg.length() > 0 && isPM ) {
-			msg = "**PM TO " + receiver + ": " + msg;
 			network.svrCommunicator.sendMsg(receiver, msg);
+			msg = "**PM TO " + receiver + ": " + msg;
 			messageList.add(msg);
 			updateChatBox();
-			// -- Clear out the text field.
 			sendMessageBox.setText("");
 		}else if( msg.length() > 0 ) {
-			msg = userName + ": " + msg;
 			network.svrCommunicator.sendMsg(receiver, msg);
+			msg = userName + ": " + msg;
 			messageList.add(msg);
 			updateChatBox();
 			// -- Clear out the text field.
