@@ -56,8 +56,9 @@ public class NetworkingController extends BaseView implements CheckersClient {
 		}
 		else {
 			// -- Send message to global chat in lobby.
+			LobbyViewController controller = LobbyViewController.getInstance();
+			controller.addGameMessage(msg, user, pm);
 		}
-
 	}
 
 	@Override

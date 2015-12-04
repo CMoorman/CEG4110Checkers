@@ -39,7 +39,7 @@
     <Button id="spectateBtn" fx:id="disconnectBtn" layoutX="653.0" layoutY="46.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Disconnect" />
     <ScrollPane id="inProgScrollPane" fx:id="lobbyMessageScrollPane" layoutX="14.0" layoutY="394.0" pannable="false" prefHeight="162.0" prefWidth="458.0">
       <content>
-        <ListView id="inProgListView" fx:id="lobbyMessageListView" orientation="VERTICAL" prefHeight="166.0" prefWidth="457.0" />
+        <ListView id="inProgListView" fx:id="messageBox" orientation="VERTICAL" prefHeight="166.0" prefWidth="457.0" />
       </content>
     </ScrollPane>
     <ScrollPane id="inProgScrollPane" fx:id="lobbyWhosInLobbyScrollPane" layoutX="621.0" layoutY="394.0" pannable="false" prefHeight="193.0" prefWidth="166.0">
@@ -48,8 +48,8 @@
       </content>
     </ScrollPane>
     <Label id="spectateTitle" fx:id="lobbyWhosInLobbyLbl" alignment="CENTER" layoutX="621.0" layoutY="366.0" prefHeight="25.0" prefWidth="159.0" text="Who's In Lobby" />
-    <Button id="spectateBtn" fx:id="lobbySendMsgBtn" layoutX="483.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Send Message" />
-    <TextField fx:id="lobbtTxtInputField" layoutX="14.0" layoutY="561.0" prefWidth="458.0" />
+    <Button id="spectateBtn" fx:id="sendBtn" layoutX="483.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Send Message" />
+    <TextField id="lobbtTxtInputField" fx:id="sendMessageBox" layoutX="14.0" layoutY="561.0" onKeyPressed="#buttonPressed" prefWidth="458.0" style="-fx-background-radius: 5;" />
     <Label id="spectateTitle" alignment="CENTER" layoutX="472.0" layoutY="506.0" prefHeight="39.0" prefWidth="149.0" text="Click a name to send a private message" textAlignment="CENTER" wrapText="true" />
   </children>
 </AnchorPane>

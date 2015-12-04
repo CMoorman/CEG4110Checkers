@@ -74,7 +74,9 @@ public class BaseView extends Application implements Runnable {
 	public static String lobbyUsernameColor = "000000";
 	public static String lobbyDisconnectBtnColor = "8b979c";
 	public static String lobbyDisconnectBtnTextColor = "000000";
-
+	public static String lobbySendMsgBtnColor = "8b979c";
+	public static String lobbySendMsgBtnTextColor = "000000";
+	
 	//BOARD PAGE
 	public static String boardMySquareColor = "cc0000";
 	public static String boardOpponentSquareColor = "000000";

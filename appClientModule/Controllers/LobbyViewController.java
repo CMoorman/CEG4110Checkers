@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -68,21 +69,23 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	// -- Chat box and who's in lobby views
 	@FXML
-	ListView<String> lobbyMessageListView;
+	ListView<String> messageBox;
 	
 	@FXML
 	ListView<String> lobbyWhosInLobbyListView;
 	
 	@FXML
-	TextField lobbtTxtInputField;
+	TextField sendMessageBox;
 	
 	@FXML
-	Button lobbySendMsgBtn;
+	Button sendBtn;
 	
 	
 	// -- Lists to hold the table objects.
 	ObservableList<String> tableList = FXCollections.observableArrayList();
 	ObservableList<String> observerTableList = FXCollections.observableArrayList();
+
+	ObservableList<String> messageList = FXCollections.observableArrayList();
 	
 	private ArrayList<Integer> tableIdList = new ArrayList<>();
 	
@@ -100,6 +103,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		refreshBtn.setOnAction(e -> ButtonClicked(e));
 		spectateBtn.setOnAction(e -> ButtonClicked(e));
 		disconnectBtn.setOnAction(e -> ButtonClicked(e));
+		sendBtn.setOnAction( e -> sendBtnPressed(e) );
 
 		refreshBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyRefreshBtnColor) + ";"
 				+ ColorStyleHelper.getTextFillStyle(lobbyRefreshBtnTextColor) + ";");
@@ -111,6 +115,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				+ ColorStyleHelper.getTextFillStyle(lobbyJoinBtnTextColor) + ";");
 		disconnectBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyDisconnectBtnColor) + ";"
 				+ ColorStyleHelper.getTextFillStyle(lobbyDisconnectBtnTextColor) + ";");
+		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbySendMsgBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbySendMsgBtnTextColor) + ";");
 
 		userNameLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyUsernameColor));
 		lobbyAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyBackgroundColor));
@@ -139,6 +145,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				+ ColorStyleHelper.getTextFillStyle(lobbyJoinBtnTextColor) + ";");
 		disconnectBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyDisconnectBtnColor) + ";"
 				+ ColorStyleHelper.getTextFillStyle(lobbyDisconnectBtnTextColor) + ";");
+		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbySendMsgBtnColor) + ";"
+				+ ColorStyleHelper.getTextFillStyle(lobbySendMsgBtnTextColor) + ";");
 
 		userNameLbl.setStyle(ColorStyleHelper.getTextFillStyle(lobbyUsernameColor));
 		lobbyAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(lobbyBackgroundColor));
@@ -246,6 +254,74 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			}
 		});
 		this.tableListObjects.add(table);
+	}
+	
+	public void addGameMessage(String user, String msg, boolean pm) {
+		Platform.runLater( new Runnable() {
+			@Override
+			public void run() {
+				String newMsg = msg;
+				if( pm ){
+					newMsg = "**PM FROM " + user + ": " + msg;
+				}
+				messageList.add(newMsg);
+				updateChatBox();
+			}
+		});
+	}
+	
+	public void updateChatBox() {
+		messageBox.setItems(messageList);
+		if( messageList.size() > 0)
+			messageBox.scrollTo( messageList.size() - 1 );
+	}
+	
+	private void sendBtnPressed( ActionEvent e ) {
+		SendMessage();
+	}
+	
+	@FXML
+	public void buttonPressed(KeyEvent e)
+	{
+	    if(e.getCode().toString().equals("ENTER"))
+	    {
+			SendMessage();
+	    }
+	} // -- End of buttonPressed.
+	
+	private void SendMessage() {
+		String msg = "";
+		String receiver = "";
+		boolean isPM = false;
+		
+		try {
+			msg = sendMessageBox.getText();
+		}catch( Exception ex ) {
+			// TODO: investigate removing this try/catch, was probably null pointer related
+		};
+
+		if( msg.charAt(0) == '@' ){
+			receiver = msg.substring(0, msg.indexOf(' '));
+			receiver = receiver.substring(receiver.indexOf('@') + 1);
+			isPM = true;
+			msg = msg.substring(msg.indexOf(' '));
+		}
+		
+		if( msg.length() > 0 && isPM ) {
+			msg = "**PM TO " + receiver + ": " + msg;
+			network.svrCommunicator.sendMsg(receiver, msg);
+			messageList.add(msg);
+			updateChatBox();
+			// -- Clear out the text field.
+			sendMessageBox.setText("");
+		}else if( msg.length() > 0 ) {
+			msg = userName + ": " + msg;
+			network.svrCommunicator.sendMsg(receiver, msg);
+			messageList.add(msg);
+			updateChatBox();
+			// -- Clear out the text field.
+			sendMessageBox.setText("");
+		}
 	}
 
 	private static Scene lobbyScene = null;
