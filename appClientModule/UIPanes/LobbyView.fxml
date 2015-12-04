@@ -50,6 +50,6 @@
     <Label id="spectateTitle" fx:id="lobbyWhosInLobbyLbl" alignment="CENTER" layoutX="621.0" layoutY="366.0" prefHeight="25.0" prefWidth="159.0" text="Who's In Lobby" />
     <Button id="spectateBtn" fx:id="sendBtn" layoutX="483.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Send Message" />
     <TextField id="lobbtTxtInputField" fx:id="sendMessageBox" layoutX="14.0" layoutY="561.0" onKeyPressed="#buttonPressed" prefWidth="458.0" style="-fx-background-radius: 5;" />
-    <Label id="spectateTitle" alignment="CENTER" layoutX="472.0" layoutY="506.0" prefHeight="39.0" prefWidth="149.0" text="Click a name to send a private message" textAlignment="CENTER" wrapText="true" />
+    <Label id="spectateTitle" alignment="CENTER" layoutX="483.0" layoutY="506.0" prefHeight="39.0" prefWidth="122.0" text="Use @ with a name to send a PM" textAlignment="CENTER" wrapText="true" />
   </children>
 </AnchorPane>

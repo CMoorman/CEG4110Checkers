@@ -298,6 +298,19 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 		});
 	}
 	
+	public void removeLobbyUser(String user) {
+		Platform.runLater( new Runnable() {
+
+			@Override
+			public void run() {
+				if( lobbyUserList.contains(user) ) {
+					lobbyUserList.remove(user);
+					updateLobbyBox();
+				}	
+			}
+		});
+	}
+	
 	public void updateLobbyBox() {
 		lobbyWhosInLobbyListView.setItems(lobbyUserList);
 	}

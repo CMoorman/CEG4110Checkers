@@ -76,7 +76,8 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void nowLeftLobby(String user) {
-		System.out.println(user + " left the lobby." );
+		LobbyViewController controller = LobbyViewController.getInstance();
+		controller.removeLobbyUser(user);
 	}
 
 	@Override
