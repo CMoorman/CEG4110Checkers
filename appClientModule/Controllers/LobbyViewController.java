@@ -234,9 +234,9 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			}
 		} else if (source == spectateBtn) {
 			try {
-				SpectateViewController controller = SpectateViewController.getInstance();
+				//SpectateViewController controller = SpectateViewController.getInstance();
 
-				switchScene(controller.getScene());
+				//switchScene(controller.getScene());
 
 			} catch (Exception ex) {
 				// -- we tried to click join without selecting anything.

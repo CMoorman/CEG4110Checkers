@@ -10,7 +10,7 @@ import UIPanes.BaseView;
 
 public class NetworkingController extends BaseView implements CheckersClient {
 
-	public String serverIP = "192.168.0.109";
+	public String serverIP = "127.0.0.1";
 	public ServerCommunicator svrCommunicator;
 	private static CheckersBoardViewController checkersView = null;
 	public static void setBoardView(CheckersBoardViewController boardView){

@@ -123,9 +123,7 @@ public class LoginViewController extends BaseView implements Initializable {
 			}
 			if (loginSuccess) {
 				network.setUsrName(userName);
-				if (grabTableList()) {
-					switchScene(LobbyViewController.getInstance().getScene());
-				}
+				switchScene(LobbyViewController.getInstance().getScene());
 			} else {
 				if (nameAvailable == false){
 					DialogHelper.showErrorDialog("Unable to Connect", null,
@@ -154,21 +152,6 @@ public class LoginViewController extends BaseView implements Initializable {
 		usernameTxtField.setText("");
 		ipAddressTxtField.setText("");
 		
-	}
-
-	public boolean grabTableList() {
-		
-		LobbyViewController controller = LobbyViewController.getInstance();
-		
-		int index = 0;
-		if( controller.getTableListObjects() != null && getTableList() != null ) {
-			while( controller.getTableListObjects().size() < getTableList().length ) {
-				if( controller.getTableListObjects().size() - 1 > index ) {
-					index++;
-				}
-			}
-		}
-		return true;
 	}
 
 	private static Scene loginScene = null;
