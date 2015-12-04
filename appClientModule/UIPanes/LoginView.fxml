@@ -9,18 +9,18 @@
 
 <AnchorPane id="AnchorPane" fx:id="loginViewPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.LoginViewController">
   <children>
-    <Label fx:id="loginMenuTitle" layoutX="320.0" layoutY="191.0" text="Login">
+    <Label fx:id="loginMenuTitle" layoutX="321.0" layoutY="141.0" text="Login">
       <font>
-        <Font name="Helvetica" size="64.0" />
+        <Font size="64.0" />
       </font>
     </Label>
-    <Button id="settingsBtn" fx:id="cancelBtn" layoutX="329.0" layoutY="433.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Cancel">
+    <Button id="settingsBtn" fx:id="cancelBtn" layoutX="329.0" layoutY="534.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Cancel">
       <font>
         <Font size="18.0" fx:id="x1" />
       </font>
     </Button>
-    <Button id="settingsBtn" fx:id="submitBtn" font="$x1" layoutX="329.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Submit" />
-    <TextField fx:id="usernameTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="321.0" layoutY="323.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="Username" style="-fx-text-alignment: center&#10;" text="" />
-    <TextField fx:id="ipAddressTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="320.0" layoutY="284.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="IP Address (Optional)" style="-fx-text-alignment: center&#10;" text="" />
+    <Button id="settingsBtn" fx:id="submitBtn" font="$x1" layoutX="329.0" layoutY="484.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Submit" />
+    <TextField fx:id="usernameTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="320.0" layoutY="428.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="Username" style="-fx-text-alignment: center&#10;" text="" />
+    <TextField fx:id="ipAddressTxtField" alignment="CENTER" blendMode="SRC_OVER" layoutX="320.0" layoutY="384.0" onKeyPressed="#buttonPressed" prefHeight="32.0" prefWidth="158.0" promptText="IP Address (Optional)" style="-fx-text-alignment: center&#10;" text="" />
   </children>
 </AnchorPane>
