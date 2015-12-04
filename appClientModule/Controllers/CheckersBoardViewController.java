@@ -133,10 +133,6 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		);
 		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
 
-
-		/*redSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMySquareColor));
-		blackSquare.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentSquareColor));*/
-
 		opponentAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardOpponentAvatarColor));
 		myAvatar.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardMyAvatarColor));
 	}
@@ -176,23 +172,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	}
 	
 	private void sendBtnPressed( ActionEvent e ) {
-		String msg = "";
-		
-		try {
-			msg = sendMessageBox.getText();
-		}catch( Exception ex ) {
-			// TODO: investigate removing this try/catch, was probably null pointer related
-		};
-
-		if( msg.length() > 0 ) {
-			System.out.println(BaseView.opponentName);
-			System.out.println( "********Sending the message: " + msg );
-			network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
-			messageList.add(msg);
-			updateChatBox();
-			// -- Clear out the text field.
-			sendMessageBox.setText("");
-		}
+		SendMessage();
 	}
 	
 	@FXML
@@ -200,23 +180,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	{
 	    if(e.getCode().toString().equals("ENTER"))
 	    {
-	    	String msg = "";
-			
-			try {
-				msg = sendMessageBox.getText();
-			}catch( Exception ex ) {
-				// -- Do some error handling here
-			};
-
-			if( msg.length() > 0 ) {
-				System.out.println(BaseView.opponentName);
-				System.out.println( "********Sending the message: " + msg );
-				network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
-				messageList.add(msg);
-				updateChatBox();
-				// -- Clear out the text field.
-				sendMessageBox.setText("");
-			}
+			SendMessage();
 	    }
 	} // -- End of buttonPressed.
 	private static Scene boardScene = null;
@@ -240,4 +204,25 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		}
 		return instance;
 	}
+	
+	private void SendMessage() {
+		String msg = "";
+		String receiver = "";
+		
+		try {
+			msg = sendMessageBox.getText();
+			receiver = oponentNameLbl.getText();
+		}catch( Exception ex ) {
+			// TODO: investigate removing this try/catch, was probably null pointer related
+		};
+
+		if( msg.length() > 0 && receiver != "Seat is Empty" && receiver != "" ) {
+			network.svrCommunicator.sendMsg(BaseView.opponentName, msg);
+			messageList.add(msg);
+			updateChatBox();
+			// -- Clear out the text field.
+			sendMessageBox.setText("");
+		}
+	}
+	
 }
