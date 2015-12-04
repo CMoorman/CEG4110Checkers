@@ -67,9 +67,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	@FXML
 	ListView<String> observeListView;
-<<<<<<< HEAD
+	
 	boolean joinedTableFull = false;
-=======
 	
 	// -- Chat box and who's in lobby views
 	@FXML
@@ -86,7 +85,6 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	
 	// -- Lists to hold the table objects.
->>>>>>> branch 'masterFX' of https://github.com/CMoorman/CEG4110Checkers.git
 	ObservableList<String> tableList = FXCollections.observableArrayList();
 	ObservableList<String> observerTableList = FXCollections.observableArrayList();
 
