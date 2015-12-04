@@ -230,24 +230,28 @@ public class BaseView extends Application implements Runnable {
 		//don't think I need this
 		Boolean fileFound = false;
 
+		//setDefaultColors();
+
 		try {
 			br = new BufferedReader(new FileReader("ColorSettings.txt"));
 			fileFound = true;
+			try {
+				while ((line = br.readLine()) != null) {
+					values = line.split(", ");
+					for (String str : values) {
+						System.out.println(str);
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		} catch (FileNotFoundException e) {
 			fileFound = false;
 			setDefaultColors();
 		}
 
-		try {
-			while ((line = br.readLine()) != null) {
-				values = line.split(", ");
-				for (String str : values) {
-					System.out.println(str);
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
 		//WARNING: This number needs to equal the number of elements we can change in the settings menu!
 		if(fileFound && values != null){
 			System.out.println("File found!");
