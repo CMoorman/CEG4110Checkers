@@ -168,6 +168,7 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	
 	private void concedeBtnPressed( ActionEvent e ) {
 		network.svrCommunicator.leaveTable();
+		messageList.clear();
 		switchScene(LobbyViewController.getInstance().getScene());
 	}
 

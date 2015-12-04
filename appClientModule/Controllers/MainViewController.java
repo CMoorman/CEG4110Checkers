@@ -1,6 +1,6 @@
 package Controllers;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,7 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class MainViewController extends BaseView implements BaseViewController, Initializable {
-	
+	public static int x = 0;
+	public static int valueSize = 0;
+
 	@FXML
 	private Button settingsBtn;
 
@@ -50,7 +52,7 @@ public class MainViewController extends BaseView implements BaseViewController, 
 
 		mainViewPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(backgroundColor));
 		mainMenuTitle.setStyle(ColorStyleHelper.getTextFillStyle(titleColor));
-		
+		loadColors();
 	}
 
 	public void updateUI() {
@@ -66,7 +68,6 @@ public class MainViewController extends BaseView implements BaseViewController, 
 	}
 
 
-
 	private void settingsClicked(ActionEvent e) {
 		switchScene(SettingsViewController.getInstance().getScene());
 	}
@@ -75,13 +76,20 @@ public class MainViewController extends BaseView implements BaseViewController, 
 		switchScene(LoginViewController.getInstance().getScene());
 	}
 
-	private void quitClicked(ActionEvent e){
+	private void quitClicked(ActionEvent e) {
 		if (network.isCurrentlyConnected) {
 			network.svrCommunicator.disconnect(true);
 		}
+		saveColors();
 		Platform.exit();
 		System.exit(0);
 	}
+
+
+
+
+
+
 	private static Scene mainScene = null;
 
 	public Scene getScene() {

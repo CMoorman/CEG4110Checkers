@@ -112,7 +112,7 @@
         <Label id="yourNameLbl" fx:id="yourUserNameLbl" alignment="CENTER" font="$x1" layoutX="0.0" layoutY="0.0" prefHeight="34.0" prefWidth="180.0" text="Your Name" textAlignment="CENTER" textFill="WHITE" />
       </children>
     </Pane>
-    <ListView fx:id="messageBox" layoutX="13.0" layoutY="393.0" prefHeight="154.0" prefWidth="360.0" />
+    <ListView fx:id="messageBox" layoutX="13.0" layoutY="393.0" prefHeight="154.0" prefWidth="360.0" style=":-fx-text-wrap: true&#10;wraptext: true" />
     <Button fx:id="sendBtn" layoutX="388.0" layoutY="560.0" mnemonicParsing="false" prefWidth="111.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Send" />
     <Button id="forfeitBtn" fx:id="concedeBtn" layoutX="606.0" layoutY="268.0" mnemonicParsing="false" prefWidth="180.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;&#10;" text="Concede" />
     <TextField id="messageTextField" fx:id="sendMessageBox" layoutX="13.0" layoutY="555.0" onKeyPressed="#buttonPressed" prefHeight="31.0" prefWidth="359.9998779296875" style="-fx-background-radius: 5;" />

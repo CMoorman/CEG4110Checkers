@@ -338,10 +338,11 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		spectateReturnBtnTextColor = getColorFromPicker(spectateReturnBtnTextTxtField);
 
 		MainViewController.getInstance().updateUI();
+		MainViewController.getInstance().saveColors();
 		LoginViewController.getInstance().updateUI();
 		LobbyViewController.getInstance().updateUI();
 		CheckersBoardViewController.getInstance().updateUI();
-		SpectateViewController.getInstance().updateUI();
+		//SpectateViewController.getInstance().updateUI();
 
 		switchScene(MainViewController.getInstance().getScene());
 	}
