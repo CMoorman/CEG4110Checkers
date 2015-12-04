@@ -181,11 +181,6 @@
                 </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Chat Window">
-              <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
           </tabs>
         </TabPane>
         <Button fx:id="saveBtn" font="$x1" layoutX="665.0" layoutY="560.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" style=" -fx-background-color: linear-gradient(#1Ac1fb, #1d7af3);&#10;    -fx-background-radius: 5;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Save" textAlignment="CENTER" />
