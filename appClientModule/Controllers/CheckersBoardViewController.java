@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Objects.ColorStyleHelper;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -144,16 +145,19 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	}
 	
 	public void addGameMessage(String msg) {
-		System.out.println("Adding a new message");
-		messageList.add(msg);
-		System.out.println("Message list: " + messageList.toString());
-		updateChatBox();
+		Platform.runLater( new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("Adding a new message");
+				messageList.add(msg);
+				System.out.println("Message list: " + messageList.toString());
+				updateChatBox();
+			}
+		});
 	}
 	
 	public void updateChatBox() {
-		System.out.println("Updating chat box " + messageList.toString() );
 		messageBox.setItems(messageList);
-		
 		if( messageList.size() > 0)
 			messageBox.scrollTo( messageList.size() - 1 );
 	}
