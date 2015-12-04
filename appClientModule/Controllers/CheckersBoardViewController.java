@@ -41,6 +41,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	
 	@FXML
 	Button concedeBtn;
+
+	@FXML
+	Button readyBtn;
 	
 	@FXML
 	TextField sendMessageBox;
@@ -74,13 +77,19 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		oponentNameLbl.setText(BaseView.network.getOppName());
 		sendBtn.setOnAction(e -> sendBtnPressed(e));
 		concedeBtn.setOnAction(e -> concedeBtnPressed(e));
+		readyBtn.setOnAction(e -> readyBtnPressed(e));
 
 		sendBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardSendBtnColor) + ";" +
-				ColorStyleHelper.getTextFillStyle(boardSendBtnTextColor) + ";"
+						ColorStyleHelper.getTextFillStyle(boardSendBtnTextColor) + ";"
 		);
 		concedeBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardConcedeBtnColor) + ";" +
 				ColorStyleHelper.getTextFillStyle(boardConcedeBtnTextColor) + ";"
 		);
+
+		readyBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardReadyBtnColor) + ";" +
+						ColorStyleHelper.getTextFillStyle(boardReadyBtnTextColor) + ";"
+		);
+
 		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
 
 		updateCheckerBoard();
@@ -118,6 +127,9 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 		);
 		concedeBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardConcedeBtnColor) + ";" +
 						ColorStyleHelper.getTextFillStyle(boardConcedeBtnTextColor) + ";"
+		);
+		readyBtn.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardReadyBtnColor) + ";" +
+						ColorStyleHelper.getTextFillStyle(boardReadyBtnTextColor) + ";"
 		);
 		checkersAnchorPane.setStyle(ColorStyleHelper.getBackgroundColorStyle(boardBackgroundColor));
 
@@ -157,6 +169,10 @@ public class CheckersBoardViewController extends BaseView implements Initializab
 	private void concedeBtnPressed( ActionEvent e ) {
 		network.svrCommunicator.leaveTable();
 		switchScene(LobbyViewController.getInstance().getScene());
+	}
+
+	private void readyBtnPressed( ActionEvent e ){
+		//do something magical
 	}
 	
 	private void sendBtnPressed( ActionEvent e ) {

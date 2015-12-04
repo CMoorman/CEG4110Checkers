@@ -129,6 +129,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 	ColorPicker spectateSendBtnTextTxtField;
 	@FXML
 	ColorPicker spectateReturnBtnTextTxtField;
+	@FXML
+	ColorPicker boardReadyBtnTxtField;
+	@FXML
+	ColorPicker boardReadyBtnTextTxtField;
 
 
 	@Override
@@ -217,6 +221,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 
 		boardOpponentCheckerTxtField.setValue((Color) Paint.valueOf(boardOpponentsCheckersColor));
 
+		boardReadyBtnTxtField.setValue((Color) Paint.valueOf(boardReadyBtnColor));
+
+		boardReadyBtnTextTxtField.setValue((Color) Paint.valueOf(boardReadyBtnTextColor));
+
 		spectatePlayer1SquareTxtField.setValue((Color) Paint.valueOf(spectatePlayer1SquareColor));
 
 		spectatePlayer2SquareTxtField.setValue((Color) Paint.valueOf(spectatePlayer2SquareColor));
@@ -238,6 +246,7 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		spectateSendBtnTextTxtField.setValue((Color) Paint.valueOf(spectateSendBtnTextColor));
 
 		spectateReturnBtnTextTxtField.setValue((Color) Paint.valueOf(spectateReturnBtnTextColor));
+
 	}
 
 	@FXML

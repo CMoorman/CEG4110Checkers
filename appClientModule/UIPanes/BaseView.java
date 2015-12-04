@@ -87,6 +87,8 @@ public class BaseView extends Application implements Runnable {
 	public static String boardConcedeBtnTextColor = "000000";
 	public static String boardMyCheckersColor = "0000cc";
 	public static String boardOpponentsCheckersColor = "00b300";
+	public static String boardReadyBtnColor = "8b979c";
+	public static String boardReadyBtnTextColor = "000000";
 
 	//SPECTATE PAGE
 	public static String spectatePlayer1SquareColor = "ffffff";
