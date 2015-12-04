@@ -99,6 +99,8 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 	
 	private ArrayList<Integer> tableIdList = new ArrayList<>();
 	public ArrayList<TableListObject> tableListObjects;
+	
+	private String refreshIp = "127.0.0.1";
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -187,10 +189,25 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			setIsNotSpectating();
 			switchScene(CheckersBoardViewController.getInstance().getScene());
 		} else if (source == refreshBtn) {
-			System.out.println("Refresh");
-			tableList.removeAll(tableList);
-			observerTableList.removeAll(observerTableList);
+			
+			for( int i = tableList.size() - 1; i >= 0; i-- )
+				tableList.remove(i);
+			
+			for( int i = observerTableList.size() - 1; i >= 0; i-- )
+				observerTableList.remove(i);
+			
+			for( int i = tableIdList.size() - 1; i >= 0; i-- )
+				tableIdList.remove(i);
+			
+			try {
+				svrCom.disconnect(false);
+				Thread.sleep(3000);
+				svrCom.connectToServer(refreshIp, userName);
+			} catch(Exception ex) {}
+
+			
 			loadGames();
+			
 		} else if (source == joinBtn) {
 			try {
 				
@@ -241,6 +258,10 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			svrCom.disconnect(false);
 			switchScene(MainViewController.getInstance().getScene());
 		}
+	}
+	
+	public void setRefreshIp(String ip) {
+		refreshIp = ip;
 	}
 
 	private void loadGames() {

@@ -98,16 +98,19 @@ public class LoginViewController extends BaseView implements Initializable {
 		String userName = usernameTxtField.getText().trim();
 		
 		String optionalIPAddress = ipAddressTxtField.getText();
-
+		LobbyViewController controller = LobbyViewController.getInstance();
 		// -- Make sure that there is something there and that we set a
 		// limit on it.
 		if (userName.length() > 0 && userName.length() <= 20) {
 			if (optionalIPAddress.isEmpty()) {
 				loginSuccess = network.connectToServer(serverIP, userName);
+				controller.setRefreshIp(serverIP);
 			} else {
 				loginSuccess = network.connectToServer(optionalIPAddress,
 						userName);
+				controller.setRefreshIp(optionalIPAddress);
 			}
+			
 			
 			int attempts = 0;
 			int maxAttempts = 10;
