@@ -333,8 +333,10 @@ public class SettingsViewController extends BaseView implements Initializable, B
 		boardConcedeBtnTextColor = getColorFromPicker(boardConcedeBtnTextTxtField);
 		boardMyCheckersColor = getColorFromPicker(boardMyCheckersTxtField);
 		boardOpponentsCheckersColor = getColorFromPicker(boardOpponentCheckerTxtField);
+		boardReadyBtnColor = getColorFromPicker(boardReadyBtnTxtField);
+		boardReadyBtnTextColor = getColorFromPicker(boardReadyBtnTextTxtField);
 
-		// --- SPECTATE PAGE
+		// --- SPECTATE PAG
 		spectatePlayer1SquareColor = getColorFromPicker(spectatePlayer1SquareTxtField);
 		spectatePlayer2SquareColor = getColorFromPicker(spectatePlayer2SquareTxtField);
 		spectateSendBtnColor = getColorFromPicker(spectateSendBtnTxtField);
