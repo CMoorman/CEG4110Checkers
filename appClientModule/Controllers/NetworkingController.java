@@ -1,11 +1,8 @@
 package Controllers;
 
-import java.util.ArrayList;
-
 import javafx.application.Platform;
 import Networking.CheckersClient;
 import Networking.ServerCommunicator;
-import Objects.DialogHelper;
 import Objects.TableListObject;
 import UIPanes.BaseView;
 
@@ -83,6 +80,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void newTable(int tid) {
+		System.out.println("New Table");
 		svrCommunicator.joinTable(userName, tid);
 		setIsInGame();
 	}
@@ -190,7 +188,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void tableList(int[] tids) {
-		// TODO Auto-generated method stub
 		setTableList(tids);
 		for( int i = 0; i < tids.length; i++ ){
 			svrCommunicator.getTblStatus(userName, tids[i]);
