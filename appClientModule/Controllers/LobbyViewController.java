@@ -324,7 +324,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			updateChatBox();
 			sendMessageBox.setText("");
 		}else if( msg.length() > 0 ) {
-			network.svrCommunicator.sendMsg(receiver, msg);
+			network.svrCommunicator.sendMsg_All(msg);
 			msg = userName + ": " + msg;
 			messageList.add(msg);
 			updateChatBox();
