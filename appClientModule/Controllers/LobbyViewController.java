@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import Networking.ServerCommunicator;
 import Objects.ColorStyleHelper;
+import Objects.DialogHelper;
 import Objects.TableListObject;
 import UIPanes.BaseView;
 import javafx.application.Platform;
@@ -64,7 +65,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	@FXML
 	ListView<String> observeListView;
-
+	boolean joinedTableFull = false;
 	ObservableList<String> tableList = FXCollections.observableArrayList();
 	ObservableList<String> observerTableList = FXCollections.observableArrayList();
 	
@@ -141,6 +142,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 
 	@Override
 	public void ButtonClicked(ActionEvent e) {
+		joinedTableFull = false;
 		ServerCommunicator svrCom = BaseView.network.svrCommunicator;
 		Object source = e.getSource();
 		if (source == hostBtn) {
@@ -163,10 +165,16 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 				String tableId = option.substring(6, 10);
 
 				svrCom.joinTable(Integer.parseInt(tableId));
-
-				setIsNotSpectating();
+				Thread.sleep(3300);
 				
-				switchScene(controller.getScene());
+				if(joinedTableFull == true){
+					DialogHelper.showErrorDialog("Full Table", null,
+							"Table is Full, Select Different Table or Spectate.");
+				}else{
+					setIsNotSpectating();
+					
+					switchScene(controller.getScene());
+				}
 
 			} catch (Exception ex) {
 				// -- we tried to click join without selecting anything.

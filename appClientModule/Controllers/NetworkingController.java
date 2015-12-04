@@ -247,7 +247,8 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void tableFull() {
 		// TODO Auto-generated method stub
-		
+		LobbyViewController controller = LobbyViewController.getInstance();
+		controller.joinedTableFull = true;
 	}
 
 	@Override
