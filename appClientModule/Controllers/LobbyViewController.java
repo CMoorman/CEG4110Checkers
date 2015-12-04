@@ -278,6 +278,7 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 					newMsg = user +": " + msg;
 				}
 				messageList.add(newMsg);
+				
 				updateChatBox();
 			}
 		});
@@ -328,9 +329,6 @@ public class LobbyViewController extends BaseView implements Initializable, Base
 			sendMessageBox.setText("");
 		}else if( msg.length() > 0 ) {
 			network.svrCommunicator.sendMsg_All(msg);
-			msg = userName + ": " + msg;
-			messageList.add(msg);
-			updateChatBox();
 			// -- Clear out the text field.
 			sendMessageBox.setText("");
 		}
