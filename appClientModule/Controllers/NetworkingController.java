@@ -201,8 +201,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void yourTurn() {
 		// TODO Auto-generated method stub
-		// allow user to move peice
-		// write "your turn" to text box?
+		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 	}
 
 	@Override
@@ -243,7 +242,8 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void illegalMove() {
 		// TODO Auto-generated method stub
-		
+		//CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+		//handled in view
 	}
 
 	@Override
@@ -268,7 +268,9 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void notYourTurn() {
 		// TODO Auto-generated method stub
-		
+		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+		controller.sendMessageBox.setText("It is not my turn!!");
+		controller.SendMessage();
 	}
 
 	@Override
@@ -280,7 +282,9 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void oppNotReady() {
 		// TODO Auto-generated method stub
-		
+		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+		controller.sendMessageBox.setText("Im Ready! Let's GO!");
+		controller.SendMessage();
 	}
 
 	@Override
@@ -298,7 +302,7 @@ public class NetworkingController extends BaseView implements CheckersClient {
 	@Override
 	public void oppLeftTable() {
 		// TODO Auto-generated method stub
-		
+		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
 	}
 
 	@Override
