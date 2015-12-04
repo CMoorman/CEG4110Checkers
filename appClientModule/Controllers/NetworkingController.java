@@ -49,10 +49,15 @@ public class NetworkingController extends BaseView implements CheckersClient {
 
 	@Override
 	public void newMsg(String user, String msg, boolean pm) {
-		System.out.println("New message from: " + user + "." + " Message: " + msg + ". Private: " + pm);
-		CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
-		controller.addGameMessage(msg);
-		
+		if( getIsPlayerInGame() ) {
+			// -- Send message to chat box in checkerboard view.
+			CheckersBoardViewController controller = CheckersBoardViewController.getInstance();
+			controller.addGameMessage(msg);
+		}
+		else {
+			// -- Send message to global chat in lobby.
+		}
+
 	}
 
 	@Override
