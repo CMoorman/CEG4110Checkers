@@ -141,7 +141,6 @@ public class NetworkingController extends BaseView implements CheckersClient {
 		
 	}
 
-	private static boolean isOppRed = false;
 	//private static boolean firstPass = true;
 	@Override
 	public void onTable(int tid, String blackSeat, String redSeat) {
